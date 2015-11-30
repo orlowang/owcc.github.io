@@ -1,5 +1,5 @@
 
-import React, { PropTypes, Component } from 'react';
+import { PropTypes, Component } from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Link } from 'react-router'
 import ArticlePaper from '../../components/ArticlePaper';
@@ -22,7 +22,7 @@ class HomePage extends Component {
 					<NavBar />
 				</div>
 				<div className="fm-r">
-					<ArticlePaper articleTitle={articleID}/>
+					<ArticlePaper articleTitle={articleID} />
 				</div>
 			</div>
 		);

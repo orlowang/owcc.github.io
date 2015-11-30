@@ -1,5 +1,5 @@
 
-import { PropTypes, Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Link } from 'react-router'
 import ArticlePaper from '../../components/ArticlePaper';

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack && webpack-dev-server --devtool eval --progress --colors --hot --content-base build",
-    "watch": "webpack-dev-server --devtool eval --progress --colors --hot --content-base src/assets/",
+    "watch": "webpack-dev-server --devtool eval --progress --colors --hot --content-base .build",
     "build": "webpack --progress --colors",
     "clean": "node bin/clean",
     "rbuild": "node bin/clean && webpack --progress --colors",
@@ -36,6 +36,7 @@
     "babel-preset-react": "^6.1.18",
     "css-loader": "^0.23.0",
     "del": "^2.1.0",
+    "gulp": "^3.9.0",
     "history": "^1.13.1",
     "html-webpack-plugin": "^1.6.2",
     "less": "^2.5.3",

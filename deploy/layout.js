@@ -3,8 +3,7 @@ webpackJsonp([0],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(1);
-	module.exports = __webpack_require__(2);
+	module.exports = __webpack_require__(1);
 
 
 /***/ },
@@ -12,97 +11,27 @@ webpackJsonp([0],{
 /***/ 1:
 /***/ function(module, exports, __webpack_require__) {
 
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	/*globals window __webpack_hash__ */
-	if(false) {
-		var lastData;
-		var upToDate = function upToDate() {
-			return lastData.indexOf(__webpack_hash__) >= 0;
-		};
-		var check = function check() {
-			module.hot.check(true, function(err, updatedModules) {
-				if(err) {
-					if(module.hot.status() in {
-							abort: 1,
-							fail: 1
-						}) {
-						console.warn("[HMR] Cannot apply update. Need to do a full reload!");
-						console.warn("[HMR] " + err.stack || err.message);
-						window.location.reload();
-					} else {
-						console.warn("[HMR] Update failed: " + err.stack || err.message);
-					}
-					return;
-				}
-
-				if(!updatedModules) {
-					console.warn("[HMR] Cannot find update. Need to do a full reload!");
-					console.warn("[HMR] (Probably because of restarting the webpack-dev-server)");
-					window.location.reload();
-					return;
-				}
-
-				if(!upToDate()) {
-					check();
-				}
-
-				require("./log-apply-result")(updatedModules, updatedModules);
-
-				if(upToDate()) {
-					console.log("[HMR] App is up to date.");
-				}
-
-			});
-		};
-		var addEventListener = window.addEventListener ? function(eventName, listener) {
-			window.addEventListener(eventName, listener, false);
-		} : function(eventName, listener) {
-			window.attachEvent("on" + eventName, listener);
-		};
-		addEventListener("message", function(event) {
-			if(typeof event.data === "string" && event.data.indexOf("webpackHotUpdate") === 0) {
-				lastData = event.data;
-				if(!upToDate() && module.hot.status() === "idle") {
-					console.log("[HMR] Checking for updates on the server...");
-					check();
-				}
-			}
-		});
-		console.log("[HMR] Waiting for update signal from WDS...");
-	} else {
-		throw new Error("[HMR] Hot Module Replacement is disabled.");
-	}
-
-
-/***/ },
-
-/***/ 2:
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
-	var _react = __webpack_require__(3);
+	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(160);
+	var _reactDom = __webpack_require__(159);
 
-	var _reactRouter = __webpack_require__(161);
+	var _reactRouter = __webpack_require__(160);
 
-	var _HomePage = __webpack_require__(210);
+	var _HomePage = __webpack_require__(209);
 
 	var _HomePage2 = _interopRequireDefault(_HomePage);
 
-	var _ArticlePaper = __webpack_require__(211);
+	var _ArticlePaper = __webpack_require__(210);
 
 	var _ArticlePaper2 = _interopRequireDefault(_ArticlePaper);
 
-	__webpack_require__(216);
+	__webpack_require__(215);
 
-	__webpack_require__(220);
+	__webpack_require__(219);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -118,7 +47,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 210:
+/***/ 209:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -129,25 +58,27 @@ webpackJsonp([0],{
 		value: true
 	});
 
-	var _react = __webpack_require__(3);
+	var _react = __webpack_require__(2);
 
-	var _reactDom = __webpack_require__(160);
+	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRouter = __webpack_require__(161);
+	var _reactDom = __webpack_require__(159);
 
-	var _ArticlePaper = __webpack_require__(211);
+	var _reactRouter = __webpack_require__(160);
+
+	var _ArticlePaper = __webpack_require__(210);
 
 	var _ArticlePaper2 = _interopRequireDefault(_ArticlePaper);
 
-	var _AuthorInfo = __webpack_require__(212);
+	var _AuthorInfo = __webpack_require__(211);
 
 	var _AuthorInfo2 = _interopRequireDefault(_AuthorInfo);
 
-	var _NavBar = __webpack_require__(214);
+	var _NavBar = __webpack_require__(213);
 
 	var _NavBar2 = _interopRequireDefault(_NavBar);
 
-	var _TimelineList = __webpack_require__(215);
+	var _TimelineList = __webpack_require__(214);
 
 	var _TimelineList2 = _interopRequireDefault(_TimelineList);
 
@@ -173,19 +104,19 @@ webpackJsonp([0],{
 			value: function render() {
 				var articleID = this.props.params.articleID;
 
-				return React.createElement(
+				return _react2.default.createElement(
 					'div',
 					{ className: 'fm-body' },
-					React.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'fm-l' },
-						React.createElement(_AuthorInfo2.default, null),
-						React.createElement(_NavBar2.default, null)
+						_react2.default.createElement(_AuthorInfo2.default, null),
+						_react2.default.createElement(_NavBar2.default, null)
 					),
-					React.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'fm-r' },
-						React.createElement(_ArticlePaper2.default, { articleTitle: articleID })
+						_react2.default.createElement(_ArticlePaper2.default, { articleTitle: articleID })
 					)
 				);
 			}
@@ -199,7 +130,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 211:
+/***/ 210:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -210,7 +141,7 @@ webpackJsonp([0],{
 		value: true
 	});
 
-	var _react = __webpack_require__(3);
+	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -264,7 +195,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 212:
+/***/ 211:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -275,15 +206,15 @@ webpackJsonp([0],{
 		value: true
 	});
 
-	var _react = __webpack_require__(3);
+	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(160);
+	var _reactDom = __webpack_require__(159);
 
-	var _reactRouter = __webpack_require__(161);
+	var _reactRouter = __webpack_require__(160);
 
-	var _static = __webpack_require__(213);
+	var _static = __webpack_require__(212);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -341,7 +272,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 213:
+/***/ 212:
 /***/ function(module, exports) {
 
 	
@@ -355,7 +286,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 214:
+/***/ 213:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -366,7 +297,7 @@ webpackJsonp([0],{
 		value: true
 	});
 
-	var _react = __webpack_require__(3);
+	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -419,7 +350,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 215:
+/***/ 214:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -430,7 +361,7 @@ webpackJsonp([0],{
 		value: true
 	});
 
-	var _react = __webpack_require__(3);
+	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -483,16 +414,16 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 216:
+/***/ 215:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(217);
+	var content = __webpack_require__(216);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(219)(content, {});
+	var update = __webpack_require__(218)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -510,10 +441,10 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 217:
+/***/ 216:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(218)();
+	exports = module.exports = __webpack_require__(217)();
 	// imports
 
 
@@ -525,7 +456,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 218:
+/***/ 217:
 /***/ function(module, exports) {
 
 	/*
@@ -582,7 +513,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 219:
+/***/ 218:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -837,16 +768,16 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 220:
+/***/ 219:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(221);
+	var content = __webpack_require__(220);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(219)(content, {});
+	var update = __webpack_require__(218)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -864,10 +795,10 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 221:
+/***/ 220:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(218)();
+	exports = module.exports = __webpack_require__(217)();
 	// imports
 
 

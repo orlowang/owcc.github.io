@@ -7,7 +7,8 @@ var isRelease = process.argv.indexOf('--release') >= 0 ? true : false;
 module.exports = {
   cache: true,
   entry: {
-    layout: ['webpack/hot/dev-server', './src/index.jsx'],
+    // layout: ['webpack/hot/dev-server', './src/index.jsx'],
+    layout: ['./src/index.jsx'],
     lib: ['react', 'react-dom', 'react-router']
   },
   // resolve: {
@@ -61,10 +62,10 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   // devServer: {
-  //   port: 8082,
+  //   port: 8080,
   //   contentBase: './build',
   //   hot: true,
-  //   quiet: false,
+  //   quiet: true,
   //   historyApiFallback: true,
   //   noInfo: false,
   //   lazy: true,

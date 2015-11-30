@@ -1,0 +1,12 @@
+
+source: 			.build
+destination: 	deploy
+safe: 				true
+timezone: 		Asia/Chongqing
+encoding:			utf-8
+markdown: 		rdiscount
+highlighter: 	pygments
+
+description:	true
+author: 			true
+email: 				true

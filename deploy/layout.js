@@ -131,8 +131,6 @@ webpackJsonp([0],{
 
 	var _react = __webpack_require__(3);
 
-	var _react2 = _interopRequireDefault(_react);
-
 	var _reactDom = __webpack_require__(160);
 
 	var _reactRouter = __webpack_require__(161);
@@ -175,19 +173,19 @@ webpackJsonp([0],{
 			value: function render() {
 				var articleID = this.props.params.articleID;
 
-				return _react2.default.createElement(
+				return React.createElement(
 					'div',
 					{ className: 'fm-body' },
-					_react2.default.createElement(
+					React.createElement(
 						'div',
 						{ className: 'fm-l' },
-						_react2.default.createElement(_AuthorInfo2.default, null),
-						_react2.default.createElement(_NavBar2.default, null)
+						React.createElement(_AuthorInfo2.default, null),
+						React.createElement(_NavBar2.default, null)
 					),
-					_react2.default.createElement(
+					React.createElement(
 						'div',
 						{ className: 'fm-r' },
-						_react2.default.createElement(_ArticlePaper2.default, { articleTitle: articleID })
+						React.createElement(_ArticlePaper2.default, { articleTitle: articleID })
 					)
 				);
 			}
@@ -317,7 +315,7 @@ webpackJsonp([0],{
 					),
 					_react2.default.createElement(
 						_reactRouter.Link,
-						{ to: 'about', className: 'authornamelink' },
+						{ to: 'article', className: 'authornamelink' },
 						_react2.default.createElement(
 							'span',
 							{ className: 'authorname' },

@@ -1,3 +1,4 @@
+
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
@@ -7,9 +8,8 @@ var isRelease = process.argv.indexOf('--release') >= 0 ? true : false;
 module.exports = {
   cache: true,
   entry: {
-    // layout: ['webpack/hot/dev-server', './src/index.jsx'],
-    layout: ['./src/index.jsx'],
-    lib: ['react', 'react-dom', 'react-router']
+    layout: (isRelease ? ['./src/index.jsx'] : ['webpack/hot/dev-server', './src/index.jsx']),
+    lib: ['react', 'react-dom', 'react-router', 'whatwg-fetch']
   },
   // resolve: {
   //   root: path.join(__dirname, 'src'),
@@ -23,23 +23,23 @@ module.exports = {
   //   }
   // },
   output: {
-    path: './.build/',
+    path: (isRelease ? './deploy/' : './build/'),
     filename: '[name].js',
-    publicPath: '/.build/'
+    publicPath: '/src/assets/'
     // library: ['rsb', '[name]'],
     // libraryTarget: 'umd',
     // pathInfo: true
   },
-  // externals: {
-  //   'react-router': 'window.ReactRouter'
-  // },
+  externals: {
+    'whatwg-fetch': 'fetch'
+  },
   module: {
     loaders: [
       {
         test: /\.jsx$/,
         loader: "babel",
         query: {
-          presets: ['react', 'es2015'],
+          presets: ['stage-0', 'react', 'es2015'],
           plugins: ['transform-class-properties']
         }
       },
@@ -56,16 +56,16 @@ module.exports = {
         warnings: false,
       }
     })]),
-    new HtmlWebpackPlugin({
-      template: './src/assets/index.html'
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: './src/assets/index.html'
+    // }),
     new webpack.NoErrorsPlugin()
   ],
   // devServer: {
-  //   port: 8080,
+  //   port: 8082,
   //   contentBase: './build',
   //   hot: true,
-  //   quiet: true,
+  //   quiet: false,
   //   historyApiFallback: true,
   //   noInfo: false,
   //   lazy: true,

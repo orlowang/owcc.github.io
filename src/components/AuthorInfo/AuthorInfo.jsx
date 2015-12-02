@@ -3,6 +3,7 @@ import React, { PropTypes, Component } from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router';
 import { author } from '../../static.config';
+import './style.less';
 
 class AuthorInfo extends Component {
 	static propTypes = {
@@ -21,8 +22,11 @@ class AuthorInfo extends Component {
 				<div className="authorcontainer">
 					<img src={this.props.authorPhotoUri} alt="" className="authorimg"/>
 				</div>
-				<Link to="article" className="authornamelink">
+				<Link to="about" className="authornamelink">
 					<span className="authorname">{this.props.authorName}</span>
+				</Link>
+				<Link to="pp" className="authornamelink">
+					<span className="authorname">pp</span>
 				</Link>
 			</div>
 		);

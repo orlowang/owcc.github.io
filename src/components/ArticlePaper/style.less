@@ -1,0 +1,35 @@
+.fm-article{
+	height: 100%;
+	.articleprofile{
+		height: 13rem;
+		overflow: hidden;
+		position: relative;
+		.articleprofiletitle{
+			position: relative;
+			z-index: 1;
+			margin: 0;
+			padding-top: 2rem;
+			padding-left: 7rem;
+			font-size: 2.4rem;
+		}
+		.articleprofiletext{
+			position: absolute;
+			z-index: 1;
+			bottom: 0;
+			margin-left: 14rem;
+		  text-indent: 2em;
+		  line-height: 2;
+		}
+		&>img{
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+	}
+	.articlelist{
+		padding-top: 13rem;
+		height: 100%;
+		box-sizing: border-box;
+		margin-top: -13rem;
+	}
+}

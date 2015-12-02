@@ -13,7 +13,7 @@ class HomePage extends Component {
 	};
 
 	render() {
-		let { articleID } = this.props.params;
+		let { id } = this.props.params;
 
 		return (
 			<div className="fm-body">
@@ -22,7 +22,7 @@ class HomePage extends Component {
 					<NavBar />
 				</div>
 				<div className="fm-r">
-					<ArticlePaper articleTitle={articleID} />
+					<ArticlePaper paramId={id}/>
 				</div>
 			</div>
 		);

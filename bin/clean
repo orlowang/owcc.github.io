@@ -3,5 +3,5 @@
 var del = require('del');
 var path = require("path");
 
-del.sync(path.join(__dirname, '../.build'));
+del.sync(path.join(__dirname, '../build'));
 console.log('Clean build directory... done!')

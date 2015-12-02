@@ -1,0 +1,85 @@
+.flexLeft(){
+	display: flex;
+	justify-content: flex-start;
+}
+
+.fm-timeline{
+	height: 100%;
+	position: relative;
+	.timeline{
+		width: 4px;
+		height: 100%;
+		position: absolute;
+		left: 7rem;
+		background-color: #555;
+		.yearland{
+			margin-top: 2rem;
+			width: 200px;
+			.flexLeft();
+			line-height: 1.1rem;
+			.yearpoint{
+				width: 18px;
+				height: 18px;
+				border-radius: 9px;
+				background-color: #555;
+				margin-left: -7px;
+			}
+			.year{
+				padding-left: 10px;
+				font-size: 1.4rem;
+			}
+		}
+	}
+	.lestcardcontainer{
+		padding-left: 5rem;
+		padding-top: 5rem;
+		.listcard{}
+	}
+}
+
+.listcard{
+	width: 700px;
+	height: 200px;
+	background-color: #ddd;
+	border-radius: 5px;
+	margin-top: 2rem;
+	position: relative;
+	// box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	.header{
+		position: relative;
+		z-index: 1;
+		padding-top: 1rem;
+		line-height: 1rem;
+		.flexLeft();
+		margin-left: 2rem;
+		.timepoint{
+			width: 12px;
+			height: 12px;
+			border-radius: 9px;
+			background-color: #555;
+			margin-left: -4px;
+		}
+		.date{
+			padding-left: .6rem;
+			margin-right: 4px;
+			cursor: default;
+		}
+	}
+	.cardcover{
+		position: absolute;
+		bottom: 0;
+		border-radius: 5px;
+		width: 100%;
+	}
+	.footer{
+		position: absolute;
+		bottom: 0;
+		z-index: 1;
+		background-color: rgba(255, 255, 255, 0.96);
+		.text{
+			margin-left: 3rem;
+			text-indent: 2em;
+		}
+	}
+}

@@ -1,7 +1,6 @@
 
 import React, { PropTypes, Component } from 'react';
-import { welcome, posts, category } from '../../static.config';
-import fetch from 'whatwg-fetch';
+import { cid, pid, clist } from '../../cache/cache';
 import TimelineList from '../TimelineList';
 import Document from '../Document';
 
@@ -10,66 +9,75 @@ import './style.less';
 class ArticlePaper extends Component {
 	static propTypes = {
 		paramId: PropTypes.string.isRequired,
-		articleID: PropTypes.string.isRequired,
-		articleTitle: PropTypes.string.isRequired,
-		articleProfile: PropTypes.string.isRequired,
-		articleProfileBg: PropTypes.string.isRequired
+		articleID: PropTypes.string.isRequired
 	};
 
 	static defaultProps = {
-		paramId: '',
-		articleID: '',
-		articleTitle: welcome.title,
-		articleProfile: welcome.profile,
-		articleProfileBg: welcome.bgimg
+		paramId: 'home',
+		articleID: ''
 	};
 
 	constructor(props) {
     super(props);
-    this.state = {title: ''};
+    if (cid.indexOf(this.props.paramId) != -1) {
+			let _category = clist[cid.indexOf(this.props.paramId)]
+			this.state = {
+				type: 'category',
+				title: _category.title,
+				profile: _category.profile,
+				bgimg: _category.bgimg
+			}
+		} else if (pid.indexOf(this.props.paramId) != -1) {
+			let _article = clist[0].posts[pid.indexOf(this.props.paramId)]
+			this.state = {
+	    	type: 'article',
+				title: _article.title,
+				profile: _article.profile,
+				bgimg: _article.bgimg,
+				detail: _article.detail
+			}
+		}
   }
 
-	componentDidMount(){
-		let that = this;
-		let url = 'https://raw.githubusercontent.com/wmkcc/ivewong.github.io/master/CNAME';
-		
-		let rest = fetch(url);
-		rest.then(function(response){
-			console.log(response)
-		}).then(function(text) {
-      console.log('got text', text)
-	    that.setState({
-	    	title: text
-	    })
-	  })
+	componentWillReceiveProps(){
+		if (cid.indexOf(this.props.paramId) != -1) {
+			let _category = clist[cid.indexOf(this.props.paramId)]
+			this.setState({
+				type: 'category',
+				title: _category.title,
+				profile: _category.profile,
+				bgimg: _category.bgimg
+			})
+		} else if (pid.indexOf(this.props.paramId) != -1) {
+			let _article = clist[0].posts[pid.indexOf(this.props.paramId)]
+			this.setState({
+	    	type: 'article',
+				title: _article.title,
+				profile: _article.profile,
+				bgimg: _article.bgimg,
+				detail: _article.detail
+			})
+		}
 	}
 
 	render() {
 
 		let child
-		let doclist = []
-		let catelist = []
-		
-		for (var i = 0; i < category.length; i++) {
-			catelist.push(category[i].id)
-		}
-
-		if (this.props.paramId) {
-			child = catelist.indexOf(this.props.paramId) == -1 ? <Document postId={this.props.paramId}/> : <TimelineList cateId={this.props.paramId}/>
-		} else{
-			child = <TimelineList/>
-		}
-
-		for (let i = 0; i < posts.length; i++) {
-			doclist.push(<p>{posts[i].title}</p>)
+		switch(this.state.type){
+			case 'article':
+				child = <Document postId={this.props.paramId}/>
+				break
+			case 'category':
+				child = <TimelineList categoryId={this.props.paramId}/>
+				break
 		}
 
 		return (
 			<div className="fm-article">
 				<div className="articleprofile">
-					<p className="articleprofiletitle">{this.props.articleTitle}</p>
-					<p className="articleprofiletext">{this.props.articleProfile}</p>
-					<img src={this.props.articleProfileBg} alt=""/>
+					<p className="articleprofiletitle">{this.state.title}</p>
+					<p className="articleprofiletext">{this.state.profile}</p>
+					<img src={this.state.bgimg} alt=""/>
 				</div>
 				<div className="articlelist">{child}</div>
 			</div>

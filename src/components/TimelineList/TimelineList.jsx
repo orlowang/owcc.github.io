@@ -1,23 +1,42 @@
 
 import React, { PropTypes, Component } from 'react';
-import { category } from '../../static.config';
+import { cid, clist } from '../../cache/cache';
+import { Link } from 'react-router';
 import './style.less';
 
 class TimelineList extends Component {
 	static propTypes = {
-		cateId: PropTypes.string.isRequired
+		categoryId: PropTypes.string.isRequired
 	};
 
 	static defaultProps = {
-		cateId: ''
+		categoryId: '0'
 	};
 
 	render() {
-		let catelist = []
-		for (var i = 0; i < category.length; i++) {
-			catelist.push(category[i].id)
+
+		let _posts
+		let child = []
+
+		if (clist[cid.indexOf(this.props.categoryId)] != undefined) {
+			_posts = clist[cid.indexOf(this.props.categoryId)].posts
+			for (let i = 0; i < _posts.length; i++) {
+				child.push(
+					<div className="listcard">
+						<div className="header">
+								<div className="timepoint"></div>
+								<div className="date">1/13</div>
+								<Link to={_posts[i].id}>{_posts[i].title}</Link>
+						</div>
+						<img className="cardcover" src="post1000.jpg" alt=""/>
+						<div className="footer">
+							<p className="text">{_posts[i].profile}</p>
+						</div>
+					</div>
+				)
+			}
 		}
-		
+
 		return (
 			<div className="fm-timeline">
 				<div className="timeline">
@@ -27,28 +46,7 @@ class TimelineList extends Component {
 					</div>
 				</div>
 				<div className="lestcardcontainer">
-					<div className="listcard">
-						<div className="header">
-								<div className="timepoint"></div>
-								<div className="date">1/13</div>
-								<a className="title" href="##">this is a article title.</a>
-						</div>
-						<img className="cardcover" src="post1000.jpg" alt=""/>
-						<div className="footer">
-							<p className="text">this is a article profile. this is a article profile. this is a article profile. this is a article profile. this is a article profile. this is a article profile. </p>
-						</div>
-					</div>
-					<div className="listcard">
-						<div className="header">
-								<div className="timepoint"></div>
-								<div className="date">1/13</div>
-								<a className="title" href="##">this is a article title.</a>
-						</div>
-						<img className="cardcover" src="post1000.jpg" alt=""/>
-						<div className="footer">
-							<p className="text">this is a article profile. this is a article profile. this is a article profile. this is a article profile. this is a article profile. this is a article profile. </p>
-						</div>
-					</div>
+					{child}
 				</div>
 			</div>
 		);

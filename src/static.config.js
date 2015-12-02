@@ -37,7 +37,16 @@ module.exports = {
 			title: 'A knight of The Republic —— About me'
 		},
 		{
-			title: 'first article'
+			id: 'doc1',
+			title: 'doc1'
+		},
+		{
+			id: 'doc2',
+			title: 'doc2'
+		},
+		{
+			id: 'doc3',
+			title: 'doc3'
 		}
 	]
 };

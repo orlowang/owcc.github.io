@@ -1,6 +1,6 @@
 
 import React, { PropTypes, Component } from 'react';
-import Link from '../Link';
+import { Link } from 'react-router'
 import { category } from '../../static.config';
 
 class NavBar extends Component {

@@ -14,7 +14,7 @@ import './assets/init.less';
 const history=useQueries(createHistory)()
 
 render((
-	<Router history={history}>
+	<Router>
 		<Route path="/" component={HomePage}>
 			<Route path=":id" component={ArticlePaper}/>
 			<Route path="*" component={NoPage}/>

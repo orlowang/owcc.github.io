@@ -25,7 +25,7 @@ module.exports = {
   output: {
     path: (isRelease ? './deploy/' : './build/'),
     filename: '[name].js',
-    publicPath: '/src/assets/'
+    publicPath: '/build/'
     // library: ['rsb', '[name]'],
     // libraryTarget: 'umd',
     // pathInfo: true

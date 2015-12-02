@@ -8,7 +8,7 @@ var compiler = webpack(config);
 var server = new WebpackDevServer(compiler, {
   // webpack-dev-server options
 
-  contentBase: "/path/to/directory",
+  contentBase: "./",
   // or: contentBase: "http://localhost/",
 
   hot: true,
@@ -25,21 +25,23 @@ var server = new WebpackDevServer(compiler, {
   // Use "*" to proxy all paths to the specified server.
   // This is useful if you want to get rid of 'http://localhost:8080/' in script[src],
   // and has many other use cases (see https://github.com/webpack/webpack-dev-server/pull/127 ).
-  proxy: {
-    "*": "http://localhost:9090"
-  },
+  // proxy: {
+  //   "*": "http://localhost:9090"
+  // },
 
   // webpack-dev-middleware options
   quiet: false,
   noInfo: false,
   lazy: true,
-  filename: "index.html",
+  filename: "./src/assets/index.html",
   watchOptions: {
     aggregateTimeout: 300,
     poll: 1000
   },
-  publicPath: "/pubilc/",
+  publicPath: "./",
   headers: { "X-Custom-Header": "yes" },
   stats: { colors: true },
 });
-server.listen(8080, "localhost", function() {});
+server.listen(8080, "localhost", function() {
+  console.log('Server listening on http://localhost:8080, Ctrl+C to stop')
+});

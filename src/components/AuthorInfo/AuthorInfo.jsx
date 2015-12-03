@@ -25,11 +25,8 @@ class AuthorInfo extends Component {
 				<Link to="about" className="authornamelink">
 					<span className="authorname">{this.props.authorName}</span>
 				</Link>
-				<Link to="pp" className="authornamelink">
-					<span className="authorname">pp</span>
-				</Link>
 			</div>
-		);
+		)
 	}
 }
 

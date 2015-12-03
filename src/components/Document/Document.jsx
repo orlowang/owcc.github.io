@@ -1,6 +1,11 @@
 
 import React, { PropTypes, Component } from 'react';
+import marked from 'marked';
 import fetch from 'whatwg-fetch';
+
+function parse (src) {
+	return marked(src)
+}
 
 class Document extends Component {
 	static propTypes = {
@@ -29,8 +34,13 @@ class Document extends Component {
 	  }).then(function(body) {
       console.log('got body', body)
 	    that.setState({
-	    	detail: body
+	    	detail: parse(body)
 	    })
+	  })
+
+	  fetch(url, {
+	  	method: 'post',
+
 	  })
 	}
 
@@ -38,7 +48,7 @@ class Document extends Component {
 		return (
 			<div className="fm-nav">
 				<div className="nav-title">
-					<p className="titletext">{this.state.detail}</p>
+					<div dangerouslySetInnerHTML={{__html: this.state.detail}}></div>
 				</div>
 			</div>
 		);

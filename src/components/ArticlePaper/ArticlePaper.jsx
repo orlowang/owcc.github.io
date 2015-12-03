@@ -73,7 +73,7 @@ class ArticlePaper extends Component {
 		}
 
 		return (
-			<div className="fm-article">
+			<div className="fm-article" style={this.state.type == 'category' ? {overflow: 'hidden'} : {}}>
 				<div className="articleprofile">
 					<p className="articleprofiletitle">{this.state.title}</p>
 					<p className="articleprofiletext">{this.state.profile}</p>

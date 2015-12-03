@@ -9,6 +9,7 @@ import HomePage from './layout/HomePage';
 import NoPage from './layout/NoPage';
 import ArticlePaper from './components/ArticlePaper';
 import 'normalize.css';
+import 'animate.css/animate.min.css';
 import './assets/init.less';
 
 const history=useQueries(createHistory)()

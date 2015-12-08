@@ -23,13 +23,13 @@ class TimelineList extends Component {
 			for (let i = 0; i < _posts.length; i++) {
 				child.push(
 					<div className="listcard">
-						<div className="header">
-								<div className="timepoint"></div>
-								<div className="date">1/13</div>
-								<Link to={_posts[i].id}>{_posts[i].title}</Link>
+						<div className="photo">
+							<div className="timepoint"></div>
+							<div className="date">1/13</div>
+							{_posts[i].bgimg.indexOf('.') >= 0 ? <img className="cardcover" src={_posts[i].bgimg} alt=""/> : null}
 						</div>
-						<img className="cardcover" src="post1000.jpg" alt=""/>
-						<div className="footer">
+						<div className="docinfo">
+							<Link to={_posts[i].id}>{_posts[i].title}</Link>
 							<p className="text">{_posts[i].profile}</p>
 						</div>
 					</div>

@@ -27,6 +27,20 @@ class Document extends Component {
     }
   }
 
+  componentWillReceiveProps(){
+  	let that = this;
+		let url = `${docrsp}/${this.props.postId}.md`;
+		
+		let rest = fetch(url);
+		rest.then(function(response) {
+	    return response.text()
+	  }).then(function(body) {
+	    that.setState({
+	    	detail: parse(body)
+	    })
+	  })
+  }
+
 	componentDidMount(){
 		let that = this;
 		let url = `${docrsp}/${this.props.postId}.md`;

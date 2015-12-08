@@ -46,6 +46,12 @@ module.exports = {
 		{
 			id: 'doc3',
 			title: 'doc3'
+		},
+		{
+			id: 'sho',
+			title: 'Shoがぃた',
+			profile: '在2003年六月的《POWER GRIP 100 "IT\'S SHOWTIME" 》中，他正式出道。当时还没有成立COAT WEST，所以首次的摄影是在COAT到大阪探星的面试车上完成的。',
+			bgimg: '#e5a200'
 		}
 	]
 };

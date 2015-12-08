@@ -35,15 +35,9 @@ class Document extends Component {
 		rest.then(function(response) {
 	    return response.text()
 	  }).then(function(body) {
-      console.log('got body', body)
 	    that.setState({
 	    	detail: parse(body)
 	    })
-	  })
-
-	  fetch(url, {
-	  	method: 'post',
-
 	  })
 	}
 

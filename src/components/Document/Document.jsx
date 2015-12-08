@@ -2,6 +2,9 @@
 import React, { PropTypes, Component } from 'react';
 import marked from 'marked';
 import fetch from 'whatwg-fetch';
+import { docrsp } from '../../static.config';
+
+import './style.less';
 
 function parse (src) {
 	return marked(src)
@@ -26,7 +29,7 @@ class Document extends Component {
 
 	componentDidMount(){
 		let that = this;
-		let url = 'https://raw.githubusercontent.com/wmkcc/ivewong.github.io/master/_posts/2015-1-21-XHProf%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.md';
+		let url = `${docrsp}/${this.props.postId}.md`;
 		
 		let rest = fetch(url);
 		rest.then(function(response) {
@@ -46,10 +49,8 @@ class Document extends Component {
 
 	render() {
 		return (
-			<div className="fm-nav">
-				<div className="nav-title">
-					<div dangerouslySetInnerHTML={{__html: this.state.detail}}></div>
-				</div>
+			<div className="document">
+				<div className="documentcontainer" dangerouslySetInnerHTML={{__html: this.state.detail}}></div>
 			</div>
 		);
 	}

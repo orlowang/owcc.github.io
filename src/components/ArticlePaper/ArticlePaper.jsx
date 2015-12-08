@@ -74,10 +74,10 @@ class ArticlePaper extends Component {
 
 		return (
 			<div className="fm-article" style={this.state.type == 'category' ? {overflow: 'hidden'} : {}}>
-				<div className="articleprofile">
-					<p className="articleprofiletitle">{this.state.title}</p>
-					<p className="articleprofiletext">{this.state.profile}</p>
-					<img src={this.state.bgimg} alt=""/>
+				<div className="articleprofile" style={this.state.bgimg.indexOf('.') >= 0 ? {} : {backgroundColor: this.state.bgimg}}>
+					<p className="articleprofiletitle" style={this.state.bgimg.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.title}</p>
+					<p className="articleprofiletext" style={this.state.bgimg.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.profile}</p>
+					{this.state.bgimg.indexOf('.') >= 0 ? <img src={this.state.bgimg} alt=""/> : null}
 				</div>
 				<div className="articlelist">{child}</div>
 			</div>

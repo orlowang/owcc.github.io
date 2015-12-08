@@ -1,7 +1,7 @@
 
 module.exports = {
 	cid: ['home', 'chat', 'hcie', 'code', 'prj'],
-	pid: ['about', 'doc1', 'doc2', 'doc3'],
+	pid: ['about', 'wallace', 'doc2', 'doc3'],
 	clist:[
 		{
 			id: 'home',
@@ -16,9 +16,11 @@ module.exports = {
 					detail: 'about'
 				},
 				{
-					id: 'doc1',
-					title: 'doc1',
-					detail: 'doc1'
+					id: 'wallace',
+					title: '威廉·华莱士',
+					detail: 'doc1',
+					profile: '一个充满传奇色彩的人物。他的基本情况，正史没有准确的记载，关于他早年经历的所有说法都源于后人流传的口头文学，找不到可靠的佐证',
+					bgimg: '#536dfe'
 				},
 				{
 					id: 'doc2',
@@ -39,8 +41,10 @@ module.exports = {
 			bgimg: 'bgimg000.jpg',
 			posts: [
 				{
-					id: 'doc1',
-					title: 'doc1'
+					id: 'wallace',
+					title: '威廉·华莱士',
+					profile: '一个充满传奇色彩的人物。他的基本情况，正史没有准确的记载，关于他早年经历的所有说法都源于后人流传的口头文学，找不到可靠的佐证',
+					bgimg: '#536dfe'
 				},
 				{
 					id: 'doc2',

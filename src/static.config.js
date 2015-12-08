@@ -1,3 +1,4 @@
+var cfg = require('../github.config.js');
 
 module.exports = {
 	author: {
@@ -26,19 +27,17 @@ module.exports = {
 			profile: '自己的几个工程'
 		}
 	],
-	welcome: {
-		title: 'Stay Hungry, Stay Foolish.',
-		profile: '让你对成功的渴望像你身体的每个细胞之于氧气的渴望一般强烈；不要让“聪明”羁绊你前进的脚步。......',
-		bgimg: 'bgimg000.jpg'
-	},
+	docrsp: 'https://raw.githubusercontent.com/'+cfg.name+'/'+cfg.gpname+'/'+cfg.postbranch+'/'+cfg.postdir,
 	posts:[
 		{
 			id: 'about',
 			title: 'A knight of The Republic —— About me'
 		},
 		{
-			id: 'doc1',
-			title: 'doc1'
+			id: 'wallace',
+			title: '威廉·华莱士',
+			profile: '一个充满传奇色彩的人物。他的基本情况，正史没有准确的记载，关于他早年经历的所有说法都源于后人流传的口头文学，找不到可靠的佐证',
+			bgimg: '#536dfe'
 		},
 		{
 			id: 'doc2',

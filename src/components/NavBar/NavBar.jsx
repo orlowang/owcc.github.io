@@ -16,10 +16,10 @@ class NavBar extends Component {
 	render() {
 		let navitem = []
 		for (let i = 0; i < category.length; i++) {
-			navitem.push(<Link className="list animated" activeClassName="on" to={category[i].id}>{category[i].title}</Link>)
+			navitem.push(<Link className="list" activeClassName="on" to={category[i].id}>{category[i].title}</Link>)
 		}
 		return (
-			<div className="fm-nav">
+			<div className="category">
 				<div className="navtitle">
 					<p className="titletext">{this.props.navTitle}</p>
 				</div>

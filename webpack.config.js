@@ -4,6 +4,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
 var isRelease = process.argv.indexOf('--release') >= 0 ? true : false;
+var github = {
+  name: 'wmkcc',
+  postbranch: 'master',
+  postdir: 'posts'
+};
 
 module.exports = {
   cache: true,

@@ -1,9 +1,9 @@
-<!--
+<!--begin
 title:'A knight of The Republic —— About me',
 subtitle:'威廉·华莱士，一个充满传奇色彩的人物。他的基本情况，正史没有准确的记载，关于他早年经历的所有说法都源于后人流传的口头文学，找不到可靠的佐证。',
 bgphoto:'#f60',
 publishTime:'2015/12/1' 
--->
+end-->
 
 ## 威廉·华莱士
 

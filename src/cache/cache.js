@@ -1,7 +1,7 @@
 
 module.exports = {
 	cid: ['home', 'chat', 'hcie', 'code', 'prj'],
-	pid: ['about', 'wallace', 'doc2', 'doc3'],
+	pid: ['about', 'wallace', 'doc2', 'doc3', 'sho'],
 	clist:[
 		{
 			id: 'home',

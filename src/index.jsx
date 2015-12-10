@@ -1,9 +1,9 @@
 
 import React, { PropTypes, Component } from 'react';
 import { render } from 'react-dom';
-import createHistory from 'history/lib/createBrowserHistory';
+import { createHistory, useQueries } from 'history';
 // import createHistory as NewHistory from 'history/lib/createHashHistory'
-import useQueries from 'history/lib/useQueries';
+// import useQueries from 'history/lib/useQueries';
 import { Router, Route } from 'react-router'
 import HomePage from './layout/HomePage';
 import NoPage from './layout/NoPage';
@@ -12,7 +12,7 @@ import 'normalize.css';
 import 'animate.css/animate.min.css';
 import './assets/init.less';
 
-const history=useQueries(createHistory)()
+const history = createHistory()
 
 render((
 	<Router>

@@ -1,8 +1,8 @@
 
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, Component } from 'react'
 import { Link } from 'react-router'
-import { category } from '../../static.config';
-import './style.less';
+import { categorys } from '../../cache/datacache'
+import './style.less'
 
 class NavBar extends Component {
 	static propTypes = {
@@ -11,12 +11,12 @@ class NavBar extends Component {
 
 	static defaultProps = {
 		navTitle: ''
-	};
+	}
 
 	render() {
 		let navitem = []
-		for (let i = 0; i < category.length; i++) {
-			navitem.push(<Link className="list" activeClassName="on" to={category[i].id}>{category[i].title}</Link>)
+		for (let i = 0; i < categorys.length; i++) {
+			navitem.push(<Link className="list" activeClassName="on" to={categorys[i].id}>{categorys[i].title}</Link>)
 		}
 		return (
 			<div className="category">

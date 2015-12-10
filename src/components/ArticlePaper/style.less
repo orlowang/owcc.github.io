@@ -18,7 +18,9 @@
 			position: absolute;
 			z-index: 1;
 			bottom: 0;
-			margin-left: 14rem;
+			box-sizing: border-box;
+			width: 58rem;
+			padding-left: 14rem;
 		  text-indent: 2em;
 		  line-height: 2;
 		}
@@ -33,5 +35,22 @@
 		height: 100%;
 		box-sizing: border-box;
 		margin-top: -13rem;
+	}
+}
+.document{
+	padding-left: 5rem;
+	padding-right: 5rem;
+	width: 58rem;
+	box-sizing: border-box;
+	::selection{background:#000;color:#FFF;}
+	.documentcontainer{
+		width: 100%;
+		user-select: text;
+		overflow: hidden;
+		p{
+			text-indent: 2em;
+			line-height: 1.6;
+			letter-spacing: 1px;
+		}
 	}
 }

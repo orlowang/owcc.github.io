@@ -1,13 +1,27 @@
 
-import React, { PropTypes, Component } from 'react';
-import marked from 'marked';
-import fetch from 'whatwg-fetch';
-import { docrsp } from '../../static.config';
+import React, { PropTypes, Component } from 'react'
+import marked from 'marked'
+import fetch from 'whatwg-fetch'
+import { docrsp } from '../../static.config'
 
-import './style.less';
+import './style.less'
 
-function parse (src) {
+function parse(src) {
 	return marked(src)
+}
+
+function fetchData() {
+
+	let url = `${docrsp}/${this.props.postId}.md`
+	let rest = fetch(url)
+
+	rest.then(function(response) {
+    return response.text()
+  }).then(function(body) {
+    that.setState({
+    	detail: parse(body)
+    })
+  })
 }
 
 class Document extends Component {
@@ -16,7 +30,6 @@ class Document extends Component {
 	};
 
 	static defaultProps = {
-		
 		postId: ''
 	};
 
@@ -28,10 +41,10 @@ class Document extends Component {
   }
 
   componentWillReceiveProps(){
-  	let that = this;
-		let url = `${docrsp}/${this.props.postId}.md`;
-		
-		let rest = fetch(url);
+  	let that = this
+		let url = `${docrsp}/${this.props.postId}.md`
+		let rest = fetch(url)
+
 		rest.then(function(response) {
 	    return response.text()
 	  }).then(function(body) {
@@ -42,10 +55,10 @@ class Document extends Component {
   }
 
 	componentDidMount(){
-		let that = this;
-		let url = `${docrsp}/${this.props.postId}.md`;
-		
-		let rest = fetch(url);
+		let that = this
+		let url = `${docrsp}/${this.props.postId}.md`
+		let rest = fetch(url)
+
 		rest.then(function(response) {
 	    return response.text()
 	  }).then(function(body) {

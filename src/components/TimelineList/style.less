@@ -48,6 +48,8 @@
 	// box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 	overflow: hidden;
 	.photo{
+		min-height: 127px;
+		min-width: 70px;
 		float: left;
 		position: relative;
 		.cardcover{
@@ -63,13 +65,15 @@
 			border-radius: 9px;
 			background-color: #555;
 			margin-left: 28px;
-			margin-top: 1rem;
+			top: 1.3rem;
 		}
 		.date{
 			position: absolute;
-			padding-left: .6rem;
-			margin-right: 4px;
+			top: 36px;
+			width: 70px;
+			text-align: center;
 			cursor: default;
+			font-size: 1.2rem;
 		}
 	}
 	.docinfo{
@@ -79,6 +83,8 @@
 		.text{
 			cursor: default;
 			text-indent: 2em;
+			line-height: 1.6;
+			letter-spacing: 1px;
 		}
 	}
 }

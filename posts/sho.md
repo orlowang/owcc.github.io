@@ -1,8 +1,9 @@
----
-title: A knight of The Republic —— About me
-tags: [github,Jekyll]
-<!-- publishTime: 2015/12/1 -->
----
+<!--begin
+"title":"快乐主义でぃこぅ",
+"subtitle":"请称呼他为“SHO”，或者以他喜欢的方式，叫一声“翔君”",
+"bgphoto":"#a06",
+"publishTime":"2015/12/2"
+end-->
 
 ##SHO
 

@@ -15,8 +15,7 @@ class TimelineList extends Component {
 
 	render() {
 
-		let _posts
-		let child = []
+		let _posts = []
 		
 		if (this.props.categoryId == 0) {
 			_posts = posts
@@ -30,21 +29,22 @@ class TimelineList extends Component {
 			}
 		}
 
-		for (let i = 0; i < _posts.length; i++) {
-			child.push(
-				<div className="listcard">
+		var child = _posts.map(function(post, i){
+			let tmp$time = post.publishtime.split('/')
+			return (
+				<div key={i} className="listcard">
 					<div className="photo">
 						<div className="timepoint"></div>
-						<div className="date">12/30</div>
-						{_posts[i].preview != '' ? <img className="cardcover" src={_posts[i].preview} alt=""/> : null}
+						<div className="date">{`${tmp$time[1]}/${tmp$time[2]}`}</div>
+						{post.preview != '' ? <img className="cardcover" src={post.preview} alt=""/> : null}
 					</div>
 					<div className="docinfo">
-						<Link to={_posts[i].id}>{_posts[i].title}</Link>
-						<p className="text">{_posts[i].subtitle}</p>
+						<Link to={post.id}>{post.title}</Link>
+						<p className="text">{post.subtitle}</p>
 					</div>
 				</div>
 			)
-		}
+		})
 
 		return (
 			<div className="fm-timeline">

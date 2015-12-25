@@ -6,72 +6,20 @@ import { docrsp } from '../../static.config'
 
 import './style.less'
 
-function parse(src) {
-	return marked(src)
-}
-
-function fetchData() {
-
-	let url = `${docrsp}/${this.props.postId}.md`
-	let rest = fetch(url)
-
-	rest.then(function(response) {
-    return response.text()
-  }).then(function(body) {
-    that.setState({
-    	detail: parse(body)
-    })
-  })
-}
-
 class Document extends Component {
 	static propTypes = {
-		postId: PropTypes.string.isRequired
+		doc: PropTypes.string.isRequired
 	};
 
 	static defaultProps = {
-		postId: ''
+		doc: 'loading...'
 	};
 
-	constructor(props) {
-    super(props)
-    this.state = {
-    	detail: 'loading...'
-    }
-  }
-
-  componentWillReceiveProps(){
-  	let that = this
-		let url = `${docrsp}/${this.props.postId}.md`
-		let rest = fetch(url)
-
-		rest.then(function(response) {
-	    return response.text()
-	  }).then(function(body) {
-	    that.setState({
-	    	detail: parse(body)
-	    })
-	  })
-  }
-
-	componentDidMount(){
-		let that = this
-		let url = `${docrsp}/${this.props.postId}.md`
-		let rest = fetch(url)
-
-		rest.then(function(response) {
-	    return response.text()
-	  }).then(function(body) {
-	    that.setState({
-	    	detail: parse(body)
-	    })
-	  })
-	}
 
 	render() {
 		return (
 			<div className="document">
-				<div className="documentcontainer" dangerouslySetInnerHTML={{__html: this.state.detail}}></div>
+				<div className="documentcontainer" dangerouslySetInnerHTML={{__html: this.props.doc}}></div>
 			</div>
 		);
 	}

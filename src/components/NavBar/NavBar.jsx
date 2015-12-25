@@ -14,18 +14,25 @@ class NavBar extends Component {
 	}
 
 	render() {
-		let navitem = []
-		for (let i = 0; i < categorys.length; i++) {
-			navitem.push(<Link className="list" activeClassName="on" to={categorys[i].id}>{categorys[i].title}</Link>)
-		}
+
+		// 这里注意使用map！如果使用for循环会导致link(componentWillUpdate)触发两次
+
+		let navitem = categorys.map(function(cate, i){
+			return (
+				<li key={i} className="list" activeClassName="on">
+					<Link to={cate.id}>{cate.title}</Link>
+				</li>
+			)
+		})
+
 		return (
 			<div className="category">
 				<div className="navtitle">
 					<p className="titletext">{this.props.navTitle}</p>
 				</div>
-				<div className="navlist">
+				<ul className="navlist">
 					{navitem}
-				</div>
+				</ul>
 			</div>
 		);
 	}

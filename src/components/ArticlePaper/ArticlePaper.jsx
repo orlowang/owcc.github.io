@@ -1,6 +1,7 @@
 
 import React, { PropTypes, Component } from 'react'
 import TimelineList from '../TimelineList'
+import Document from '../Document'
 import marked from 'marked'
 import { homeset, categorys } from '../../cache/datacache'
 import { docrsp } from '../../static.config'
@@ -32,73 +33,46 @@ class ArticlePaper extends Component {
 	constructor(props) {
     super(props)
     this.state = {
-			title: '',
-			subtitle: '',
-			bgphoto: '',
+			title: homeset.title,
+			subtitle: homeset.subtitle,
+			bgphoto: homeset.bgphoto,
 			doc: ''
 		}
   }
 
 	componentWillReceiveProps(nextProps){
-		
-		let iscate = this.isCategory(this.props.paramId)
-		console.log(nextProps.paramId)
-		if (this.props.paramId == '') {
+
+		// 这里注意传递nextProps不是this.props
+
+		let iscate = this.isCategory(nextProps.paramId)
+		if (nextProps.paramId == '') {
 			this.setState({
 				title: homeset.title,
 				subtitle: homeset.subtitle,
 				bgphoto: homeset.bgphoto,
 				doc: ''
 			})
-		} else if (iscate != null) {
-			this.setState({
-				title: categorys[iscate].title,
-				subtitle: categorys[iscate].subtitle,
-				bgphoto: categorys[iscate].bgphoto
-			})
 		} else {
-			let that = this
-			this.fetchData(this.props.paramId, (body)=>{
-				parse(body, (data)=>{
-					that.setState({
-						title: data.title,
-						subtitle: data.subtitle,
-						bgphoto: data.bgphoto,
-			    	doc: data.body
-			    })
+			if (iscate != null) {
+				this.setState({
+					title: categorys[iscate].title,
+					subtitle: categorys[iscate].subtitle,
+					bgphoto: categorys[iscate].bgphoto
 				})
-			})
-		}
-	}
-
-	componentDidMount(){
-		let iscate = this.isCategory(this.props.paramId)
-
-		if (this.props.paramId == '') {
-			this.setState({
-				title: homeset.title,
-				subtitle: homeset.subtitle,
-				bgphoto: homeset.bgphoto,
-				doc: ''
-			})
-		} else if (iscate != null) {
-			this.setState({
-				title: categorys[iscate].title,
-				subtitle: categorys[iscate].subtitle,
-				bgphoto: categorys[iscate].bgphoto
-			})
-		} else {
-			let that = this
-			this.fetchData(this.props.paramId, (body)=>{
-				parse(body, (data)=>{
-					that.setState({
-						title: data.title,
-						subtitle: data.subtitle,
-						bgphoto: data.bgphoto,
-			    	doc: data.body
-			    })
+			} else {
+				console.log('h')
+				let that = this
+				this.fetchData(nextProps.paramId, (body)=>{
+					parse(body, (data)=>{
+						that.setState({
+							title: data.title,
+							subtitle: data.subtitle,
+							bgphoto: data.bgphoto,
+				    	doc: data.body
+				    })
+					})
 				})
-			})
+			}
 		}
 	}
 
@@ -124,16 +98,12 @@ class ArticlePaper extends Component {
 	}
 
 	render() {
-
+		
 		let iscate = this.isCategory(this.props.paramId)
 		let child = <TimelineList categoryId={this.props.paramId == '' ? '0' : this.props.paramId}/>
-		console.log(this.props.paramId == '' ? '0' : this.props.paramId)
-		if (iscate == null) {
-			child = <div className="document">
-								<div className="documentcontainer" dangerouslySetInnerHTML={{__html: this.state.doc}}></div>
-							</div>
-		}
-
+		
+		iscate == null && this.state.doc != '' ? child = <Document doc={this.state.doc}/> : 404
+		
 		return (
 			<div className="fm-article" style={iscate != null ? {overflow: 'hidden'} : {}}>
 				<div className="articleprofile" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {backgroundColor: this.state.bgphoto}}>

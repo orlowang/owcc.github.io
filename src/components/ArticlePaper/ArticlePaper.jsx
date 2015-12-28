@@ -60,7 +60,6 @@ class ArticlePaper extends Component {
 					bgphoto: categorys[iscate].bgphoto
 				})
 			} else {
-				console.log('h')
 				let that = this
 				this.fetchData(nextProps.paramId, (body)=>{
 					parse(body, (data)=>{

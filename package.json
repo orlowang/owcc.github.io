@@ -46,6 +46,7 @@
     "marked": "^0.3.5",
     "normalize.css": "^3.0.3",
     "react": "^0.14.2",
+    "react-addons-css-transition-group": "^0.14.3",
     "react-dom": "^0.14.2",
     "react-router": "^1.0.0",
     "static-loader": "^0.1.8",
@@ -53,5 +54,8 @@
     "webpack": "^1.12.6",
     "webpack-dev-server": "^1.12.1",
     "whatwg-fetch": "^0.10.1"
+  },
+  "dependencies": {
+    "react-addons-css-transition-group": "^0.14.3"
   }
 }

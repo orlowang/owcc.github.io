@@ -2,7 +2,7 @@ var cfg = require('../github.config.js');
 
 module.exports = {
 	author: {
-		name: 'Mark Wang',
+		name: 'Orlo Wang',
 		photo: 'psb.jpg'
 	},
 	category: [

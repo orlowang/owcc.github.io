@@ -7,17 +7,46 @@
 	}
 	.navlist{
 		text-align: right;
-		padding-right: 2rem;
+		border-right: 3px solid #ddd;
+		margin-right: 1rem;
 		.list{
 			display: block;
 			color: #333;
-			margin: 20px 0;
+			margin: 20px -3px 20px 0;
 			font-weight: 600;
 			font-size: 1.2rem;
-			text-decoration: none;
-			&.on{
+			a{
+				color: #333;
+				padding-right: 1rem;
+				text-decoration: none;
+				cursor: default;
+				transition: all 150ms ease-in;
+				span{cursor: pointer;}
+			}
+			.on{
 				color: #000;
+				border-right: 3px solid #000;
+				padding-right: 2rem;
+				span{border-bottom: 1px solid #333;}
 			}
 		}
 	}
+}
+
+.itemtransition-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.itemtransition-enter.itemtransition-enter-active {
+  opacity: 1;
+}
+
+.itemtransition-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.itemtransition-leave.itemtransition-leave-active {
+  opacity: 0;
 }

@@ -12,7 +12,7 @@ class Document extends Component {
 	};
 
 	static defaultProps = {
-		doc: 'loading...'
+		doc: ''
 	};
 
 
@@ -25,4 +25,4 @@ class Document extends Component {
 	}
 }
 
-export default Document;
+export default Document

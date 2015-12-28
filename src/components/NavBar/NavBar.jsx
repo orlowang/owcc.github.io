@@ -1,5 +1,6 @@
 
 import React, { PropTypes, Component } from 'react'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { Link } from 'react-router'
 import { categorys } from '../../cache/datacache'
 import './style.less'
@@ -19,8 +20,8 @@ class NavBar extends Component {
 
 		let navitem = categorys.map(function(cate, i){
 			return (
-				<li key={i} className="list" activeClassName="on">
-					<Link to={cate.id}>{cate.title}</Link>
+				<li key={i} className="list">
+					<Link activeClassName="on" to={cate.id}><span>{cate.title}</span></Link>
 				</li>
 			)
 		})

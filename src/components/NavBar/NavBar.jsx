@@ -3,25 +3,29 @@ import React, { PropTypes, Component } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { Link } from 'react-router'
 import { categorys } from '../../cache/datacache'
+import { witchCategory, isCategory } from '../../lib/util'
 import './style.less'
 
 class NavBar extends Component {
 	static propTypes = {
-		navTitle: PropTypes.string.isRequired
+		navTitle: PropTypes.string.isRequired,
+		paramId: PropTypes.string.isRequired
 	};
 
 	static defaultProps = {
-		navTitle: ''
+		navTitle: '',
+		paramId: ''
 	}
 
 	render() {
 
-		// 这里注意使用map！如果使用for循环会导致link(componentWillUpdate)触发两次
+		let _cate = witchCategory(this.props.paramId)
 
+		// 这里注意使用map！如果使用for循环会导致link(componentWillUpdate)触发两次
 		let navitem = categorys.map(function(cate, i){
 			return (
 				<li key={i} className="list">
-					<Link activeClassName="on" to={cate.id}><span>{cate.title}</span></Link>
+					<Link activeClassName="on" className={_cate == cate.id ? 'on' : ''} to={cate.id}><span>{cate.title}</span></Link>
 				</li>
 			)
 		})

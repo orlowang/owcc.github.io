@@ -16,7 +16,7 @@ class HomePage extends Component {
 			<div className="fm-body">
 				<div className="fm-l">
 					<AuthorInfo />
-					<NavBar />
+					<NavBar paramId={id}/>
 				</div>
 				<div className="fm-r">
 					<ArticlePaper paramId={id} />

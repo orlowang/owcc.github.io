@@ -3,6 +3,7 @@ import React, { PropTypes, Component } from 'react'
 import TimelineList from '../TimelineList'
 import Document from '../Document'
 import marked from 'marked'
+import { isCategory } from '../../lib/util'
 import { homeset, categorys } from '../../cache/datacache'
 import { docrsp } from '../../static.config'
 
@@ -44,7 +45,7 @@ class ArticlePaper extends Component {
 
 		// 这里注意传递nextProps不是this.props
 
-		let iscate = this.isCategory(nextProps.paramId)
+		let iscate = isCategory(nextProps.paramId)
 		if (nextProps.paramId == '') {
 			this.setState({
 				title: homeset.title,
@@ -75,15 +76,6 @@ class ArticlePaper extends Component {
 		}
 	}
 
-	isCategory(arg){
-		let ids = []
-		for (let i = 0; i < categorys.length; i++) {
-			ids.push(categorys[i].id)
-		}
-		let index = ids.indexOf(arg)
-		return index >= 0 ? index : null
-	}
-
 	fetchData(src, cb) {
 
 		let url = `${docrsp}/${src}.md`
@@ -98,7 +90,7 @@ class ArticlePaper extends Component {
 
 	render() {
 		
-		let iscate = this.isCategory(this.props.paramId)
+		let iscate = isCategory(this.props.paramId)
 		let child = <TimelineList categoryId={this.props.paramId == '' ? '0' : this.props.paramId}/>
 		
 		iscate == null && this.state.doc != '' ? child = <Document doc={this.state.doc}/> : 404

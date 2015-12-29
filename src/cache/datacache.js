@@ -7,7 +7,7 @@ module.exports = {
 	categorys: [
 		{
 			id: 'mess',
-			title: '杂谈',
+			title: 'Tittle-Tattle',
 			subtitle: '鲁迅说，战士的日常生活，是并不全部可歌可泣的，然而又无不和可歌可泣相关联，这才是实际上的战士。现如今，能够带着许些幸福感安稳下来的真不容易，我觉得我们都是战士!',
 			bgphoto: '#EA1010',
 			posts: [
@@ -39,7 +39,7 @@ module.exports = {
 		{
 			id: 'coding',
 			title: 'Coooooding',
-			subtitle: 'Coooooding...debug... 其实编码是一件很有趣也很无聊的事情：有趣在于我很享受这个创作的过程；无聊在于我不得不靠编码维持生计，而编码所得的收入往往让我陷入不堪，想看的世界看不了。',
+			subtitle: 'Coooooding...debug... 其实编码是一件很有趣也很痛苦的事情：有趣在于我很享受这个创作的过程；痛苦在于我不得不靠编码维持生计，而编码所得的收入往往让我陷入不堪，想看的世界看不了。',
 			bgphoto: '#536DFE',
 			posts: []
 		},

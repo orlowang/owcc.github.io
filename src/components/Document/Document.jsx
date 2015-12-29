@@ -1,7 +1,6 @@
 
 import React, { PropTypes, Component } from 'react'
 import marked from 'marked'
-import fetch from 'whatwg-fetch'
 import { docrsp } from '../../static.config'
 
 import './style.less'

@@ -2,24 +2,10 @@
 import React, { PropTypes, Component } from 'react'
 import TimelineList from '../TimelineList'
 import Document from '../Document'
-import marked from 'marked'
-import { isCategory } from '../../lib/util'
+import { fetchMarkdown, parseMarkdown, isCategory } from '../../lib/util'
 import { homeset, categorys } from '../../cache/datacache'
-import { docrsp } from '../../static.config'
 
 import './style.less'
-
-function parse(src, cb) {
-
-	let tmp$1 = src.split('end-->')
-	let tmp$2 = tmp$1[0].split('<!--begin')
-	let tmp$3 = '{' + tmp$2[1].replace(/[\n]/ig, '') + '}'
-	let data = JSON.parse(tmp$3)
-	let body = marked(tmp$1[1])
-
-	Object.assign(data, {body: body})
-	cb(data)
-}
 
 class ArticlePaper extends Component {
 
@@ -44,7 +30,6 @@ class ArticlePaper extends Component {
 	componentWillReceiveProps(nextProps){
 
 		// 这里注意传递nextProps不是this.props
-
 		let iscate = isCategory(nextProps.paramId)
 		if (nextProps.paramId == '') {
 			this.setState({
@@ -62,8 +47,8 @@ class ArticlePaper extends Component {
 				})
 			} else {
 				let that = this
-				this.fetchData(nextProps.paramId, (body)=>{
-					parse(body, (data)=>{
+				fetchMarkdown(nextProps.paramId, (body)=>{
+					parseMarkdown(body, (data)=>{
 						that.setState({
 							title: data.title,
 							subtitle: data.subtitle,
@@ -76,16 +61,26 @@ class ArticlePaper extends Component {
 		}
 	}
 
-	fetchData(src, cb) {
+	componentDidMount() {
+		let that = this
+		window.addEventListener('scroll', this.scrollHandle.bind(that))
+	}
 
-		let url = `${docrsp}/${src}.md`
-		let rest = fetch(url)
+	componentWillUnmount() {
+		let that = this
+		window.removeEventListener('scroll', this.scrollHandle.bind(that))
+	}
 
-		rest.then(function(response) {
-	    return response.text()
-	  }).then(function(body) {
-	    cb(body)
-	  })
+	scrollHandle(){
+		let elm = this.refs.articleProfile
+		if (window.scrollY >= elm.clientHeight - 4) {
+			elm.style.position = 'fixed'
+			elm.style.top = `-${elm.clientHeight - 4}px`
+		}
+		if (window.scrollY < elm.clientHeight - 4) {
+			elm.style.position = ''
+			elm.style.top = ''
+		}
 	}
 
 	render() {
@@ -97,7 +92,7 @@ class ArticlePaper extends Component {
 		
 		return (
 			<div className="fm-article" style={iscate != null ? {overflow: 'hidden'} : {}}>
-				<div className="articleprofile" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {backgroundColor: this.state.bgphoto}}>
+				<div ref="articleProfile" className="articleprofile" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {backgroundColor: this.state.bgphoto}}>
 					<p className="articleprofiletitle" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.title}</p>
 					<p className="articleprofiletext" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.subtitle}</p>
 					{this.state.bgphoto.indexOf('.') >= 0 ? <img src={this.state.bgphoto} alt=""/> : null}

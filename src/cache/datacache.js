@@ -7,7 +7,7 @@ module.exports = {
 	categorys: [
 		{
 			id: 'mess',
-			title: '杂谈',
+			title: 'Tittle-Tattle',
 			subtitle: '鲁迅说，战士的日常生活，是并不全部可歌可泣的，然而又无不和可歌可泣相关联，这才是实际上的战士。我觉得我们都是战士!',
 			bgphoto: '#EA1010',
 			posts: [

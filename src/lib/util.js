@@ -52,7 +52,7 @@ module.exports = {
 		let tmp$2 = tmp$1[0].split('<!--begin')
 		let tmp$3 = '{' + tmp$2[1].replace(/[\n]/ig, '') + '}'
 		let data = JSON.parse(tmp$3)
-
+		
 		require('highlight.js/styles/vs.css')
 		require('../assets/md-github.css')
 

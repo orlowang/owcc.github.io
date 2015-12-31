@@ -1,7 +1,8 @@
----
-title: A knight of The Republic —— About me
-tags: [github,Jekyll]
-<!-- publishTime: 2015/12/1 -->
----
+<!--begin
+"title":"About me",
+"subtitle":"A knight of The Republic",
+"bgphoto":"#f60",
+"publishtime":"2015/12/31"
+end-->
 
 ## Me...

@@ -1,6 +1,6 @@
 module.exports = {
-	name: 'wmkcc',
-	gpname: 'wmkcc.github.io',
+	name: 'owcc',
+	gpname: 'owcc.github.io',
 	postdir: 'posts',
 	postbranch: 'master'
 }

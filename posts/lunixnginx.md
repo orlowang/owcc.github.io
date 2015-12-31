@@ -1,8 +1,8 @@
 <!--begin
-"title":"Lunix Common exec",
-"subtitle":"请称呼他为“SHO”，或者以他喜欢的方式，叫一声“翔君”",
-"bgphoto":"#a06",
-"publishtime":"2015/12/10"
+"title":"Nginx在Lunix下的编译和部署",
+"subtitle":"Nginx在Lunix下的编译和部署",
+"bgphoto":"#a07",
+"publishtime":"2015/12/31"
 end-->
 
 ### Nginx在Lunix下的编译和部署
@@ -17,7 +17,7 @@ end-->
 >   pcre-last  
 >   zlib-last
 
-#####1) configure参数说明
+##### 1) configure参数说明
 
 + --prefix=path   ——  根目录(默认*/usr/local/nginx*)
 + --conf-path=path —— 配置文件目录(默认***prefix**/conf/nginx.conf*)
@@ -32,7 +32,7 @@ end-->
 + --with-zlib=path  压缩函数库zlib，**指向zlib源码路径**
 
 **实例代码**
-```
+``` bash
 ./configure
     --conf-path=/etc/nginx.conf
     --pid-path=/usr/local/nginx/nginx.pid
@@ -43,14 +43,14 @@ end-->
 
 #### nginx部署
 
-#####1) 部署原则——不破坏lunix文件规则
+##### 1) 部署原则——不破坏lunix文件规则
 
 +  config文件放置于/etc/nginx文件夹下
 +  
 
-#####2) 安装实例脚本
+##### 2) 安装实例脚本
 
-```
+``` bash
 curl -o pcre-8.38.zip ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.38.zip
 curl -o zlib-1.2.8.tar.xz http://zlib.net/zlib-1.2.8.tar.xz
 

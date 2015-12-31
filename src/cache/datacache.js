@@ -41,7 +41,16 @@ module.exports = {
 			title: 'Coooooding',
 			subtitle: 'Coooooding...debug... 其实编码是一件很有趣也很痛苦的事情：有趣在于我很享受这个创作的过程；痛苦在于我不得不靠编码维持生计，而编码所得的收入往往让我陷入不堪，想看的世界看不了。',
 			bgphoto: '#536DFE',
-			posts: []
+			posts: [
+				{
+					id: 'lunixnginx',
+					title: 'Nginx在Lunix下的编译和部署',
+					publishtime: '2015/12/31',
+					subtitle: 'Nginx在Lunix下的编译和部署',
+					preview: '',
+					bgphoto: '#e07'
+				}
+			]
 		},
 		{
 			id: 'prj',
@@ -67,6 +76,14 @@ module.exports = {
 			subtitle: '在2003年六月的《POWER GRIP 100 "IT\'S SHOWTIME" 》中，他正式出道。当时还没有成立COAT WEST，所以首次的摄影是在COAT到大阪探星的面试车上完成的。',
 			preview: '',
 			bgphoto: '#e5a200'
+		},
+		{
+			id: 'lunixnginx',
+			title: 'Nginx在Lunix下的编译和部署',
+			publishtime: '2015/12/31',
+			subtitle: 'Nginx在Lunix下的编译和部署',
+			preview: '',
+			bgphoto: '#e07'
 		}
 	]
 }

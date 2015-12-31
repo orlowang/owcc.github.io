@@ -14,7 +14,6 @@ class Document extends Component {
 		doc: ''
 	};
 
-
 	render() {
 		return (
 			<div className="document">

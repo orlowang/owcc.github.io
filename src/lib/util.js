@@ -52,9 +52,17 @@ module.exports = {
 		let tmp$2 = tmp$1[0].split('<!--begin')
 		let tmp$3 = '{' + tmp$2[1].replace(/[\n]/ig, '') + '}'
 		let data = JSON.parse(tmp$3)
-		let body = marked(tmp$1[1])
 
-		Object.assign(data, {body: body})
+		require('highlight.js/styles/vs.css')
+		require('../assets/md-github.css')
+
+		marked.setOptions({
+		  highlight: function (code) {
+		    return require('highlight.js').highlightAuto(code).value;
+		  }
+		})
+
+		Object.assign(data, {body: `<div class="markdown-body">${marked(tmp$1[1])}</div>`})
 		cb(data)
 	}
 } 

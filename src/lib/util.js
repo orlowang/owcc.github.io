@@ -1,15 +1,13 @@
 
-import { categorys } from '../cache/datacache'
-import fetch from 'whatwg-fetch'
-import { docrsp } from '../static.config'
-import marked from 'marked'
+'use strict'
 
-// var categorys = require('../cache/datacache').categorys
-// var fetch = require('whatwg-fetch')
-// var docrsp = require('../static.config').docrsp
-// var marked = require('marked')
+var categorys = require('../cache/datacache').categorys
+var fetch = require('whatwg-fetch')
+var docrsp = require('../static.config').docrsp
+var marked = require('marked')
+var assign = require('react/lib/Object.assign');
 
-export default {
+module.exports = {
 	isCategory: function isCategory(arg){
 		var ids = []
 		for (var i = 0; i < categorys.length; i++) {
@@ -38,8 +36,8 @@ export default {
 
 	fetchMarkdown: function fetchData(src, cb) {
 
-		let url = `${docrsp}/${src}.md`
-		let rest = fetch(url)
+		var url = docrsp + '/' + src + '.md'
+		var rest = fetch(url)
 
 		rest.then(function(response) {
 	    return response.text()
@@ -51,10 +49,10 @@ export default {
 
 	parseMarkdown: function parse(src, cb) {
 
-		let tmp$1 = src.split('end-->')
-		let tmp$2 = tmp$1[0].split('<!--begin')
-		let tmp$3 = '{' + tmp$2[1].replace(/[\n]/ig, '') + '}'
-		let data = JSON.parse(tmp$3)
+		var tmp$1 = src.split('end-->')
+		var tmp$2 = tmp$1[0].split('<!--begin')
+		var tmp$3 = '{' + tmp$2[1].replace(/[\n]/ig, '') + '}'
+		var data = JSON.parse(tmp$3)
 		
 		require('highlight.js/styles/vs.css')
 		require('../assets/md-github.css')
@@ -65,7 +63,7 @@ export default {
 		  }
 		})
 
-		Object.assign(data, {body: `<div class="markdown-body">${marked(tmp$1[1])}</div>`})
+		assign(data, {body: '<div class="markdown-body">' + marked(tmp$1[1]) + '</div>'})
 		cb(data)
 	}
 } 

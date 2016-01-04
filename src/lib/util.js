@@ -1,12 +1,15 @@
 
-'use strict'
+import { categorys } from '../cache/datacache'
+import fetch from 'whatwg-fetch'
+import { docrsp } from '../static.config'
+import marked from 'marked'
 
-var categorys = require('../cache/datacache').categorys
-var fetch = require('whatwg-fetch')
-var docrsp = require('../static.config').docrsp
-var marked = require('marked')
+// var categorys = require('../cache/datacache').categorys
+// var fetch = require('whatwg-fetch')
+// var docrsp = require('../static.config').docrsp
+// var marked = require('marked')
 
-module.exports = {
+export default {
 	isCategory: function isCategory(arg){
 		var ids = []
 		for (var i = 0; i < categorys.length; i++) {

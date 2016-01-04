@@ -41,7 +41,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx$/,
+        test: /(\.jsx|\.js)$/,
         loader: "babel",
         query: {
           presets: ['stage-0', 'react', 'es2015'],

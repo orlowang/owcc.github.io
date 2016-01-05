@@ -39,7 +39,7 @@ class TimelineList extends Component {
 						{post.preview != '' ? <img className="cardcover" src={post.preview} alt=""/> : null}
 					</div>
 					<div className="docinfo">
-						<Link to={post.id}>{post.title}</Link>
+						<Link query={{ get: post.id }} to='/'>{post.title}</Link>
 						<p className="text">{post.subtitle}</p>
 					</div>
 				</div>

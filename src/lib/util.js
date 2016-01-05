@@ -37,9 +37,9 @@ module.exports = {
 	fetchMarkdown: function fetchData(src, cb) {
 
 		var url = docrsp + '/' + src + '.md'
-		var rest = fetch(url)
+		// var rest = fetch(url)
 
-		rest.then(function(response) {
+		fetch(url).then(function(response) {
 	    return response.text()
 	  }).then(function(body) {
 	    cb(body)

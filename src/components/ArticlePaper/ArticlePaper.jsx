@@ -61,6 +61,29 @@ class ArticlePaper extends Component {
 		}
 	}
 
+	componentWillMount() {
+		let iscate = isCategory(this.props.paramId)
+		if (iscate != null) {
+			this.setState({
+				title: categorys[iscate].title,
+				subtitle: categorys[iscate].subtitle,
+				bgphoto: categorys[iscate].bgphoto
+			})
+		} else {
+			let that = this
+			fetchMarkdown(this.props.paramId, (body)=>{
+				parseMarkdown(body, (data)=>{
+					that.setState({
+						title: data.title,
+						subtitle: data.subtitle,
+						bgphoto: data.bgphoto,
+			    	doc: data.body
+			    })
+				})
+			})
+		}
+	}
+
 	componentDidMount() {
 		this.refs.articlePaper.addEventListener('scroll', this.scrollHandle.bind(this))
 	}
@@ -96,7 +119,7 @@ class ArticlePaper extends Component {
 					<p className="articleprofiletext" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.subtitle}</p>
 					{this.state.bgphoto.indexOf('.') >= 0 ? <img src={this.state.bgphoto} alt=""/> : null}
 				</div>
-				<div className="articlelist">{child}</div>
+				<div className="articlelist" style={iscate != null ? {paddingTop: '13rem'} : {paddingTop: '15rem'}}>{child}</div>
 			</div>
 		)
 	}

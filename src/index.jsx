@@ -15,7 +15,7 @@ const history = createHistory()
 render((
 	<Router history={history}>
 		<Route path="/" component={HomePage}> 
-			<Route path=":id" component={ArticlePaper}/>
+			<Route path=":paramId" component={ArticlePaper}/>
 			<Route path="*" component={NoPage}/>
 		</Route>
 	</Router>

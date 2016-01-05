@@ -30,8 +30,24 @@ class ArticlePaper extends Component {
 	componentWillReceiveProps(nextProps){
 
 		// 这里注意传递nextProps不是this.props
-		let iscate = isCategory(nextProps.paramId)
-		if (nextProps.paramId == '') {
+		this.setStateHandle(nextProps.paramId)
+	}
+
+	componentWillMount() {
+		this.setStateHandle(this.props.paramId)
+	}
+
+	componentDidMount() {
+		this.refs.articlePaper.addEventListener('scroll', this.scrollHandle.bind(this))
+	}
+
+	componentWillUnmount() {
+		this.refs.articlePaper.removeEventListener('scroll', this.scrollHandle.bind(this))
+	}
+
+	setStateHandle(arg){
+		let iscate = isCategory(arg)
+		if (arg == '') {
 			this.setState({
 				title: homeset.title,
 				subtitle: homeset.subtitle,
@@ -47,7 +63,7 @@ class ArticlePaper extends Component {
 				})
 			} else {
 				let that = this
-				fetchMarkdown(nextProps.paramId, (body)=>{
+				fetchMarkdown(arg, (body)=>{
 					parseMarkdown(body, (data)=>{
 						that.setState({
 							title: data.title,
@@ -59,37 +75,6 @@ class ArticlePaper extends Component {
 				})
 			}
 		}
-	}
-
-	componentWillMount() {
-		let iscate = isCategory(this.props.paramId)
-		if (iscate != null) {
-			this.setState({
-				title: categorys[iscate].title,
-				subtitle: categorys[iscate].subtitle,
-				bgphoto: categorys[iscate].bgphoto
-			})
-		} else {
-			let that = this
-			fetchMarkdown(this.props.paramId, (body)=>{
-				parseMarkdown(body, (data)=>{
-					that.setState({
-						title: data.title,
-						subtitle: data.subtitle,
-						bgphoto: data.bgphoto,
-			    	doc: data.body
-			    })
-				})
-			})
-		}
-	}
-
-	componentDidMount() {
-		this.refs.articlePaper.addEventListener('scroll', this.scrollHandle.bind(this))
-	}
-
-	componentWillUnmount() {
-		this.refs.articlePaper.removeEventListener('scroll', this.scrollHandle.bind(this))
 	}
 
 	scrollHandle(){

@@ -36,9 +36,9 @@ module.exports = {
     // libraryTarget: 'umd',
     // pathInfo: true
   },
-  externals: {
-    'whatwg-fetch': 'fetch'
-  },
+  // externals: {
+  //   'whatwg-fetch': 'fetch'
+  // },
   module: {
     loaders: [
       {
@@ -62,6 +62,9 @@ module.exports = {
         warnings: false,
       }
     })]),
+    new webpack.ProvidePlugin({
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
     // new HtmlWebpackPlugin({
     //   template: './src/assets/index.html'
     // }),

@@ -2,7 +2,6 @@
 'use strict'
 
 var categorys = require('../cache/datacache').categorys
-var fetch = require('whatwg-fetch')
 var docrsp = require('../static.config').docrsp
 var marked = require('marked')
 var assign = require('react/lib/Object.assign');
@@ -37,9 +36,9 @@ module.exports = {
 	fetchMarkdown: function fetchData(src, cb) {
 
 		var url = docrsp + '/' + src + '.md'
-		// var rest = fetch(url)
+		var rest = fetch(url)
 
-		fetch(url).then(function(response) {
+		rest.then(function(response) {
 	    return response.text()
 	  }).then(function(body) {
 	    cb(body)

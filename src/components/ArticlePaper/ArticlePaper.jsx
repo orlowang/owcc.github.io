@@ -38,11 +38,11 @@ class ArticlePaper extends Component {
 	}
 
 	componentDidMount() {
-		this.refs.articlePaper.addEventListener('scroll', this.scrollHandle.bind(this))
+		window.addEventListener('scroll', this.scrollHandle.bind(this))
 	}
 
 	componentWillUnmount() {
-		this.refs.articlePaper.removeEventListener('scroll', this.scrollHandle.bind(this))
+		window.removeEventListener('scroll', this.scrollHandle.bind(this))
 	}
 
 	setStateHandle(arg){
@@ -78,15 +78,39 @@ class ArticlePaper extends Component {
 	}
 
 	scrollHandle(){
-		let elm$1 = this.refs.articlePaper
 		let elm$2 = this.refs.articleProfile
-		if (elm$1.scrollTop >= elm$2.clientHeight - 4) {
-			elm$2.style.position = 'fixed'
-			elm$2.style.top = `-${elm$2.clientHeight - 4}px`
-		}
-		if (elm$1.scrollTop < elm$2.clientHeight - 4) {
-			elm$2.style.position = ''
-			elm$2.style.top = ''
+		let elm$3 = this.refs.articleprofiletitle
+		let elm$4 = this.refs.articleprofiletext
+		let elm$3_style = document.defaultView.getComputedStyle(elm$3, null)
+		let _screenX = document.body.clientWidth
+		let _bodyFontSize = parseInt(document.defaultView.getComputedStyle(document.body, null).fontSize)
+		
+		let defaultFontSize = 2.4
+		let finalFontSize = 1				// 单位rem
+		let elm$3pt = 2							// elm$3默认的paddingTop值
+
+		if (_screenX >= 750) {
+			if (window.scrollY >= elm$2.clientHeight - 4) {
+				elm$2.style.position = 'fixed'
+				elm$2.style.top = `-${elm$2.clientHeight - 4}px`
+			} else {
+				elm$2.style.position = ''
+				elm$2.style.top = ''
+			}
+		} else {
+			let _size = defaultFontSize - window.scrollY * (defaultFontSize - finalFontSize) / (elm$2.clientHeight - 3 * _bodyFontSize)
+			
+			console.log(window.scrollY)
+			if (window.scrollY >= elm$2.clientHeight - 3 * _bodyFontSize) {
+				elm$2.style.position = 'fixed'
+				elm$2.style.top = `-${elm$2.clientHeight - 3 * _bodyFontSize}px`
+			} else {
+				elm$2.style.position = ''
+				elm$2.style.top = ''
+				elm$3.style.paddingTop = `${elm$3pt * _bodyFontSize + window.scrollY * (1 - 1.1 * _bodyFontSize / (elm$2.clientHeight - 3 * _bodyFontSize))}px`
+				elm$3.style.fontSize = `${_size * _bodyFontSize}px`
+				elm$4.style.opacity = window.scrollY <= 50 ? `${1 - window.scrollY / 50}` : 0
+			}
 		}
 	}
 
@@ -98,10 +122,10 @@ class ArticlePaper extends Component {
 		iscate == null && this.state.doc != '' ? child = <Document doc={this.state.doc}/> : 404
 		
 		return (
-			<div ref="articlePaper" className="fm-article" style={iscate != null ? {overflow: 'hidden'} : {}}>
+			<div className="fm-article" style={iscate != null ? {overflow: 'hidden'} : {}}>
 				<div ref="articleProfile" className="articleprofile" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {backgroundColor: this.state.bgphoto}}>
-					<p className="articleprofiletitle" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.title}</p>
-					<p className="articleprofiletext" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.subtitle}</p>
+					<p ref="articleprofiletitle" className="articleprofiletitle" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.title}</p>
+					<p ref="articleprofiletext" className="articleprofiletext" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.subtitle}</p>
 					{this.state.bgphoto.indexOf('.') >= 0 ? <img src={this.state.bgphoto} alt=""/> : null}
 				</div>
 				<div className="articlelist" style={iscate != null ? {paddingTop: '13rem'} : {paddingTop: '15rem'}}>{child}</div>

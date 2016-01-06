@@ -69,13 +69,13 @@ module.exports = {
     //   template: './src/assets/index.html'
     // }),
     new webpack.NoErrorsPlugin(),
-    new BrowserSyncPlugin({
-      // browse to http://localhost:3000/ during development, 
-      // ./public directory is being served 
-      host: 'localhost',
-      port: 8080,
-      server: { baseDir: ['src/assets/'] }
-    })
+    // new BrowserSyncPlugin({
+    //   // browse to http://localhost:3000/ during development, 
+    //   // ./public directory is being served 
+    //   host: 'localhost',
+    //   port: 8080,
+    //   server: { baseDir: ['src/assets/'] }
+    // })
   ],
   // devServer: {
   //   port: 8082,

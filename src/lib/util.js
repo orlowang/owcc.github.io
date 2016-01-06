@@ -7,7 +7,7 @@ var marked = require('marked')
 var assign = require('react/lib/Object.assign');
 
 module.exports = {
-	isCategory: function isCategory(arg){
+	isCategory: function(arg){
 		var ids = []
 		for (var i = 0; i < categorys.length; i++) {
 			ids.push(categorys[i].id)
@@ -16,7 +16,7 @@ module.exports = {
 		return index >= 0 ? index : null
 	},
 
-	witchCategory: function witchCategory(arg){
+	witchCategory: function(arg){
 		for (var i = 0; i < categorys.length; i++) {
 			if (categorys[i].id == arg) {
 				return categorys[i].id
@@ -33,7 +33,7 @@ module.exports = {
 		}
 	},
 
-	fetchMarkdown: function fetchData(src, cb) {
+	fetchMarkdown: function(src, cb) {
 
 		var url = docrsp + '/' + src + '.md'
 		var rest = fetch(url)
@@ -46,7 +46,7 @@ module.exports = {
 	},
 
 
-	parseMarkdown: function parse(src, cb) {
+	parseMarkdown: function(src, cb) {
 
 		var tmp$1 = src.split('end-->')
 		var tmp$2 = tmp$1[0].split('<!--begin')
@@ -57,12 +57,14 @@ module.exports = {
 		require('../assets/md-github.css')
 
 		marked.setOptions({
-		  highlight: function (code) {
+		  highlight: function(code) {
 		    return require('highlight.js').highlightAuto(code).value;
 		  }
 		})
 
 		assign(data, {body: '<div class="markdown-body">' + marked(tmp$1[1]) + '</div>'})
 		cb(data)
-	}
+	},
+
+	getHTMLFontSize: function(){}
 } 

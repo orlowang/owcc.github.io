@@ -42,8 +42,11 @@ class ArticlePaper extends Component {
 		if (_screenX >= 750) {
 			window.addEventListener('scroll', this.scrollHandle.bind(this))
 		} else{
-			window.addEventListener('TouchMove', this.touchMoveHandle.bind(this))
+			window.addEventListener('touchmove', this.touchMoveHandle.bind(this))
 		}
+		document.body.addEventListener('touchmove', function(event) { 
+			event.preventDefault()
+		}, false)
 	}
 
 	componentWillUnmount() {
@@ -51,7 +54,7 @@ class ArticlePaper extends Component {
 		if (_screenX >= 750) {
 			window.removeEventListener('scroll', this.scrollHandle.bind(this))
 		} else{
-			window.removeEventListener('TouchMove', this.touchMoveHandle.bind(this))
+			window.removeEventListener('touchmove', this.touchMoveHandle.bind(this))
 		}
 	}
 

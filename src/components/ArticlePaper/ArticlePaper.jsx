@@ -38,24 +38,11 @@ class ArticlePaper extends Component {
 	}
 
 	componentDidMount() {
-		let _screenX = document.body.clientWidth
-		if (_screenX >= 750) {
-			window.addEventListener('scroll', this.scrollHandle.bind(this))
-		} else{
-			window.addEventListener('touchmove', this.touchMoveHandle.bind(this))
-		}
-		// document.body.addEventListener('touchmove', function(event) { 
-		// 	event.preventDefault()
-		// }, false)
+		window.addEventListener('scroll', this.scrollHandle.bind(this))
 	}
 
 	componentWillUnmount() {
-		let _screenX = document.body.clientWidth
-		if (_screenX >= 750) {
-			window.removeEventListener('scroll', this.scrollHandle.bind(this))
-		} else{
-			window.removeEventListener('touchmove', this.touchMoveHandle.bind(this))
-		}
+		window.removeEventListener('scroll', this.scrollHandle.bind(this))
 	}
 
 	setStateHandle(arg){
@@ -90,41 +77,40 @@ class ArticlePaper extends Component {
 		}
 	}
 
-	touchMoveHandle(){
+	scrollHandle(){
 		let elm$2 = this.refs.articleProfile
 		let elm$3 = this.refs.articleprofiletitle
 		let elm$4 = this.refs.articleprofiletext
 		let elm$3_style = document.defaultView.getComputedStyle(elm$3, null)
+		let _screenX = document.body.clientWidth
 		let _bodyFontSize = parseInt(document.defaultView.getComputedStyle(document.body, null).fontSize)
 		
 		let defaultFontSize = 2.4
 		let finalFontSize = 1				// 单位rem
 		let elm$3pt = 2							// elm$3默认的paddingTop值
 
-		let _size = defaultFontSize - window.scrollY * (defaultFontSize - finalFontSize) / (elm$2.clientHeight - 3 * _bodyFontSize)
+		if (_screenX >= 750) {
+			if (window.scrollY >= elm$2.clientHeight - 4) {
+				elm$2.style.position = 'fixed'
+				elm$2.style.top = `-${elm$2.clientHeight - 4}px`
+			} else {
+				elm$2.style.position = ''
+				elm$2.style.top = ''
+			}
+		} else {
+			let _size = defaultFontSize - window.scrollY * (defaultFontSize - finalFontSize) / (elm$2.clientHeight - 3 * _bodyFontSize)
 			
-		console.log(window.scrollY)
-		if (window.scrollY >= elm$2.clientHeight - 3 * _bodyFontSize) {
-			elm$2.style.position = 'fixed'
-			elm$2.style.top = `-${elm$2.clientHeight - 3 * _bodyFontSize}px`
-		} else {
-			elm$2.style.position = ''
-			elm$2.style.top = ''
-			elm$3.style.paddingTop = `${elm$3pt * _bodyFontSize + window.scrollY * (1 - 1.1 * _bodyFontSize / (elm$2.clientHeight - 3 * _bodyFontSize))}px`
-			elm$3.style.fontSize = `${_size * _bodyFontSize}px`
-			elm$4.style.opacity = window.scrollY <= 50 ? `${1 - window.scrollY / 50}` : 0
-		}
-	}
-
-	scrollHandle(){
-		let elm$2 = this.refs.articleProfile
-
-		if (window.scrollY >= elm$2.clientHeight - 4) {
-			elm$2.style.position = 'fixed'
-			elm$2.style.top = `-${elm$2.clientHeight - 4}px`
-		} else {
-			elm$2.style.position = ''
-			elm$2.style.top = ''
+			console.log(window.scrollY)
+			if (window.scrollY >= elm$2.clientHeight - 3 * _bodyFontSize) {
+				elm$2.style.position = 'fixed'
+				elm$2.style.top = `-${elm$2.clientHeight - 3 * _bodyFontSize}px`
+			} else {
+				elm$2.style.position = ''
+				elm$2.style.top = ''
+				elm$3.style.paddingTop = `${elm$3pt * _bodyFontSize + window.scrollY * (1 - 1.1 * _bodyFontSize / (elm$2.clientHeight - 3 * _bodyFontSize))}px`
+				elm$3.style.fontSize = `${_size * _bodyFontSize}px`
+				elm$4.style.opacity = window.scrollY <= 50 ? `${1 - window.scrollY / 50}` : 0
+			}
 		}
 	}
 

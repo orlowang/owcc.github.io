@@ -44,9 +44,9 @@ class ArticlePaper extends Component {
 		} else{
 			window.addEventListener('touchmove', this.touchMoveHandle.bind(this))
 		}
-		document.body.addEventListener('touchmove', function(event) { 
-			event.preventDefault()
-		}, false)
+		// document.body.addEventListener('touchmove', function(event) { 
+		// 	event.preventDefault()
+		// }, false)
 	}
 
 	componentWillUnmount() {

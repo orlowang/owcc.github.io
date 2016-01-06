@@ -91,10 +91,8 @@ class ArticlePaper extends Component {
 
 		if (_screenX >= 750) {
 			if (window.scrollY >= elm$2.clientHeight - 4) {
-				elm$2.style.position = 'fixed'
 				elm$2.style.top = `-${elm$2.clientHeight - 4}px`
 			} else {
-				elm$2.style.position = ''
 				elm$2.style.top = ''
 			}
 		} else {
@@ -102,10 +100,8 @@ class ArticlePaper extends Component {
 			
 			console.log(window.scrollY)
 			if (window.scrollY >= elm$2.clientHeight - 3 * _bodyFontSize) {
-				elm$2.style.position = 'fixed'
 				elm$2.style.top = `-${elm$2.clientHeight - 3 * _bodyFontSize}px`
 			} else {
-				elm$2.style.position = ''
 				elm$2.style.top = ''
 				elm$3.style.paddingTop = `${elm$3pt * _bodyFontSize + window.scrollY * (1 - 1.1 * _bodyFontSize / (elm$2.clientHeight - 3 * _bodyFontSize))}px`
 				elm$3.style.fontSize = `${_size * _bodyFontSize}px`

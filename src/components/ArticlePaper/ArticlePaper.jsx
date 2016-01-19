@@ -1,5 +1,6 @@
 
 import React, { PropTypes, Component } from 'react'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import TimelineList from '../TimelineList'
 import Document from '../Document'
 import { fetchMarkdown, parseMarkdown, isCategory } from '../../lib/util'
@@ -92,8 +93,10 @@ class ArticlePaper extends Component {
 		if (_screenX >= 750) {
 			if (window.scrollY >= elm$2.clientHeight - 4) {
 				elm$2.style.top = `-${elm$2.clientHeight - 4}px`
+				elm$2.style.position = 'fixed'
 			} else {
 				elm$2.style.top = ''
+				elm$2.style.position = 'absolute'
 			}
 		} else {
 			let _size = defaultFontSize - window.scrollY * (defaultFontSize - finalFontSize) / (elm$2.clientHeight - 3 * _bodyFontSize)
@@ -117,14 +120,25 @@ class ArticlePaper extends Component {
 		
 		iscate == null && this.state.doc != '' ? child = <Document doc={this.state.doc}/> : 404
 		
+		let articlebgcolor = this.state.bgphoto.split('&')[0]
+		let articlebgimg = this.state.bgphoto.split('&')[1]
+		
 		return (
 			<div className="fm-article" style={iscate != null ? {overflow: 'hidden'} : {}}>
-				<div ref="articleProfile" className="articleprofile" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {backgroundColor: this.state.bgphoto}}>
+			<ReactCSSTransitionGroup
+				component="div" transitionName="example"
+        transitionEnterTimeout={500} transitionLeaveTimeout={500}
+			>
+				<div ref="articleProfile" className="articleprofile" style={{
+					backgroundColor: articlebgcolor == '' ? '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6) : articlebgcolor,
+					borderBottom: iscate != null ? '' : '1rem solid #fff'
+				}}>
 					<p ref="articleprofiletitle" className="articleprofiletitle" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.title}</p>
 					<p ref="articleprofiletext" className="articleprofiletext" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.subtitle}</p>
-					{this.state.bgphoto.indexOf('.') >= 0 ? <img src={this.state.bgphoto} alt=""/> : null}
+					{articlebgimg != '' && <div className="articlebgimg" style={{background: `url(${articlebgimg}) center bottom no-repeat`}}></div>}
 				</div>
 				<div className="articlelist" style={iscate != null ? {paddingTop: '13rem'} : {paddingTop: '15rem'}}>{child}</div>
+			</ReactCSSTransitionGroup>
 			</div>
 		)
 	}

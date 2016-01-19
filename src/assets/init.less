@@ -14,47 +14,25 @@ body{
 		user-select: none;
 		height: 100%;
 		width: 100%;
-    overflow: hidden;
 		.fm-body{ 
 			height: 100%;
-			.fm-l{
+			.fm-side{
+        position: fixed;
 				height: 100%;
 			}
-			.fm-r{
+			.fm-article{
 				height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
 				box-sizing: border-box;
 			}
 		}
 	}
 }
 
-@media (min-width: 340px) {
-  .container {
-    max-width: 34rem;
-  }
-}
-
-@media (min-width: 480px) {
-  .container {
-    max-width: 45rem;
-  }
-}
-
-@media (min-width: 620px) {
-  .container {
-    max-width: 60rem;
-  }
-}
-
 @media (min-width: 750px) {
-	.fm-l{
-		position: fixed;
+	.fm-side{
+    width: 38.2%;
 	}
-	.fm-l{width: 38.2%;}
-	.fm-r{padding-left: 38.2%;}
+	.fm-article{margin-left: 38.2%;}
   .document{
 		padding-left: 4.5%;
 		width: 95.5%;
@@ -69,6 +47,9 @@ body{
       padding-left: 21.4%;
       width: 96%;
     }
+    .articlebgimg{
+      width: 100%;
+    }
   }
   .timeline{
 		left: 15.9%;
@@ -79,8 +60,8 @@ body{
 }
 
 @media (min-width: 837px) {
-  .fm-l{width: 20rem;}
-  .fm-r{padding-left: 20rem;}
+  .fm-side{width: 20rem;}
+  .fm-article{margin-left: 20rem;}
 }
 
 @media (min-width: 1024px) {
@@ -99,51 +80,61 @@ body{
   .document{
 		width: 61.5rem;
   }
-  .articleprofiletitle{
-		padding-left: 7rem;
-		width: 40.4rem;
-  }
-  .articleprofiletext{
-  	padding-left: 14rem;
-  	width: 58rem;
+  .articleprofile{
+    .articleprofiletitle{
+      padding-left: 7rem;
+      width: 40.4rem;
+    }
+    .articleprofiletext{
+      padding-left: 14rem;
+      width: 62.72rem;
+    }
+    .articlebgimg{
+      width: 65.375rem;
+    }
   }
 }
 
 @media (max-width: 749px) {
 	#fmContainer{
-		position: absolute;
+    background-color: #f2f2f2;
 		.fm-body{
-			&:after{
-				content: '';
-				display: block;
-				clear: both;
-			}
-			.fm-l{
-				float: left;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+			.fm-side{
+        position: fixed;
+        z-index: 3;
+        background-color: #fff;
 				margin-left: -61.8%;
 				width: 61.8%;
 			}
-			.fm-r{
-				float: left;
+			.fm-article{
 				width: 100%;
+        .articleprofile{
+          position: fixed;
+          .articleprofiletitle{
+            padding-left: 6.7%;
+            width: 61.8%;
+          }
+          .articleprofiletext{
+            padding-left: 14%;
+            width: 96%;
+          }
+          .articlebgimg{
+            width: 100%;
+          }
+        }
+        .articlelist{
+          .document{
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+            background-color: #fff;
+          }
+        }
 			}
 		}
 	}
-  .document{
-  	padding-left: 1.2rem;
-  	padding-right: 1.2rem;
-  }
-  .articleprofile{
-    position: fixed;
-    .articleprofiletitle{
-      padding-left: 6.7%;
-      width: 61.8%;
-    }
-    .articleprofiletext{
-      padding-left: 14%;
-      width: 96%;
-    }
-  }
   .timeline{
 		left: 3rem;
   }

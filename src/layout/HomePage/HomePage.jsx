@@ -15,13 +15,11 @@ class HomePage extends Component {
 		let _query = query && query.get ? query.get : ''
 		return (
 			<div className="fm-body">
-				<div className="fm-l">
+				<div className="fm-side">
 					<AuthorInfo />
 					<NavBar paramId={_query}/>
 				</div>
-				<div className="fm-r">
-					<ArticlePaper paramId={_query}/>
-				</div>
+				<ArticlePaper paramId={_query}/>
 			</div>
 		)
 	}

@@ -6,7 +6,6 @@
 		top: 0;
 		z-index: 2;
 		width: 100%;
-		border-bottom: 1rem solid #fff;
 		.articleprofiletitle{
 			cursor: default;
 			position: relative;
@@ -14,7 +13,7 @@
 			margin: 0;
 			padding-top: 2rem;
 			// padding-left: 7rem;
-			font-size: 2.4rem;
+			font-size: 2.3rem;
 			// width: 61.8%;
 			overflow: hidden;
 			text-overflow:ellipsis;
@@ -42,13 +41,37 @@
 		  text-indent: 2em;
 		  line-height: 2;
 		}
-		&>img{
+		.articlebgimg{
 			position: absolute;
+			top: 0;
 			left: 0;
-			bottom: 0;
+			height: 100%;
 		}
 	}
 	.articlelist{
 		box-sizing: border-box;
 	}
+}
+
+.example-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+}
+
+.example-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0;
+}
+
+.link-active {
+  color: #bbbbbb;
+  text-decoration: none;
 }

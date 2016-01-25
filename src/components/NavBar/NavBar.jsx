@@ -2,8 +2,8 @@
 import React, { PropTypes, Component } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { Link } from 'react-router'
-import { categorys } from '../../cache/datacache'
-import { witchCategory, isCategory } from '../../lib/util'
+import { categorys } from '../../static.config'
+import { witchCategory } from '../../lib/util'
 import './style.less'
 
 class NavBar extends Component {

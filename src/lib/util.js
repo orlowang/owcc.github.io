@@ -1,7 +1,8 @@
 
 'use strict'
 
-var categorys = require('../cache/datacache').categorys
+var categorys = require('../static.config').categorys
+var posts = require('../cache/datacache').posts
 var docrsp = require('../static.config').docrsp
 var marked = require('marked')
 var assign = require('react/lib/Object.assign');
@@ -22,10 +23,9 @@ module.exports = {
 				return categorys[i].id
 				break
 			} else{
-				for (var j = 0; j < categorys[i].posts.length; j++) {
-					var post = categorys[i].posts
-					if (post[j].id == arg) {
-						return categorys[i].id
+				for (var j = 0; j < posts.length; j++) {
+					if (posts[j].id == arg) {
+						return posts[j].category
 						break
 					}
 				}

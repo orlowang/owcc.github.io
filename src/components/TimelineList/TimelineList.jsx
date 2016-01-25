@@ -1,7 +1,8 @@
 
 import React, { PropTypes, Component } from 'react'
-import { categorys, posts } from '../../cache/datacache'
+import { posts } from '../../cache/posts'
 import { Link } from 'react-router'
+import { isCategory } from '../../lib/util'
 import './style.less'
 
 class TimelineList extends Component {
@@ -16,16 +17,14 @@ class TimelineList extends Component {
 	render() {
 
 		let _posts = []
-		
-		if (this.props.categoryId == 0) {
+		let _id = this.props.categoryId
+		if (_id == 0) {
 			_posts = posts
 		} else{
-			let ids = []
-			for (let i = 0; i < categorys.length; i++) {
-				ids.push(categorys[i].id)	
-			}
-			if (ids.indexOf(this.props.categoryId) >= 0) {
-				_posts = categorys[ids.indexOf(this.props.categoryId)].posts
+			if (isCategory != null) {
+				posts.map(function(post){
+					if (post.category == _id) { _posts.push(post) }
+				})
 			}
 		}
 

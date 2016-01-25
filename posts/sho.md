@@ -2,7 +2,9 @@
 "title":"快乐主义でぃこぅ",
 "subtitle":"请称呼他为“SHO”，或者以他喜欢的方式，叫一声“翔君”",
 "bgphoto":"#a06",
-"publishtime":"2015/12/2"
+"publishtime":"2015/12/02",
+"category":"mess",
+"preview":""
 end-->
 
 ## SHO

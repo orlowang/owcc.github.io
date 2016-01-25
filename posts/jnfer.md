@@ -2,7 +2,9 @@
 "title":"jnfer",
 "subtitle":"A framework with new ES(js) library",
 "bgphoto":"#f60",
-"publishtime":"2016/1/7"
+"publishtime":"2016/01/07",
+"category":"mess",
+"preview":""
 end-->
 
 ## 构架

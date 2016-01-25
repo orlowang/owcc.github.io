@@ -7,8 +7,10 @@ html,
 body{
 	width: 100%;
 	height: 100%;
+  overflow: hidden;
 }
 body{
+  backface-visibility:hidden;
 	#fmContainer{
 		font-family: "Segoe UI", "Andale Mono", "Microsoft YaHei";
 		user-select: none;
@@ -21,7 +23,9 @@ body{
 				height: 100%;
 			}
 			.fm-article{
-				height: 100%;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
 				box-sizing: border-box;
 			}
 		}
@@ -99,18 +103,43 @@ body{
 	#fmContainer{
     background-color: #f2f2f2;
 		.fm-body{
-      overflow-y: auto;
-      overflow-x: hidden;
-      -webkit-overflow-scrolling: touch;
 			.fm-side{
-        position: fixed;
+        position: absolute;
         z-index: 3;
         background-color: #fff;
 				margin-left: -61.8%;
 				width: 61.8%;
+        #menu{
+          position: absolute;
+          width: 1.6rem;
+          height: .2rem;
+          top: 1.4rem;
+          background-color: #fff;
+          z-index: 3;
+          right: -2.4rem;
+          &:before{
+            content: '';
+            width: 1.6rem;
+            height: .2rem;
+            background-color: #fff;
+            position: absolute;
+            top: .6rem;
+            left: 0;
+          }
+          &:after{
+            content: '';
+            width: 1.6rem;
+            height: .2rem;
+            background-color: #fff;
+            position: absolute;
+            bottom: .6rem;
+            left: 0;
+          }
+        }
 			}
 			.fm-article{
 				width: 100%;
+        -webkit-overflow-scrolling: touch;
         .articleprofile{
           position: fixed;
           .articleprofiletitle{

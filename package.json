@@ -9,7 +9,8 @@
     "build": "webpack --progress --colors",
     "clean": "node bin/clean",
     "rbuild": "node bin/clean && webpack --progress --colors",
-    "release": "node bin/clean && webpack --progress --colors --release"
+    "release": "node bin/clean && webpack --progress --colors --release",
+    "deploy": "node autopost"
   },
   "repository": {
     "type": "git",

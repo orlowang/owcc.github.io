@@ -17,6 +17,7 @@ body{
 		height: 100%;
 		width: 100%;
 		.fm-body{ 
+      width: 100%;
 			height: 100%;
 			.fm-side{
         position: fixed;
@@ -36,6 +37,40 @@ body{
 	.fm-side{
     width: 38.2%;
 	}
+  .category{
+    padding-top: 2rem;
+    .navtitle{
+      .titletext{
+        margin: 0;
+      }
+    }
+    .navlist{
+      text-align: right;
+      border-right: 3px solid #ddd;
+      margin-right: 1rem;
+      .list{
+        display: block;
+        color: #333;
+        margin: 20px -3px 20px 0;
+        font-size: 1.2rem;
+        a{
+          color: #333;
+          padding-right: 1rem;
+          text-decoration: none;
+          cursor: default;
+          transition: all 150ms ease-in;
+          span{cursor: pointer;}
+        }
+        .on{
+          color: #000;
+          font-weight: 600;
+          border-right: 3px solid #000;
+          padding-right: 2rem;
+          span{border-bottom: 1px solid #333;}
+        }
+      }
+    }
+  }
 	.fm-article{margin-left: 38.2%;}
   .document{
 		padding-left: 4.5%;
@@ -107,33 +142,42 @@ body{
         position: absolute;
         z-index: 3;
         background-color: #fff;
-				margin-left: -61.8%;
-				width: 61.8%;
+				margin-left: -81.8%;
+				width: 81.8%;
         #menu{
           position: absolute;
-          width: 1.6rem;
-          height: .2rem;
-          top: 1.4rem;
-          background-color: #fff;
+          width: 2.3rem;
+          height: 3rem;
           z-index: 3;
-          right: -2.4rem;
-          &:before{
-            content: '';
+          right: -3rem;
+          padding-left: 0.7rem;
+          &>.ico{
+            position: absolute;
             width: 1.6rem;
             height: .2rem;
+            top: 1.4rem;
             background-color: #fff;
-            position: absolute;
-            top: .6rem;
-            left: 0;
-          }
-          &:after{
-            content: '';
-            width: 1.6rem;
-            height: .2rem;
-            background-color: #fff;
-            position: absolute;
-            bottom: .6rem;
-            left: 0;
+            border-radius: .2rem;
+            &:before{
+              content: '';
+              width: 1.6rem;
+              height: .2rem;
+              background-color: #fff;
+              position: absolute;
+              top: .6rem;
+              left: 0;
+              border-radius: .2rem;
+            }
+            &:after{
+              content: '';
+              width: 1.6rem;
+              height: .2rem;
+              background-color: #fff;
+              position: absolute;
+              bottom: .6rem;
+              left: 0;
+              border-radius: .2rem;
+            }
           }
         }
 			}

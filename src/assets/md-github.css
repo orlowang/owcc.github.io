@@ -49,17 +49,16 @@
   border-left-style: solid;
   border-left-color: #f7ebc6;
 }
-.markdown-body pre:after{
+.markdown-body pre code:after{
   position: absolute;
   top: 0;
-  right: 0;
   left: 0;
   padding: 3px 7px;
   font-size: 12px;
   font-weight: bold;
   color: #c2c0bc;
-  background-color: #f1ede4;
-  content: "Code";
+  content: attr(class);
+  letter-spacing: 0;
 }
 
 .markdown-body code,
@@ -470,7 +469,7 @@
 
 .markdown-body .highlight pre,
 .markdown-body pre {
-  padding: 33px 16px 16px;
+  /*padding: 33px 16px 16px;*/
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
@@ -487,7 +486,7 @@
 }
 
 .markdown-body pre code {
-  display: inline;
+  display: inline-block;
   max-width: initial;
   padding: 0;
   margin: 0;
@@ -496,10 +495,11 @@
   word-wrap: normal;
   background-color: transparent;
   border: 0;
+  border-top: 23px solid #f1ede4;
+  padding: 16px;
 }
 
-.markdown-body pre code:before,
-.markdown-body pre code:after {
+.markdown-body pre code:before{
   content: normal;
 }
 

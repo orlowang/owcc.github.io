@@ -66,5 +66,16 @@ module.exports = {
 		cb(data)
 	},
 
-	getHTMLFontSize: function(){}
+	getHTMLFontSize: function(){},
+
+	aniLeng: function(lengstart, lengend, time){
+		var ftp = 60
+		var _timer = setInterval(function(){
+			if (lengstart >= lengend) {
+				clearInterval(_timer)
+			}
+			lengstart += (lengend - lengstart) / ftp
+		}, time / ftp)
+		return lengstart
+	}
 } 

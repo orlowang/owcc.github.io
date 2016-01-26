@@ -73,12 +73,12 @@ React.render(
 >   [译者注]如下边的例子，浏览器第一次渲染Card时创建p1,p2，紧接着又重新渲染(由于Render Pass2)Card，这个时候可以认为两个Card结构做了一次‘中和’，
 
 ```html
-// Render Pass 1
+<!--  Render Pass 1 -->
 <Card>
   <p>Paragraph 1</p>
   <p>Paragraph 2</p>
 </Card>
-// Render Pass 2
+<!-- Render Pass 2 -->
 <Card>
   <p>Paragraph 2</p>
 </Card> 
@@ -93,12 +93,12 @@ React.render(
 对大多数组件来说，状态不是什么大问题。但是对于一些在渲染(Render)过程中通过```this.state```来维持状态的富状态组件来说，这将是个麻烦事。大多是情况是，隐藏一些元素而不是销毁它们来规避被中和
 
 ```html
-// Render Pass 1
+<!-- Render Pass 1 -->
 <Card>
   <p>Paragraph 1</p>
   <p>Paragraph 2</p>
 </Card>
-// Render Pass 2
+<!-- Render Pass 2 -->
 <Card>
   <p style={{display: 'none'}}>Paragraph 1</p>
   <p>Paragraph 2</p>
@@ -125,7 +125,7 @@ render: function() {
 当在中和这些被绑定了```key```的元素时，React能够确认那些能被重新排序(而不是被破坏)或者被销毁(而不是重复使用)。```key```应该直接应用到组件的队列中，而不是队列中每个组件的HTML容器。
 
 ``` javascript
-// WRONG!
+/* WRONG! */
 var ListItemWrapper = React.createClass({
   render: function() {
     return <li key={this.props.data.id}>{this.props.data.text}</li>;
@@ -143,7 +143,7 @@ var MyComponent = React.createClass({
   }
 });
 
-// Correct :)
+/* Correct :) */
 var ListItemWrapper = React.createClass({
   render: function() {
     return <li>{this.props.data.text}</li>;

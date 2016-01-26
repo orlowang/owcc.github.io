@@ -53,7 +53,7 @@ module.exports = {
 		var tmp$3 = '{' + tmp$2[1].replace(/[\n]/ig, '') + '}'
 		var data = JSON.parse(tmp$3)
 		
-		require('highlight.js/styles/monokai-sublime.css')
+		require('highlight.js/styles/xcode.css')
 		require('../assets/md-github.css')
 
 		marked.setOptions({

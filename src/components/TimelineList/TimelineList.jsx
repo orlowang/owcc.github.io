@@ -30,16 +30,69 @@ class TimelineList extends Component {
 
 		var child = _posts.map(function(post, i){
 			let tmp$time = post.publishtime.split('/')
+			let month, bgcolor
+
+			switch(tmp$time[1]){
+				case '01':
+					month = 'Jan'
+					bgcolor = '#dc0000'
+					break
+				case '02':
+					month = 'Feb'
+					bgcolor = '#dc0000'
+					break
+				case '03':
+					month = 'Mar'
+					bgcolor = '#dc0000'
+					break
+				case '04':
+					month = 'Apr'
+					bgcolor = '#dc0000'
+					break
+				case '05':
+					month = 'May'
+					bgcolor = '#dc0000'
+					break
+				case '06':
+					month = 'Jun'
+					bgcolor = '#dc0000'
+					break
+				case '07':
+					month = 'Jul'
+					bgcolor = '#dc0000'
+					break
+				case '08':
+					month = 'Aug'
+					bgcolor = '#dc0000'
+					break
+				case '09':
+					month = 'Sep'
+					bgcolor = '#dc0000'
+					break
+				case '10':
+					month = 'Oct'
+					bgcolor = '#dc0000'
+					break
+				case '11':
+					month = 'Nov'
+					bgcolor = '#dc0000'
+					break
+				case '12':
+					month = 'Dec'
+					bgcolor = '#dc0000'
+					break
+			}
+
 			return (
 				<div key={i} className="listcard">
-					<div className="photo">
-						<div className="timepoint"></div>
-						<div className="date">{`${tmp$time[1]}/${tmp$time[2]}`}</div>
-						{post.preview != '' ? <img className="cardcover" src={post.preview} alt=""/> : null}
-					</div>
+					<div className="timepoint"></div>
+					<div className="date" style={{ backgroundColor: bgcolor }}>{`${month} ${tmp$time[2]}`}</div>
 					<div className="docinfo">
 						<Link query={{ get: post.id }} to='/'>{post.title}</Link>
 						<p className="text">{post.subtitle}</p>
+						<div className="photo">
+							{post.preview != '' ? <div className="cardcover" style={{ backgroundImage: `url(${post.preview})`, backgroundSize: '100%' }} alt=""></div> : null}
+						</div>
 					</div>
 				</div>
 			)

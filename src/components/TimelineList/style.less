@@ -5,8 +5,7 @@
 
 .fm-timeline{
 	height: 100%;
-	background-color: rgb(245,245,245);
-	position: relative;
+	// position: relative;
 	.timeline{
 		width: 4px;
 		height: 100%;
@@ -34,62 +33,80 @@
 		}
 	}
 	.lestcardcontainer{
-		// padding-left: 5rem;
+		padding-bottom: 3rem;
 		padding-top: 3.2rem;
 		.listcard{}
 	}
 }
 
 .listcard{
-	width: 44rem;
+	// width: 44rem;
 	background-color: #fff;
 	margin-top: 2rem;
 	position: relative;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-	overflow: hidden;
-	.photo{
-		// min-height: 127px;
-		min-width: 70px;
-		float: left;
-		.cardcover{
-			width: 300px;
-			height: 200px;
-			float: left;
-			margin-right: 1rem;
-		}
-		.timepoint{
-			position: absolute;
-			width: 12px;
-			height: 12px;
-			border-radius: 9px;
-			background-color: #555;
-			margin-left: 28px;
-			top: 1.3rem;
-		}
+	.timepoint{
+		position: absolute;
+		width: 12px;
+		height: 12px;
+		border-radius: 9px;
+		background-color: #555;
+		margin-left: 28px;
+		top: 1.6rem;
+		z-index: 2;
+	}
+	.date{
+		position: absolute;
+		top: 1.1rem;
+		left: -.3rem;
+		padding: .2rem .3rem;
+		text-align: center;
+		cursor: default;
+		font-size: 1rem;
+		color: #fff;
+	}
+	&:hover{
 		.date{
-			position: absolute;
-			top: 36px;
-			width: 70px;
-			text-align: center;
-			cursor: default;
-			font-size: 1.2rem;
+			left: -3.4rem;
+			transition: left 150ms ease-out;
 		}
 	}
 	.docinfo{
 		padding: 1rem;
 		box-sizing: border-box;
 		height: 100%;
+		position: relative;
+		z-index: 1;
+		border-radius: 5px;
+		background-color: #fff;
+		overflow: hidden;
 		a{
 			color: #000;
 			font-size: 1.4rem;
 			text-decoration: none;
 			border-bottom: 1px solid #333;
+	    margin-left: 3.4rem;
 		}
 		.text{
 			cursor: default;
 			text-indent: 2em;
 			line-height: 1.6;
 			letter-spacing: 1px;
+			max-height: 6.61rem;
+			overflow: hidden;
+		}
+		.photo{
+			// min-height: 127px;
+			width: 18.75em;
+			float: right;
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 2;
+			.cardcover{
+				width: 100%;
+				padding-bottom: 61.8%;
+			}
 		}
 	}
 }

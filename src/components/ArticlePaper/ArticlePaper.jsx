@@ -143,9 +143,9 @@ class ArticlePaper extends Component {
 		
 		let articlebgcolor = this.state.bgphoto.split('&')[0]
 		let articlebgimg = this.state.bgphoto.split('&')[1]
-		
+		console.log(articlebgimg)
 		return (
-			<div ref="article" className="fm-article" style={iscate != null ? {overflow: 'hidden'} : {}}>
+			<div ref="article" className="fm-article">
 				<div ref="articleProfile" className="articleprofile" style={{
 					backgroundColor: articlebgcolor == '' ? '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6) : articlebgcolor
 				}}>

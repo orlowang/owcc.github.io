@@ -4,7 +4,7 @@
 "bgphoto":"#f60",
 "publishtime":"2015/12/01",
 "category":"mess",
-"preview":""
+"preview":"post1001.jpg"
 end-->
 
 ## 威廉·华莱士

@@ -6,7 +6,7 @@ import ArticlePaper from '../../components/ArticlePaper'
 import AuthorInfo from '../../components/AuthorInfo'
 import NavBar from '../../components/NavBar'
 import TimelineList from '../../components/TimelineList'
-import { aniLeng } from '../../lib/util'
+import { starsAnimate } from '../../lib/util'
 
 import './style.less'
 
@@ -18,7 +18,6 @@ class HomePage extends Component {
 		this.refs.fmBody.style.left = '81.8%'
 		this.refs.wrap.style.webkitFilter = 'blur(5px)'
 		this.refs.fmBody.className = _cn + ' slide'
-		console.log(this.refs.fmBody.className)
 		this.refs.wrap.addEventListener('touchstart', () => {
 			this.refs.wrap.addEventListener('touchend', () => {
 				this.refs.fmBody.style.left = ''
@@ -28,15 +27,36 @@ class HomePage extends Component {
 		})
 	}
 
+	componentDidMount() {
+		let _screenX = document.body.clientWidth
+		let _timeHour = new Date().getHours()
+		_screenX >= 750 && _timeHour <= 6 && _timeHour >= 20 && starsAnimate({
+			width: this.refs.fmSide.clientWidth, 
+			height: this.refs.fmSide.clientHeight,
+			gray: false,
+			minColor: 100
+		})
+	}
+
 	render() {
 
 		let { id } = this.props.params
 		let { query } = this.props.location
 		let _query = query && query.get ? query.get : ''
+		let _screenX = document.body.clientWidth
+		let _timeHour = new Date().getHours()
+
 		return (
 			<div ref="fmBody" className="fm-body">
-				<div className="fm-side">
-					<div id="menu" onTouchStart={this.slideToggle.bind(this)}><div className="ico"></div></div>
+				<div ref="fmSide" className="fm-side">
+					{_screenX >= 750 ? _timeHour <= 6 && _timeHour >= 20 && <canvas id="fmSideBG" style={{
+							width: '100%',
+							height: '100%',
+							position: 'absolute',
+							top: 0,
+							left: 0
+						}}></canvas> : <div id="menu" onTouchStart={this.slideToggle.bind(this)}><div className="ico"></div></div>
+					}
 					<AuthorInfo />
 					<NavBar paramId={_query}/>
 				</div>

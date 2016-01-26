@@ -4,7 +4,7 @@
 "bgphoto":"#a07",
 "publishtime":"2015/12/31",
 "category":"coding",
-"preview":""
+"preview":"post1004.jpg"
 end-->
 
 ### Nginx在Lunix下的编译和部署

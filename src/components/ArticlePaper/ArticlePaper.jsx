@@ -153,7 +153,7 @@ class ArticlePaper extends Component {
 					<p ref="articleprofiletext" className="articleprofiletext" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.subtitle}</p>
 					{articlebgimg != ''&& articlebgimg != undefined && <div className="articlebgimg" style={{background: `url(${articlebgimg}) center bottom no-repeat`}}></div>}
 				</div>
-				<div className="articlelist" style={iscate != null ? {paddingTop: '13rem'} : {paddingTop: '15rem'}}>{child}</div>
+				<div className="articlelist" style={iscate != null ? {paddingTop: '13rem'} : {paddingTop: '15rem', backgroundColor: '#fff'}}>{child}</div>
 			</div>
 		)
 	}

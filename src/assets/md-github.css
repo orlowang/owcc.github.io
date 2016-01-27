@@ -488,6 +488,7 @@
 .markdown-body pre code {
   display: inline-block;
   max-width: initial;
+  min-width: 100%;
   padding: 0;
   margin: 0;
   overflow: initial;
@@ -873,4 +874,16 @@
   float: left;
   margin: 0.3em 0 0.25em -1.6em;
   vertical-align: middle;
+}
+
+/* extends */
+
+.markdown-body pre code.lang-bash{
+  background-color: #151515;
+  color: #fff;
+}
+.markdown-body pre code.lang-bash::selection,
+.markdown-body pre code.lang-bash span::selection{
+  background:#fff;
+  color:#000;
 }

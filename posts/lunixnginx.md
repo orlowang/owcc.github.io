@@ -2,7 +2,7 @@
 "title":"Nginx在Lunix下的编译和部署",
 "subtitle":"Nginx在Lunix下的编译和部署",
 "bgphoto":"#a07",
-"publishtime":"2015/12/31",
+"publishtime":"2015/05/31",
 "category":"coding",
 "preview":"post1004.jpg"
 end-->

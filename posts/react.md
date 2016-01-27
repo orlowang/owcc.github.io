@@ -2,7 +2,7 @@
 "title":"「React教程」(向导)复合组件",
 "subtitle":"创建模块化的组件并重用其他拥有良好接口的模块能带来跟使用(或者说重用)functions&classes一样的好处。特别是可以将你在开发app的过程中将不同的关注分离开来(比如，数据/状态/UI等)，however you please simply by building new components.为你的项目创建一个组件仓库，为你的网站做出最合适的界面。",
 "bgphoto":"#33b15d",
-"publishtime":"2016/01/28",
+"publishtime":"2015/06/28",
 "category":"coding",
 "preview":""
 end-->

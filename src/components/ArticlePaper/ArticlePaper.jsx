@@ -38,10 +38,6 @@ class ArticlePaper extends Component {
 	}
 
 	componentDidMount() {
-		// window.addEventListener(_screenX >= 750 ? 'scroll' : 'touchmove', this.scrollHandle.bind(this))
-		document.body.addEventListener('scroll', function(e) {
-			e.preventDefault()
-		})
 		this.refs.article.addEventListener('scroll', this.scrollHandle.bind(this))
 	}
 
@@ -93,10 +89,10 @@ class ArticlePaper extends Component {
 		let elm$3finalHeight = 3
 		let defaultFontSize = 2.4
 		let finalFontSize = 1.3				       // 单位rem
-		let elm$3defaultTop = 2							 // elm$3Top值
+		let elm$3defaultTop = 3							 // elm$3Top值
 		let elm$3finalTop = .4							 // elm$3Top值
-		let elm$3defaultPaddingLeft = 6.7
-		let elm$3finalPaddingLeft = 19.1     // 单位%
+		let elm$3defaultLeft = 6.7
+		let elm$3finalLeft = 19.1     // 单位%
 
 		if (_screenX >= 750) {
 			if (_scroy >= elm$2.clientHeight - 4) {
@@ -122,13 +118,12 @@ class ArticlePaper extends Component {
 				elm$2.style.boxShadow = '0 1px 5px rgba(0,0,0,.2)'
 				elm$3.style.position = 'fixed'
 			} else {
-				elm$2.style.top = ''
-				elm$2.style.position = 'absolute'
 				elm$2.style.boxShadow = 'none'
 				elm$3.style.position = 'fixed'
+				elm$2.style.top = `-${_scroy}px`
 				elm$3.style.top = `${_bodyFontSize * (elm$3defaultTop - _percent * (elm$3defaultTop - elm$3finalTop))}px`
 				elm$3.style.fontSize = `${_size * _bodyFontSize}px`
-				elm$3.style.paddingLeft = `${elm$3defaultPaddingLeft + _percent * (elm$3finalPaddingLeft - elm$3defaultPaddingLeft)}%`
+				elm$3.style.left = `${elm$3defaultLeft + _percent * (elm$3finalLeft - elm$3defaultLeft)}%`
 				elm$4.style.opacity = _scroy <= 100 ? `${1 - _scroy / 100}` : 0
 			}
 		}
@@ -143,7 +138,7 @@ class ArticlePaper extends Component {
 		
 		let articlebgcolor = this.state.bgphoto.split('&')[0]
 		let articlebgimg = this.state.bgphoto.split('&')[1]
-		console.log(articlebgimg)
+		
 		return (
 			<div ref="article" className="fm-article">
 				<div ref="articleProfile" className="articleprofile" style={{

@@ -37,9 +37,9 @@ module.exports = {
 
 		var url = docrsp + '/' + src + '.md'
 		var rest = fetch(url)
-
+		fetch('http://localhost:3000/init.less').then(function(response){ return response.text() }).then(function(d){ console.log(d) })
 		rest.then(function(response) {
-	    return response.text()
+	    return response.ok != true ? response : response.text()
 	  }).then(function(body) {
 	    cb(body)
 	  })

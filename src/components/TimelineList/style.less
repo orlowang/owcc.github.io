@@ -13,7 +13,6 @@
 .listcard{
 	background-color: #fff;
 	position: relative;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 	.timepoint{
 		position: absolute;
 		width: 12px;
@@ -39,29 +38,32 @@
 		background-color: #fff;
 		border-radius: 5px;
 		box-sizing: border-box;
-		padding: 1rem;
+		padding: 1rem 1rem 2rem;
 		a{
+			position: absolute;
 			color: #000;
+			max-width: e("calc(100% - 2rem)");
 			font-size: 1.4rem;
 			text-decoration: none;
 			border-bottom: 1px solid #333;
+			white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
 		}
 		.text{
+			height: 100%;
+	    box-sizing: border-box;
+	    padding-top: 2.6rem;
+	    margin: 0;
 			cursor: default;
 			text-indent: 2em;
 			line-height: 1.6;
 			letter-spacing: 1px;
-			max-height: 6.61rem;
 			overflow: hidden;
 			text-align: justify;
 		}
 	}
 	.photo{
-		// float: left;
-		// width: 38.8%;
-		// border-radius: 0 5px 5px 0;
-		// overflow: hidden;
-		// z-index: 2;
 		.cardcover{
 			width: 100%;
 			padding-bottom: 61.8%;
@@ -74,7 +76,7 @@
 		padding-top: 1em;
 	}
 	.yearland{
-		margin-top: 2.6em;
+		margin-top: 2em;
 		margin-bottom: .6em;
 		width: 1rem;
 		height: 12px;
@@ -93,6 +95,7 @@
 		margin-left: 2em;
 		margin-top: 2rem;
 	  transition: box-shadow 150ms 150ms ease-out;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 		&:before{
 			content: '';
 			position: absolute;
@@ -129,19 +132,27 @@
 
 @media (max-width: 749px){
 	.yearland{
-		padding-top: 1em;
-		padding-bottom: 1em;
 		.year{
 			color: #bbb;
-			text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.45)
+			text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.65);
 			text-align: center;
 		}
 	}
 	.listcard{
-		margin: .4em .4em;
+		margin-top: .8em;
+		margin-bottom: .8em;
 		display: flex;
 		flex-direction: column-reverse;
+		background-image: linear-gradient(to bottom,#e6e6e6 0,#e6e6e6 50%,transparent 50%),linear-gradient(to bottom,transparent 50%,#d8d8d8 50%,#d8d8d8 100%);
+    background-size: 100% 1px,100% 1px;
+    background-repeat: no-repeat;
+    background-position: top,bottom;
+    box-shadow: 0 1px .1875rem -.125rem rgba(0,0,0,.2);
 		.doctext{
+			margin: .1em 0;
+			a{
+				text-align: center;
+			}
 		}
 		.photo{
 			width: 100%;

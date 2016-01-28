@@ -11,7 +11,7 @@
 			position: absolute;
 			z-index: 1;
 			margin: 0;
-			top: 2rem;
+			top: 3rem;
 			font-size: 2.3rem;
 			overflow: hidden;
 			text-overflow:ellipsis;
@@ -48,6 +48,11 @@
 		min-height: 100%;
 		box-sizing: border-box;
 	}
+}
+@media (max-width: 749px) {
+	.fm-article{
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 .example-enter {

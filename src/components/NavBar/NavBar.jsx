@@ -25,7 +25,7 @@ class NavBar extends Component {
 		let navitem = categorys.map(function(cate, i){
 			return (
 				<li key={i} className="list">
-					<Link query={{ get: cate.id }} activeClassName="on" className={_cate == cate.id ? 'on' : ''} to='/'><span>{cate.title}</span></Link>
+					<Link query={{ get: cate.id }} activeClassName="on" className={_cate == cate.id ? 'on' : ''} to='/'><span className="menuhref">{cate.title}</span></Link>
 				</li>
 			)
 		})

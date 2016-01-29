@@ -80,8 +80,9 @@
 		margin-bottom: .6em;
 		width: 1rem;
 		height: 12px;
-		background-color: #555;
+		background-color: #fff;
 		border-radius: 0 9px 9px 0;
+    box-shadow: 0.6px 0.4px 2px rgba(0, 0, 0, 0.26);
 		.year{
 			position: relative;
 			top: -.6rem;
@@ -89,6 +90,9 @@
 			margin-left: 1.6rem;
 			cursor: default;
 			font-size: 1.4rem;
+			font-weight: 600;
+			color: #fff;
+			text-shadow: 0 0 1px rgba(0, 0, 0, 0.6)
 		}
 	}
 	.listcard{
@@ -99,7 +103,7 @@
 		&:before{
 			content: '';
 			position: absolute;
-			border-bottom: 4px dotted #555;
+			border-bottom: 4px dotted #ccc;
 			width: 0;
 			display: block;
 			margin-left: -2em;

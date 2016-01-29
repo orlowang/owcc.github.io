@@ -36,13 +36,17 @@ class ArticlePaper extends Component {
 	componentWillMount() {
 		this.setStateHandle(this.props.paramId)
 	}
+	componentWillUpdate() {
+		this.scrollHandle()
+	}
 
 	componentDidMount() {
-		this.refs.article.addEventListener('scroll', this.scrollHandle.bind(this))
+		this.scrollHandle()
+		this.refs.article.addEventListener('scroll', this.scrollHandle())
 	}
 
 	componentWillUnmount() {
-		this.refs.article.removeEventListener('scroll', this.scrollHandle.bind(this))
+		this.refs.article.removeEventListener('scroll', this.scrollHandle())
 	}
 
 	setStateHandle(arg){
@@ -78,53 +82,53 @@ class ArticlePaper extends Component {
 	}
 
 	scrollHandle(){
-		let elm$2 = this.refs.articleProfile
-		let elm$3 = this.refs.articleprofiletitle
-		let elm$4 = this.refs.articleprofiletext
-		let elm$3_style = document.defaultView.getComputedStyle(elm$3, null)
-		let _screenX = document.body.clientWidth
-		let _scroy = this.refs.article.scrollTop
-		let _bodyFontSize = parseInt(document.defaultView.getComputedStyle(document.body, null).fontSize)
-		
-		let elm$3finalHeight = 3
-		let defaultFontSize = 2.4
-		let finalFontSize = 1.3				       // 单位rem
-		let elm$3defaultTop = 3							 // elm$3Top值
-		let elm$3finalTop = .4							 // elm$3Top值
-		let elm$3defaultLeft = 6.7
-		let elm$3finalLeft = 19.1     // 单位%
-
-		if (_screenX >= 750) {
-			if (_scroy >= elm$2.clientHeight - 4) {
-				elm$2.style.top = `-${elm$2.clientHeight - 4}px` 
-				elm$2.style.position = 'fixed'
-				elm$2.style.borderBottom = '1rem solid #fff'
-			} else {
-				elm$2.style.top = ''
-				elm$2.style.position = 'absolute'
-				elm$2.style.borderBottom = 'none'
-			}
-		} else {
-			let _percent = _scroy / (elm$2.clientHeight - elm$3finalHeight * _bodyFontSize)
-			let _size = defaultFontSize - _percent * (defaultFontSize - finalFontSize)
-			_size >= 2.3 && _size == 2.3
+		return () => {
+			let elm$2 = this.refs.articleProfile
+			let elm$3 = this.refs.articleprofiletitle
+			let elm$4 = this.refs.articleprofiletext
+			let elm$3_style = document.defaultView.getComputedStyle(elm$3, null)
+			let _screenX = document.body.clientWidth
+			let _scroy = this.refs.article.scrollTop
+			let _bodyFontSize = parseInt(document.defaultView.getComputedStyle(document.body, null).fontSize)
 			
-			_scroy < 0 && _scroy == 0
-			if (_scroy <= 0) {
-				elm$3.style.position = 'absolute'
-			} else if (_scroy >= elm$2.clientHeight - elm$3finalHeight * _bodyFontSize) {
-				elm$2.style.top = `-${elm$2.clientHeight - elm$3finalHeight * _bodyFontSize}px`
-				elm$2.style.position = 'fixed'
-				elm$2.style.boxShadow = '0 1px 5px rgba(0,0,0,.2)'
-				elm$3.style.position = 'fixed'
+			let elm$3finalHeight = 3
+			let defaultFontSize = 2.4
+			let finalFontSize = 1.3				       // 单位rem
+			let elm$3defaultTop = 3							 // elm$3Top值
+			let elm$3finalTop = .48							 // elm$3Top值
+			let elm$3defaultLeft = 6.7
+			let elm$3finalLeft = 15.1     // 单位%
+
+			if (_screenX >= 750) {
+				if (_scroy >= elm$2.clientHeight - 4) {
+					elm$2.style.top = `-${elm$2.clientHeight - 4}px` 
+					elm$2.style.position = 'fixed'
+				} else {
+					elm$2.style.top = ''
+					elm$2.style.position = 'absolute'
+				}
 			} else {
-				elm$2.style.boxShadow = 'none'
-				elm$3.style.position = 'fixed'
-				elm$2.style.top = `-${_scroy}px`
-				elm$3.style.top = `${_bodyFontSize * (elm$3defaultTop - _percent * (elm$3defaultTop - elm$3finalTop))}px`
-				elm$3.style.fontSize = `${_size * _bodyFontSize}px`
-				elm$3.style.left = `${elm$3defaultLeft + _percent * (elm$3finalLeft - elm$3defaultLeft)}%`
-				elm$4.style.opacity = _scroy <= 100 ? `${1 - _scroy / 100}` : 0
+				let _percent = _scroy / (elm$2.clientHeight - elm$3finalHeight * _bodyFontSize)
+				let _size = defaultFontSize - _percent * (defaultFontSize - finalFontSize)
+				_size >= 2.3 && _size == 2.3
+				
+				_scroy < 0 && _scroy == 0
+				if (_scroy <= 0) {
+					elm$3.style.position = 'absolute'
+				} else if (_scroy >= elm$2.clientHeight - elm$3finalHeight * _bodyFontSize) {
+					elm$2.style.top = `-${elm$2.clientHeight - elm$3finalHeight * _bodyFontSize}px`
+					elm$2.style.position = 'fixed'
+					elm$2.style.boxShadow = '0 1px 5px rgba(0,0,0,.2)'
+					elm$3.style.position = 'fixed'
+				} else {
+					elm$2.style.boxShadow = 'none'
+					elm$3.style.position = 'fixed'
+					elm$2.style.top = `-${_scroy}px`
+					elm$3.style.top = `${_bodyFontSize * (elm$3defaultTop - _percent * (elm$3defaultTop - elm$3finalTop))}px`
+					elm$3.style.fontSize = `${_size * _bodyFontSize}px`
+					elm$3.style.left = `${elm$3defaultLeft + _percent * (elm$3finalLeft - elm$3defaultLeft)}%`
+					elm$4.style.opacity = _scroy <= 100 ? `${1 - _scroy / 100}` : 0
+				}
 			}
 		}
 	}
@@ -132,6 +136,7 @@ class ArticlePaper extends Component {
 	render() {
 		
 		let iscate = isCategory(this.props.paramId)
+		let _screenX = document.body.clientWidth
 		let child = <TimelineList categoryId={this.props.paramId == '' ? '0' : this.props.paramId}/>
 		
 		iscate == null && this.state.doc != '' ? child = <Document doc={this.state.doc}/> : 404
@@ -142,7 +147,8 @@ class ArticlePaper extends Component {
 		return (
 			<div ref="article" className="fm-article">
 				<div ref="articleProfile" className="articleprofile" style={{
-					backgroundColor: articlebgcolor == '' ? '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6) : articlebgcolor
+					backgroundColor: articlebgcolor == '' ? '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6) : articlebgcolor,
+					borderBottom: _screenX >= 750 && iscate == null ? '1rem solid #fff' : 0
 				}}>
 					<p ref="articleprofiletitle" className="articleprofiletitle" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.title}</p>
 					<p ref="articleprofiletext" className="articleprofiletext" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.subtitle}</p>

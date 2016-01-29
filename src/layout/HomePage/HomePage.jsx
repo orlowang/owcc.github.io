@@ -29,7 +29,7 @@ class HomePage extends Component {
 		let _screenX = document.body.clientWidth
 		let _cn = this.refs.fmBody.className
 		let _timeHour = new Date().getHours()
-		_screenX >= 750 && _timeHour <= 6 && _timeHour >= 20 && starsAnimate({
+		_screenX >= 750 && _timeHour <= 6 || _timeHour >= 20 && starsAnimate({
 			width: this.refs.fmSide.clientWidth, 
 			height: this.refs.fmSide.clientHeight,
 			gray: false,
@@ -55,16 +55,17 @@ class HomePage extends Component {
 		let _query = query && query.get ? query.get : ''
 		let _screenX = document.body.clientWidth
 		let _timeHour = new Date().getHours()
-
+		
 		return (
 			<div ref="fmBody" className="fm-body">
 				<div ref="fmSide" className="fm-side">
-					{_screenX >= 750 ? _timeHour <= 6 && _timeHour >= 20 && <canvas id="fmSideBG" style={{
+					{_screenX >= 750 ? _timeHour <= 6 || _timeHour >= 20 && <canvas id="fmSideBG" style={{
 							width: '100%',
 							height: '100%',
 							position: 'absolute',
 							top: 0,
-							left: 0
+							left: 0,
+							backgroundColor: '#111'
 						}}></canvas> : <div id="menu" onTouchStart={this.slideToggle.bind(this)}><div className="ico"></div></div>
 					}
 					<AuthorInfo />

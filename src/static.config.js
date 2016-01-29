@@ -3,12 +3,12 @@ var cfg = require('../github.config.js')
 module.exports = {
 	author: {
 		name: 'Orlo Wang',
-		photo: 'psb.jpg'
+		photo: 'src/assets/psb.jpg'
 	},
 	homeset: {
 		title: 'Stay Hungry, Stay Foolish.',
 		subtitle: '让你对成功的渴望像你身体的每个细胞之于氧气的渴望一般强烈；不要让“聪明”羁绊你前进的脚步。......',
-		bgphoto: '#ffffff&bgimg000.jpg'
+		bgphoto: '#ffffff&src/assets/bgimg000.jpg'
 	},
 	categorys: [
 		{

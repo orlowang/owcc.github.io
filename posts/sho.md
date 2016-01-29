@@ -4,7 +4,7 @@
 "bgphoto":"#a06",
 "publishtime":"2015/08/02",
 "category":"mess",
-"preview":"post1002.jpeg"
+"preview":"src/assets/post1002.jpeg"
 end-->
 
 ## SHO

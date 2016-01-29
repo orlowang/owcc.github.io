@@ -4,7 +4,7 @@
 "bgphoto":"#f60",
 "publishtime":"2015/03/07",
 "category":"mess",
-"preview":"post1003.jpg"
+"preview":"src/assets/post1003.jpg"
 end-->
 
 ## 构架

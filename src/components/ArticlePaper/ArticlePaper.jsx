@@ -2,6 +2,7 @@
 import React, { PropTypes, Component } from 'react'
 import TimelineList from '../TimelineList'
 import Document from '../Document'
+import ThirdCmpts from '../ThirdCmpts'
 import { fetchMarkdown, parseMarkdown, isCategory } from '../../lib/util'
 import { homeset, categorys } from '../../static.config'
 
@@ -37,6 +38,9 @@ class ArticlePaper extends Component {
 		this.setStateHandle(this.props.paramId)
 	}
 	componentWillUpdate() {
+		let timer = setInterval(() => {
+			this.refs.article.scrollTop > 0 ? this.refs.article.scrollTop -= this.refs.article.scrollTop * .2 : clearInterval(timer)
+		}, 10)
 		this.scrollHandle()
 	}
 
@@ -155,6 +159,8 @@ class ArticlePaper extends Component {
 					{articlebgimg != ''&& articlebgimg != undefined && <div className="articlebgimg" style={{background: `url(${articlebgimg}) center bottom no-repeat`}}></div>}
 				</div>
 				<div className="articlelist" style={iscate != null ? {paddingTop: '13rem'} : {paddingTop: '15rem', backgroundColor: '#fff'}}>{child}</div>
+				{}
+				{iscate == null && <ThirdCmpts thread={this.props.paramId} url={this.state.title}/>}
 			</div>
 		)
 	}

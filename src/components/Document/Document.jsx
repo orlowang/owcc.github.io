@@ -1,6 +1,5 @@
 
 import React, { PropTypes, Component } from 'react'
-import marked from 'marked'
 import { docrsp } from '../../static.config'
 
 import './style.less'

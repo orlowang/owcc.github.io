@@ -22,7 +22,7 @@ class AuthorInfo extends Component {
 				<div className="authorcontainer">
 					<img src={this.props.authorPhotoUri} alt="" className="authorimg"/>
 				</div>
-				<Link to="about" className="authornamelink">
+				<Link query={{ get: 'about' }} to="/" className="authornamelink">
 					<span className="authorname">{this.props.authorName}</span>
 				</Link>
 			</div>

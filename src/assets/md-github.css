@@ -878,7 +878,7 @@
 
 /* extends */
 
-.markdown-body pre code.lang-bash{
+/*.markdown-body pre code.lang-bash{
   background-color: #151515;
   color: #fff;
 }
@@ -886,4 +886,4 @@
 .markdown-body pre code.lang-bash span::selection{
   background:#fff;
   color:#000;
-}
+}*/

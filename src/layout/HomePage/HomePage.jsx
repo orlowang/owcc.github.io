@@ -70,6 +70,9 @@ class HomePage extends Component {
 					}
 					<AuthorInfo />
 					<NavBar paramId={_query}/>
+					<div>
+						
+					</div>
 				</div>
 				<div ref="wrap" style={{height: '100%', width: '100%', overflow: 'hidden'}}><ArticlePaper paramId={_query}/></div>
 			</div>

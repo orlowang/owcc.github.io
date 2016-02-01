@@ -46,6 +46,15 @@ class ArticlePaper extends Component {
 
 	componentDidMount() {
 		this.scrollHandle()
+		// this.refs.article.addEventListener('touchstart', (e) => {
+		// 	let _this = this.refs.article
+		// 	let _startY = e.touches[0].pageY
+		// 	this.refs.article.addEventListener('touchmove', (e) => {
+		// 		if (_this.scrollTop > 0 && _startY < e.changedTouches[0].pageY) {
+		// 			console.log('down!')
+		// 		}
+		// 	})
+		// })
 		this.refs.article.addEventListener('scroll', this.scrollHandle())
 	}
 
@@ -114,9 +123,9 @@ class ArticlePaper extends Component {
 			} else {
 				let _percent = _scroy / (elm$2.clientHeight - elm$3finalHeight * _bodyFontSize)
 				let _size = defaultFontSize - _percent * (defaultFontSize - finalFontSize)
-				_size >= 2.3 && _size == 2.3
-				
 				_scroy < 0 && _scroy == 0
+				_size >= 2.3 && _size == 2.3
+				console.log(_scroy)
 				if (_scroy <= 0) {
 					elm$3.style.position = 'absolute'
 				} else if (_scroy >= elm$2.clientHeight - elm$3finalHeight * _bodyFontSize) {
@@ -129,7 +138,7 @@ class ArticlePaper extends Component {
 					elm$3.style.position = 'fixed'
 					elm$2.style.top = `-${_scroy}px`
 					elm$3.style.top = `${_bodyFontSize * (elm$3defaultTop - _percent * (elm$3defaultTop - elm$3finalTop))}px`
-					elm$3.style.fontSize = `${_size * _bodyFontSize}px`
+					elm$3.style.fontSize = `${_size}em`
 					elm$3.style.left = `${elm$3defaultLeft + _percent * (elm$3finalLeft - elm$3defaultLeft)}%`
 					elm$4.style.opacity = _scroy <= 100 ? `${1 - _scroy / 100}` : 0
 				}
@@ -152,15 +161,18 @@ class ArticlePaper extends Component {
 			<div ref="article" className="fm-article">
 				<div ref="articleProfile" className="articleprofile" style={{
 					backgroundColor: articlebgcolor == '' ? '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6) : articlebgcolor,
-					borderBottom: _screenX >= 750 && iscate == null ? '1rem solid #fff' : 0
+					borderBottom: _screenX >= 750 && iscate == null && this.props.paramId != 0 ? '1rem solid #fff' : 0,
+					boxShadow: _screenX >= 750 && iscate == null && this.props.paramId != 0 ? 'none' : '0 2px 2px rgba(0,0,0,.06)'
 				}}>
 					<p ref="articleprofiletitle" className="articleprofiletitle" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.title}</p>
 					<p ref="articleprofiletext" className="articleprofiletext" style={this.state.bgphoto.indexOf('.') >= 0 ? {} : {color: '#fff'}}>{this.state.subtitle}</p>
 					{articlebgimg != ''&& articlebgimg != undefined && <div className="articlebgimg" style={{background: `url(${articlebgimg}) center bottom no-repeat`}}></div>}
 				</div>
-				<div className="articlelist" style={iscate != null ? {paddingTop: '13rem'} : {paddingTop: '15rem', backgroundColor: '#fff'}}>{child}</div>
-				{}
-				{iscate == null && <ThirdCmpts thread={this.props.paramId} url={this.state.title}/>}
+				<div className="articlelist" style={{
+					paddingTop: iscate == null && this.props.paramId != 0 ? '15rem' : '13rem',
+					backgroundColor: iscate == null && this.props.paramId != 0 ? '#fff' : 'transparent'
+				}}>{child}</div>
+				{(iscate == null && this.props.paramId != 0) && <ThirdCmpts thread={this.props.paramId} url={this.state.title}/>}
 			</div>
 		)
 	}

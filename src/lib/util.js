@@ -37,7 +37,7 @@ module.exports = {
 
 		var url = docrsp + '/' + src + '.md'
 		var rest = fetch(url)
-		
+
 		rest.then(function(response) {
 	    return response.ok != true ? response : response.text()
 	  }).then(function(body) {
@@ -239,5 +239,11 @@ module.exports = {
 	    }
 	    return result
 		}
+	},
+
+	__Check: {
+		isNull: function(data){
+        return (data == "" || data == undefined || data == null) ? null : data
+    }
 	}
 } 

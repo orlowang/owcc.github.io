@@ -1,6 +1,6 @@
 
 import React, { PropTypes, Component } from 'react'
-
+import { __Check } from '../../lib/util'
 import './style.less'
 
 class ThirdCmpts extends Component {
@@ -13,7 +13,7 @@ class ThirdCmpts extends Component {
 
 	static defaultProps = {
 		thread: '',
-		shortName: '',
+		shortName: 'commentforgithub',
 		url: ''
 	}
 
@@ -22,18 +22,10 @@ class ThirdCmpts extends Component {
   }
 
 	componentDidMount() {
-		window.duoshuoQuery = this.props.shortName
 		//  初始化多说
-		let duoshuoQuery = {short_name: 'commentforgithub'}
-		let ds = document.createElement('script')
-    ds.type = 'text/javascript';ds.async = true
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js'
-    ds.charset = 'UTF-8'
-    document.getElementsByTagName('body')[0].appendChild(ds)
-    // console.log(duoshuoQuery)
-    let timer = setInterval(() => {
-    	DUOSHUO && DUOSHUO.EmbedThread(this.refs.DuoShuo)
-    }, 10)
+		window.duoshuoQuery = {short_name: this.props.shortName}
+		require('../../lib/embed.js')
+		DUOSHUO.EmbedThread('.TCduoshuo')
 	}
 
 	render() {

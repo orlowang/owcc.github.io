@@ -1,9 +1,9 @@
 
 import React, { PropTypes, Component } from 'react'
 import { __Check } from '../../lib/util'
-import './style.less'
+// import './style.less'
 
-class ThirdCmpts extends Component {
+class DuoShuo extends Component {
 
 	static propTypes = {
 		thread: PropTypes.string.isRequired,
@@ -35,4 +35,4 @@ class ThirdCmpts extends Component {
 	}
 }
 
-export default ThirdCmpts
+export default DuoShuo

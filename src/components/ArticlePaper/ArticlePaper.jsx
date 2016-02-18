@@ -2,7 +2,7 @@
 import React, { PropTypes, Component } from 'react'
 import TimelineList from '../TimelineList'
 import Document from '../Document'
-import ThirdCmpts from '../ThirdCmpts'
+import DuoShuo from '../DuoShuo'
 import { fetchMarkdown, parseMarkdown, isCategory } from '../../lib/util'
 import { homeset, categorys } from '../../static.config'
 
@@ -172,7 +172,7 @@ class ArticlePaper extends Component {
 					paddingTop: iscate == null && this.props.paramId != 0 ? '15rem' : '13rem',
 					backgroundColor: iscate == null && this.props.paramId != 0 ? '#fff' : 'transparent'
 				}}>{child}</div>
-				{(iscate == null && this.props.paramId != 0) && <ThirdCmpts thread={this.props.paramId} url={this.state.title}/>}
+				{(iscate == null && this.props.paramId != 0) && <DuoShuo thread={this.props.paramId} url={this.state.title}/>}
 			</div>
 		)
 	}

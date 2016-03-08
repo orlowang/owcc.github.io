@@ -1,0 +1,8 @@
+- name: tattle
+  subname: 杂集
+
+- name: technology
+  subname: 工作(技术)笔记
+
+- name: project
+  subname: 几个项目

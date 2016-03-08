@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<article class="article">
+	<div class="motto">{{ content }}</div>
+	<ul>
+    {% for my_post in site.posts %}
+			{% if my_post.categories[0] == page.cateid %}
+	      <li>
+	        <span class="post-meta">{{ my_post.date | date: "%b %-d, %Y" }}</span>
+	        <a class="post-link" href="{{ my_post.url | prepend: site.baseurl }}">{{ my_post.title }}</a>
+	      </li>
+			{% endif %}
+		{% endfor %}
+  </ul>
+</article>

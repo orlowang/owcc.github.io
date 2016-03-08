@@ -1,0 +1,46 @@
+<div class="site-left">
+  <div class="site-title">
+    <a href="{{ site.baseurl }}/">
+      <img src="/img/psb.jpg" alt="">
+    </a>
+    <h3>{{ site.author }}</h3>
+  </div>
+  <nav class="site-nav">
+    {% for my_category in site.data.categories %}
+      <a href="/docs/{{ my_category.name }}.html" class="page-link{% if my_category.name == page.categories[0] or my_category.name == page.cateid %} active{% endif %}">{{ my_category.subname }}</a>
+    {% endfor %}
+    <a href="#" class="menu-icon">
+      <svg viewBox="0 0 18 15">
+        <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+        <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+        <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+      </svg>
+    </a>
+  </nav>
+  <section>
+    <div class="touchme">
+      <span class="icon icon--github">{% include icon-github.svg %}</span>
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" class="follow">follow</a>
+    </div>
+    <div class="touchme">
+      <span class="icon icon--twitter">{% include icon-twitter.svg %}</span>
+      <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" class="follow">follow</a>
+    </div>
+  </section>
+  <section>
+    <div class="touchme">
+      <span class="icon icon--facebook">{% include icon-twitter.svg %}</span>
+      <a href="https://facebook.com/{{ site.facebook_username }}" target="_blank" class="follow">follow</a>
+    </div>
+    <div class="touchme">
+      <span class="icon icon--weibo">{% include icon-twitter.svg %}</span>
+      <a href="https://weibo.com/{{ site.weibo_username }}" target="_blank" class="follow">follow</a>
+    </div>
+  </section>
+  <p class="about-link">
+     <a href="/docs/about.html">about me</a>
+  </p>
+  <div class="site-foot">
+    <p class="copyright">© 2016 Orlo.W</p>
+  </div>
+</div>

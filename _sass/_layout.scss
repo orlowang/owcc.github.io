@@ -94,6 +94,7 @@ html.nignt {
     }
     &:hover{
         text-decoration: none;
+        color: $text-color;
     }
 }
 
@@ -182,6 +183,16 @@ article.article{
     padding: 24px;
     background-color: #fff;
     height: 100%;
+}
+article.post{
+    -webkit-user-select: all;
+    -moz-user-select: all;
+    -ms-user-select: all;
+    user-select: all;
+    ::selection{
+        background:#000;
+        color:#FFF;
+    }
 }
 
 

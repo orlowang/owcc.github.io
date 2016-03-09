@@ -2,13 +2,13 @@
  * Site header
  */
 .site-left {
+    float: left;
     width: $slide-width;
-    position: absolute;
-    top: 0;
-    left: -$slide-width;
+    margin-left: -$slide-width;
     padding-top: 80px;
     box-sizing: border-box;
     height: 100%;
+    position: relative;
     >section{
         display: flex;
         justify-content: center;
@@ -176,25 +176,28 @@ html.nignt {
  * Site article
  */
 article.article{
-    overflow-y: auto;
-    box-sizing: border-box;
-    border-left: 12px solid rgba(0,0,0,0.02);
-    box-shadow: -2px 0 1px rgba(0,0,0,0.05);
     padding: 24px;
-    background-color: #fff;
-    height: 100%;
+    width: $content-width;
+    padding: $spacing-unit $spacing-unit $spacing-unit $spacing-unit - 12;
 }
 article.post{
-    -webkit-user-select: all;
-    -moz-user-select: all;
-    -ms-user-select: all;
-    user-select: all;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
     ::selection{
         background:#000;
         color:#FFF;
     }
 }
 
+.paper{
+    border-left: 12px solid rgba(0,0,0,0.02);
+    box-shadow: -2px 0 1px rgba(0,0,0,0.05);
+    background-color: #fff;
+    height: 100%;
+    overflow: auto;
+}
 
 
 /**

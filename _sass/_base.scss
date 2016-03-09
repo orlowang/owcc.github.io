@@ -37,17 +37,6 @@ body {
     user-select: none;
     &>.wrapper{
         height: 100%;
-        z-index: 1;
-        padding: 0;
-    }
-    &:after{
-        content: '';
-        position: absolute;
-        background-color: #fff;
-        width: 50%;
-        height: 100%;
-        top: 0;
-        left: 50%;
     }
 }
 
@@ -206,13 +195,7 @@ pre {
  * Wrapper
  */
 .wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-    position: relative;
+    padding-left: calc(50% - (#{$content-width} / 2 + #{$spacing-unit}));
     @extend %clearfix;
 
     @include media-query($on-laptop) {
@@ -222,7 +205,6 @@ pre {
         padding-left: $spacing-unit / 2;
     }
 }
-
 
 
 /**

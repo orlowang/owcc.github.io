@@ -11,15 +11,15 @@ menu.addEventListener('touchstart', function() {
 			side.style.boxShadow = 'none'
 			side.style.marginLeft = '-200px'
 			body.style.overflow = 'auto'
-			body.style.webkitFilter = 'none'
 			side.setAttribute('id', 'closed')
 			menu.classList.remove('on')
+			body.style.webkitFilter = 'none'
 			break;
 		default:
+			body.style.webkitFilter = 'blur(5px)'
 			side.style.boxShadow = '10px 0 20px rgba(0,0,0,.3)'
 			side.style.marginLeft = 0
 			body.style.overflow = 'hidden'
-			body.style.webkitFilter = 'blur(5px)'
 			side.setAttribute('id', 'opened')
 			menu.classList.add('on')
 			break;

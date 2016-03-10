@@ -50,10 +50,14 @@
     }
 }
 
-html.nignt {
-    .site-title{
-        &>a>img{
-            border: 3px solid #fff;
+html{
+    position: fixed;
+
+    &.nignt {
+        .site-title{
+            &>a>img{
+                border: 3px solid #fff;
+            }
         }
     }
 }

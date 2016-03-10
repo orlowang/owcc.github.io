@@ -7,7 +7,7 @@
   </div>
   <nav class="site-nav">
     {% for my_category in site.data.categories %}
-      <a href="/docs/{{ my_category.name }}.html" class="page-link{% if my_category.name == page.categories[0] or my_category.name == page.cateid %} active{% endif %}">{{ my_category.subname }}</a>
+      <a href="/docs/{{ my_category.name }}.html" class="page-link{% if my_category.name == page.categories[0] or my_category.name == page.cateid %} active{% endif %}"><span>{{ my_category.subname }}</span></a>
     {% endfor %}
     <a href="#" class="menu-icon">
       <svg viewBox="0 0 18 15">
@@ -29,12 +29,12 @@
   </section>
   <section>
     <div class="touchme">
-      <span class="icon icon--facebook">{% include icon-twitter.svg %}</span>
+      <span class="icon icon--facebook">{% include icon-facebook.svg %}</span>
       <a href="https://facebook.com/{{ site.facebook_username }}" target="_blank" class="follow">follow</a>
     </div>
     <div class="touchme">
-      <span class="icon icon--weibo">{% include icon-twitter.svg %}</span>
-      <a href="https://weibo.com/{{ site.weibo_username }}" target="_blank" class="follow">follow</a>
+      <span class="icon icon--rss">{% include icon-rss.svg %}</span>
+      <a href="/feed.xml" target="_blank" class="follow">RSS</a>
     </div>
   </section>
   <p class="about-link">

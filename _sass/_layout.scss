@@ -8,6 +8,7 @@
     padding-top: 80px;
     box-sizing: border-box;
     height: 100%;
+    min-height: 520px;
     position: relative;
     >section{
         display: flex;
@@ -52,6 +53,7 @@ html.nignt {
 }
 
 .about-link{
+    margin-top: 10px;
     text-align: center;
     >a{
         text-decoration: underline;
@@ -60,13 +62,15 @@ html.nignt {
 
 .follow{
     background-color: rgba(255,255,255,.5);
-    padding: 2px 4px;
     border: 1px solid #bbb;
     color: $text-color;
     border-radius: 3px;
     position: relative;
     font-size: 11px;
     margin-left: 8px;
+    width: 40px;
+    display: inline-block;
+    text-align: center;
     &:after{
         content: "";
         position: absolute;
@@ -100,7 +104,7 @@ html.nignt {
 
 .site-nav {
     line-height: 56px;
-    text-align: right;
+    text-align: center;
     margin-bottom: 40px;
     .menu-icon {
         display: none;
@@ -113,12 +117,23 @@ html.nignt {
         color: $title-color;
         line-height: $base-line-height;
         
+        &:hover{
+            text-decoration: none;
+            >span{
+                border-bottom-width: 2px;
+            }
+        }
+
         &.active{
             font-weight: 600;
+            >span{
+                border-bottom-width: 2px;
+            }
         }
-        // Gaps between nav items, but not on the last one
-        &:not(:last-child) {
-            margin-right: 30px;
+
+        >span{
+            padding-bottom: 2px;
+            border-bottom: 0px solid $title-color;
         }
     }
 

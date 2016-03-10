@@ -22,6 +22,10 @@
             }
         }
     }
+
+    @include media-query($on-tablet) {
+        padding-top: 30px;
+    }
 }
 
 .site-title {

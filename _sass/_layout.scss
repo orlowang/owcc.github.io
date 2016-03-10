@@ -108,6 +108,19 @@ html.nignt {
     margin-bottom: 40px;
     .menu-icon {
         display: none;
+        >svg{
+            float: left;
+        }
+
+        @include media-query($on-tablet) {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: -34px;
+            width: 18px;
+            padding: 8px;
+            z-index: 1;
+        }
     }
 
     .page-link {
@@ -136,64 +149,23 @@ html.nignt {
             border-bottom: 0px solid $title-color;
         }
     }
-
-    @include media-query($on-palm) {
-        position: absolute;
-        top: 9px;
-        right: $spacing-unit / 2;
-        background-color: $background-color;
-        border: 1px solid $grey-color-light;
-        border-radius: 5px;
-        text-align: right;
-
-        .menu-icon {
-            display: block;
-            float: right;
-            width: 36px;
-            height: 26px;
-            line-height: 0;
-            padding-top: 10px;
-            text-align: center;
-
-            > svg {
-                width: 18px;
-                height: 15px;
-
-                path {
-                    fill: $grey-color-dark;
-                }
-            }
-        }
-
-        .trigger {
-            clear: both;
-            display: none;
-        }
-
-        &:hover .trigger {
-            display: block;
-            padding-bottom: 5px;
-        }
-
-        .page-link {
-            display: block;
-            padding: 5px 10px;
-
-            &:not(:last-child) {
-                margin-right: 0;
-            }
-            margin-left: 20px;
-        }
-    }
 }
 
 /**
  * Site article
  */
 article.article{
-    padding: 24px;
     width: $content-width;
     padding: $spacing-unit $spacing-unit $spacing-unit $spacing-unit - 12;
+
+    @include media-query($on-laptop) {
+        padding-right: $spacing-unit - 12;
+    }
+
+    @include media-query($on-tablet) {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
 article.post{
     -webkit-user-select: text;
@@ -212,6 +184,10 @@ article.post{
     background-color: #fff;
     height: 100%;
     overflow: auto;
+
+    @include media-query($on-laptop) {
+        border-right: 12px solid rgba(0,0,0,0.02);
+    }
 }
 
 

@@ -197,6 +197,7 @@ pre {
  */
 .wrapper {
     padding-left: calc(50% - (#{$content-width} / 2 + #{$spacing-unit}));
+    overflow: hidden;
     @extend %clearfix;
 
     @include media-query($on-laptopL) {

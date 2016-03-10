@@ -25,9 +25,6 @@
         }
     }
 
-    &[open="opened"] + section{
-        -webkit-filter: blur(5px);
-    }
 
     @include media-query($on-tablet) {
         padding-top: 30px;

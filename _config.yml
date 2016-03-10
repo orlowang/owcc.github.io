@@ -17,7 +17,7 @@ url: "http://yaozong.wang" # the base hostname & protocol for your site
 twitter_username:  orlowang
 github_username:   owcc
 facebook_username: orlo.wang
-weibo_username:    orlowang
+weibo_username:    orlo
 author:            Orlo Wang
 
 # highlighter: pygments
@@ -51,4 +51,3 @@ defaults:
     category: technology
 
 permalink: /docs/:year/:month/:day/:title
-

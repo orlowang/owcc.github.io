@@ -27,6 +27,9 @@
 
     @include media-query($on-tablet) {
         padding-top: 30px;
+        background-image: url($background-image);
+        background-repeat: repeat;
+        position: absolute;
     }
 }
 
@@ -116,6 +119,7 @@ html{
     line-height: 56px;
     text-align: center;
     margin-bottom: 40px;
+
     .menu-icon {
         display: none;
         >svg{

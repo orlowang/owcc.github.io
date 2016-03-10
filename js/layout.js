@@ -12,12 +12,14 @@ menu.addEventListener('touchstart', function() {
 			side.style.marginLeft = '-200px'
 			body.style.overflow = 'auto'
 			side.setAttribute('open', 'closed')
+			menu.classList.remove('on')
 			break;
 		default:
 			side.style.boxShadow = '10px 0 20px rgba(0,0,0,.3)'
 			side.style.marginLeft = 0
 			body.style.overflow = 'hidden'
 			side.setAttribute('open', 'opened')
+			menu.classList.add('on')
 			break;
 	}
 })

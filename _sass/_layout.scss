@@ -30,6 +30,7 @@
         background-image: url($background-image);
         background-repeat: repeat;
         position: absolute;
+        z-index: 1;
     }
 }
 

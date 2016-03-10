@@ -1,6 +1,9 @@
 /**
  * Site header
  */
+#opened + section{
+    -webkit-filter: blur(5px);
+}
 .site-left {
     float: left;
     width: $slide-width;
@@ -24,7 +27,6 @@
             }
         }
     }
-
 
     @include media-query($on-tablet) {
         padding-top: 30px;

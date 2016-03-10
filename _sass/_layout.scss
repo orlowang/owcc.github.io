@@ -194,6 +194,7 @@ article.post{
     background-color: #fff;
     height: 100%;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
 
     @include media-query($on-laptop) {
         border-right: 12px solid rgba(0,0,0,0.02);

@@ -7,10 +7,12 @@ menu.addEventListener('touchstart', function() {
 
 	switch (point) {
 		case 'opened':
+			side.style.boxShadow = 'none'
 			side.style.marginLeft = '-200px'
 			side.setAttribute('open', 'closed')
 			break;
 		default:
+			side.style.boxShadow = '10px 0 20px rgba(0,0,0,.3)'
 			side.style.marginLeft = 0
 			side.setAttribute('open', 'opened')
 			break;

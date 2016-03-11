@@ -31,6 +31,7 @@ defaults:
     type: posts
   values:
     author: Orlo Wang
+    pagetype: apppage
 - scope:
     path: _posts/tattle
     type: posts

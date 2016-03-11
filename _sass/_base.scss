@@ -205,9 +205,7 @@ pre {
     }
 
     @include media-query($on-laptop) {
-        padding-left: 0;
-        width: $content-width + $spacing-unit * 2;
-        margin: 0 auto;
+        padding-left: calc(50% - (#{$content-width} / 2 + #{$spacing-unit}));
     }
 
     @include media-query($on-tablet) {

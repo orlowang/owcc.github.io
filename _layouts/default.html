@@ -3,7 +3,7 @@
 <html class="daytime">
   {% include head.html %}
   <body>
-    <div class="wrapper">
+    <div class="wrapper{% if page.pagetype == 'apppage' %} apppage{% endif %}">
       {% include navigate.html %}
       <section class="paper">
 	      {{ content }}

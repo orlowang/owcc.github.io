@@ -30,8 +30,12 @@
         background-image: url($background-image);
         background-repeat: repeat;
         position: absolute;
-        z-index: 1;
+        z-index: 2;
     }
+}
+
+.wrapper.apppage>#closed .menu-icon>.path{
+    background-color: #fff;
 }
 
 .site-title {
@@ -220,9 +224,15 @@ html{
 article.article{
     width: $content-width;
     padding: $spacing-unit $spacing-unit $spacing-unit $spacing-unit - 12;
+    position: relative;
 
     @include media-query($on-laptop) {
         padding-right: $spacing-unit - 12;
+        background-color: #fff;
+        border-left: 12px solid rgba(0,0,0,0.02);
+        border-right: 12px solid rgba(0,0,0,0.02);
+        min-height: 100%;
+        box-sizing: border-box;
     }
 
     @include media-query($on-tablet) {
@@ -242,6 +252,23 @@ article.post{
     }
 }
 
+section.title{
+    @include media-query($on-laptop) {
+        position: fixed;
+        top: 0;
+        left: 12 - $spacing-unit;
+        z-index: 1;
+        width: calc(100% + 2 * #{$spacing-unit} - 24px);
+        height: 38px;
+        color: #fff;
+        background-color: $brand-color;
+        box-sizing: border-box;
+        padding: 0 80px;
+        line-height: 38px;
+        text-align: center;
+    }
+}
+
 .paper{
     border-left: 12px solid rgba(0,0,0,0.02);
     box-shadow: -2px 0 1px rgba(0,0,0,0.05);
@@ -251,7 +278,8 @@ article.post{
     -webkit-overflow-scrolling: touch;
 
     @include media-query($on-laptop) {
-        border-right: 12px solid rgba(0,0,0,0.02);
+        border-left: 0;
+        background-color: transparent;
     }
 }
 
@@ -335,9 +363,8 @@ ul{
         padding-bottom: 20px;
         margin-bottom: 0;
         border-bottom: 1px solid #eee;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        line-height: 1.6;
+        text-align: center;
     }
 }
 

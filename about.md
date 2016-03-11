@@ -1,5 +1,6 @@
 ---
-layout: about
+layout: markdown
+title: 'About Me'
 permalink: /docs/about
 ---
 

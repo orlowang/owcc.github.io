@@ -34,9 +34,14 @@
         }
     }
 
+    @include media-query($on-laptop) {
+        display: none;
+    }
+
     @include media-query($on-tablet) {
         background-image: url($background-image);
         background-repeat: repeat;
+        display: block;
         position: absolute;
         z-index: 2;
         >.inner{
@@ -269,13 +274,13 @@ article.article{
         border-left: 12px solid rgba(0,0,0,0.02);
         border-right: 12px solid rgba(0,0,0,0.02);
         min-height: 100%;
-        box-sizing: border-box;
     }
 
     @include media-query($on-tablet) {
         width: 100%;
         padding-top: $spacing-unit * 5 / 3;
         overflow: hidden;
+        box-sizing: border-box;
     }
 }
 article.post{

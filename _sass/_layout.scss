@@ -265,7 +265,14 @@ section.title{
         box-sizing: border-box;
         padding: 0 80px;
         line-height: 38px;
-        text-align: center;
+        >span{
+            display: inline-block;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
     }
 }
 

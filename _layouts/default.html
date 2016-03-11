@@ -5,6 +5,7 @@
   <body>
     <div class="wrapper{% if page.pagetype == 'apppage' %} apppage{% endif %}">
       {% include navigate.html %}
+			<section class="title"><span>{{ page.title }}</span></section>
       <section class="paper">
 	      {{ content }}
       </section>

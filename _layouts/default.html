@@ -5,7 +5,15 @@
   <body>
     <div class="wrapper{% if page.pagetype == 'apppage' %} apppage{% endif %}">
       {% include navigate.html %}
-			<section class="title"><span>{{ page.title }}</span></section>
+      {% if page.title %}
+        <section class="title">
+          <span>{{ page.title }}</span>
+        </section>
+      {% elsif page.cateid %}
+        <section class="title">
+          <span>{{ page.cateid }}</span>
+        </section>
+      {% endif %}
       <section class="paper">
 	      {{ content }}
       </section>

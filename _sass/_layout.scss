@@ -34,8 +34,33 @@
     }
 }
 
-.wrapper.apppage>#closed .menu-icon>.path{
-    background-color: #fff;
+.wrapper.apppage{
+    section.title{
+        @include media-query($on-laptop) {
+            position: fixed;
+            top: 0;
+            left: 12 - $spacing-unit;
+            z-index: 1;
+            width: calc(100% + 2 * #{$spacing-unit} - 24px);
+            height: 38px;
+            color: #fff;
+            background-color: $brand-color;
+            box-sizing: border-box;
+            padding: 0 80px;
+            line-height: 38px;
+            >span{
+                display: inline-block;
+                text-align: center;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                width: 100%;
+            }
+        }
+    }
+    >#closed .menu-icon>.path{
+        background-color: #fff;
+    }
 }
 
 .site-title {
@@ -249,30 +274,6 @@ article.post{
     ::selection{
         background:#000;
         color:#FFF;
-    }
-}
-
-section.title{
-    @include media-query($on-laptop) {
-        position: fixed;
-        top: 0;
-        left: 12 - $spacing-unit;
-        z-index: 1;
-        width: calc(100% + 2 * #{$spacing-unit} - 24px);
-        height: 38px;
-        color: #fff;
-        background-color: $brand-color;
-        box-sizing: border-box;
-        padding: 0 80px;
-        line-height: 38px;
-        >span{
-            display: inline-block;
-            text-align: center;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            width: 100%;
-        }
     }
 }
 

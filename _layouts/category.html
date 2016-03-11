@@ -5,12 +5,14 @@ pagetype: apppage
 
 <article class="article">
 	<div class="motto">{{ content }}</div>
-	<ul>
+	<ul class="doclist">
     {% for my_post in site.posts %}
 			{% if my_post.categories[0] == page.cateid %}
 	      <li>
-	        <span class="post-meta">{{ my_post.date | date: "%b %-d, %Y" }}</span>
-	        <a class="post-link" href="{{ my_post.url | prepend: site.baseurl }}">{{ my_post.title }}</a>
+	        <div class="waper">
+	        	<span class="post-meta">{{ my_post.date | date: "%b %-d, %Y" }}</span>
+		        <a class="post-link" href="{{ my_post.url | prepend: site.baseurl }}">{{ my_post.title }}</a>
+	        </div>
 	      </li>
 			{% endif %}
 		{% endfor %}

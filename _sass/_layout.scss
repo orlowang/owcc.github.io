@@ -141,6 +141,7 @@ html{
 
     .menu-icon {
         display: none;
+        transition: right 250ms ease;
         >svg{
             float: left;
         }
@@ -227,6 +228,7 @@ article.article{
     @include media-query($on-tablet) {
         width: 100%;
         box-sizing: border-box;
+        padding-top: $spacing-unit * 5 / 3;
     }
 }
 article.post{
@@ -329,47 +331,21 @@ ul{
  * Posts
  */
 .post-header {
-    margin-bottom: $spacing-unit;
     >.post-title{
         padding-bottom: 20px;
         margin-bottom: 0;
         border-bottom: 1px solid #eee;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 }
 
 .post-title {
     letter-spacing: -1px;
     line-height: 1;
-
-    @include media-query($on-laptop) {
-        font-size: 36px;
-    }
 }
 
 .post-content {
     margin-bottom: $spacing-unit;
-
-    h2 {
-        font-size: 32px;
-
-        @include media-query($on-laptop) {
-            font-size: 28px;
-        }
-    }
-
-    h3 {
-        font-size: 26px;
-
-        @include media-query($on-laptop) {
-            font-size: 22px;
-        }
-    }
-
-    h4 {
-        font-size: 20px;
-
-        @include media-query($on-laptop) {
-            font-size: 18px;
-        }
-    }
 }

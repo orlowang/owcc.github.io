@@ -112,6 +112,7 @@ a {
     color: $brand-color;
     text-decoration: none;
     outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 
     &:visited {
         color: darken($brand-color, 15%);

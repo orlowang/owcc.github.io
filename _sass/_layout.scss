@@ -2,17 +2,26 @@
  * Site header
  */
 .site-left {
+    height: 100%;
     float: left;
     width: $slide-width;
     margin-left: -$slide-width;
-    padding-top: 80px;
     box-sizing: border-box;
-    height: 100%;
-    min-height: 450px;
     position: relative;
     transition: margin-left 250ms ease;
     -webkit-transition: margin-left 250ms ease;
-    >section{
+    >.inner{
+        height: 100%;
+        overflow: auto;
+        padding-top: 80px;
+        box-sizing: border-box;
+        >.innercontent{
+            min-height: 450px;
+            height: 100%;
+            position: relative;
+        }
+    }
+    section{
         display: flex;
         justify-content: center;
         >.touchme{
@@ -26,17 +35,21 @@
     }
 
     @include media-query($on-tablet) {
-        padding-top: 30px;
         background-image: url($background-image);
         background-repeat: repeat;
         position: absolute;
         z-index: 2;
+        >.inner{
+            padding-top: 30px;
+        }
     }
 }
 
 .wrapper.apppage{
     section.title{
+        display: none;
         @include media-query($on-laptop) {
+            display: block;
             position: fixed;
             top: 0;
             left: 12 - $spacing-unit;
@@ -69,7 +82,6 @@
     line-height: 56px;
     letter-spacing: -1px;
     margin-bottom: 0;
-    float: left;
     text-align: center;
     width: 100%;
     &>a>img{
@@ -163,57 +175,57 @@ html{
     }
 }
 
+.menu-icon {
+    display: none;
+    transition: right 250ms ease;
+    >svg{
+        float: left;
+    }
+
+    >.path{
+        height: 2px;
+        width: 24px;
+        position: relative;
+        background-color: #333;
+        border-radius: 2px;
+        -moz-transition: 0.4s;
+        -o-transition: 0.4s;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+    >.path:nth-of-type(1){
+        -moz-animation: rotateR 1.5s cubic-bezier(0.5, 0.2, 0.2, 1);
+        -webkit-animation: rotateR 1.5s cubic-bezier(0.5, 0.2, 0.2, 1);
+        animation: rotateR 1.5s cubic-bezier(0.5, 0.2, 0.2, 1);
+    }
+    >.path:nth-of-type(2){
+        margin: 6px 0;
+        -moz-animation: fade 1.5s cubic-bezier(0.1, 0.8, 0.1, 1);
+        -webkit-animation: fade 1.5s cubic-bezier(0.1, 0.8, 0.1, 1);
+        animation: fade 1.5s cubic-bezier(0.1, 0.8, 0.1, 1);
+    }
+    >.path:nth-of-type(3){
+        -moz-animation: rotateL 1.5s cubic-bezier(0.5, 0.2, 0.2, 1);
+        -webkit-animation: rotateL 1.5s cubic-bezier(0.5, 0.2, 0.2, 1);
+        animation: rotateL 1.5s cubic-bezier(0.5, 0.2, 0.2, 1);
+    }
+
+    @include media-query($on-tablet) {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -44px;
+        width: 24px;
+        padding: 10px;
+        z-index: 1;
+    }
+}
+
 .site-nav {
     line-height: 56px;
     text-align: center;
     margin-bottom: 40px;
-
-    .menu-icon {
-        display: none;
-        transition: right 250ms ease;
-        >svg{
-            float: left;
-        }
-
-        >.path{
-            height: 2px;
-            width: 24px;
-            position: relative;
-            background-color: #333;
-            border-radius: 2px;
-            -moz-transition: 0.4s;
-            -o-transition: 0.4s;
-            -webkit-transition: 0.4s;
-            transition: 0.4s;
-        }
-
-        >.path:nth-of-type(1){
-            -moz-animation: rotateR 1.5s cubic-bezier(0.5, 0.2, 0.2, 1);
-            -webkit-animation: rotateR 1.5s cubic-bezier(0.5, 0.2, 0.2, 1);
-            animation: rotateR 1.5s cubic-bezier(0.5, 0.2, 0.2, 1);
-        }
-        >.path:nth-of-type(2){
-            margin: 6px 0;
-            -moz-animation: fade 1.5s cubic-bezier(0.1, 0.8, 0.1, 1);
-            -webkit-animation: fade 1.5s cubic-bezier(0.1, 0.8, 0.1, 1);
-            animation: fade 1.5s cubic-bezier(0.1, 0.8, 0.1, 1);
-        }
-        >.path:nth-of-type(3){
-            -moz-animation: rotateL 1.5s cubic-bezier(0.5, 0.2, 0.2, 1);
-            -webkit-animation: rotateL 1.5s cubic-bezier(0.5, 0.2, 0.2, 1);
-            animation: rotateL 1.5s cubic-bezier(0.5, 0.2, 0.2, 1);
-        }
-
-        @include media-query($on-tablet) {
-            display: block;
-            position: absolute;
-            top: 0;
-            right: -44px;
-            width: 24px;
-            padding: 10px;
-            z-index: 1;
-        }
-    }
 
     .page-link {
         font-size: 16px;

@@ -3,6 +3,10 @@ var menu = document.querySelector('.menu-icon'),
 		body = document.querySelector('section.paper');
 
 menu.addEventListener('touchstart', function() {
+	menu.addEventListener('touchend', handle)
+})
+
+function handle() {
 	var point = side.id
 
 	switch (point) {
@@ -21,4 +25,4 @@ menu.addEventListener('touchstart', function() {
 			menu.style.right = 0
 			break;
 	}
-})
+}

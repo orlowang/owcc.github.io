@@ -328,7 +328,6 @@ article.post{
 
  ul.doclist{
     >li{
-        border-bottom: 1px dashed #eee;
         margin-top: 10px;
     }
  }
@@ -382,7 +381,7 @@ article.post{
 
 ul{
     list-style-type: square;
-    color: $text-color;
+    color: lighten($text-color, 25%);
     >li{
         .post-meta{
             width: $small-font-size * 7;

@@ -262,8 +262,8 @@ article.article{
 
     @include media-query($on-tablet) {
         width: 100%;
-        box-sizing: border-box;
         padding-top: $spacing-unit * 5 / 3;
+        overflow: hidden;
     }
 }
 article.post{

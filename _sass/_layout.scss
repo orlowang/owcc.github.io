@@ -418,7 +418,7 @@ article{
 .post-header {
     margin-bottom: $spacing-unit * 2 / 3;
     >.post-title{
-        padding-bottom: 20px;
+        padding-bottom: $spacing-unit * 1 / 3;
         margin-bottom: 0;
         border-bottom: 1px solid #eee;
         line-height: 1.6;

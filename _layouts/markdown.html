@@ -3,6 +3,6 @@ layout: default
 pagetype: apppage
 ---
 
-<article class="article">
+<article class="article{% if page.doctype == 'compose' %} compose{% endif %}">
 	{{ content }}
 </article>

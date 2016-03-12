@@ -263,38 +263,70 @@ html{
 /**
  * Site article
  */
-article.article{
-    width: $content-width;
-    padding: $spacing-unit $spacing-unit $spacing-unit $spacing-unit - 12;
-    position: relative;
+article{
+    &.article{
+        width: $content-width;
+        padding: $spacing-unit $spacing-unit $spacing-unit $spacing-unit - 12;
+        position: relative;
 
-    .waper{
-        display: inline-table;
+        .waper{
+            display: inline-table;
+        }
+
+        @include media-query($on-laptop) {
+            padding-right: $spacing-unit - 12;
+            background-color: #fff;
+            border-left: 12px solid rgba(0,0,0,0.02);
+            border-right: 12px solid rgba(0,0,0,0.02);
+            min-height: 100%;
+        }
+
+        @include media-query($on-tablet) {
+            width: 100%;
+            padding-top: $spacing-unit * 5 / 3;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
     }
 
-    @include media-query($on-laptop) {
-        padding-right: $spacing-unit - 12;
-        background-color: #fff;
-        border-left: 12px solid rgba(0,0,0,0.02);
-        border-right: 12px solid rgba(0,0,0,0.02);
-        min-height: 100%;
+    &.post{
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+        ::selection{
+            background:#000;
+            color:#FFF;
+        }
     }
 
-    @include media-query($on-tablet) {
-        width: 100%;
-        padding-top: $spacing-unit * 5 / 3;
-        overflow: hidden;
-        box-sizing: border-box;
-    }
-}
-article.post{
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
-    ::selection{
-        background:#000;
-        color:#FFF;
+    &.compose{
+        .post-content{
+            p{
+                text-indent: 2em;
+            }
+            .imgcontent{
+                width: 100%;
+                text-align: center;
+                margin-bottom: $spacing-unit * 2 / 3;
+                position: relative;
+                &:before{
+                    background-color: rgba(255,255,255,.7);
+                    transform: rotate(-3deg);
+                    box-shadow: 0 0 4px rgba(0,0,0,.3);
+                    top: -10px;
+                    left: calc(50% - 45px);
+                    content: '';
+                    position: absolute;
+                    width: 99px;
+                    height: 26px;
+                }
+                >img{
+                    border: 4px solid #fff;
+                    box-shadow: 0 0 2px rgba(0,0,0,.33);
+                }
+            }
+        }
     }
 }
 
@@ -327,8 +359,14 @@ article.post{
  }
 
  ul.doclist{
+    list-style-type: square;
+    color: lighten($text-color, 25%);
+    margin-left: $spacing-unit / 2;
     >li{
         margin-top: 10px;
+        .post-meta{
+            width: $small-font-size * 7;
+        }
     }
  }
 
@@ -343,15 +381,6 @@ article.post{
 
 .page-heading {
     font-size: 20px;
-}
-
-.post-list {
-    margin-left: 0;
-    list-style: none;
-
-    > li {
-        margin-bottom: $spacing-unit;
-    }
 }
 
 .post-meta {
@@ -379,21 +408,12 @@ article.post{
     }
 }
 
-ul{
-    list-style-type: square;
-    color: lighten($text-color, 25%);
-    >li{
-        .post-meta{
-            width: $small-font-size * 7;
-        }
-    }
-}
-
 
 /**
  * Posts
  */
 .post-header {
+    margin-bottom: $spacing-unit * 2 / 3;
     >.post-title{
         padding-bottom: 20px;
         margin-bottom: 0;
@@ -410,4 +430,6 @@ ul{
 
 .post-content {
     margin-bottom: $spacing-unit;
+    word-break: break-all;
+    text-align: justify;
 }

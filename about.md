@@ -1,6 +1,7 @@
 ---
 layout: markdown
 title: 'About Me'
+doctype: compose
 permalink: /docs/about
 ---
 

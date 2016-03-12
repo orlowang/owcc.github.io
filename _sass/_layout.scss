@@ -68,6 +68,8 @@
             line-height: 38px;
             >span{
                 display: inline-block;
+                opacity: 0;
+                transition: opacity 250ms ease;
                 text-align: center;
                 overflow: hidden;
                 white-space: nowrap;

@@ -1,5 +1,6 @@
 ---
 title: "我来深圳的第一年"
+draft: true
 ---
 
 so, I don't know how.so, I don't know how.so, I don't know how.so, I don't know how.so, I don't know how.so, I don't know how.

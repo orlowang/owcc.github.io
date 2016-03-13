@@ -1,11 +1,35 @@
 /**
  * Syntax highlighting styles
  */
-code.highlighter-rouge{
-    color: #fff;
-    background-color: lighten($text-color,15%);
-    margin: 0 1px;
-    font-size: 0.83em;
+code{
+    &.highlighter-rouge{
+        color: #fff;
+        background-color: lighten($text-color,15%);
+        margin: 0 1px;
+        font-size: 0.83em;
+    }
+    >table{
+        margin-left: -20px;
+        td.gutter{
+            border-right: 1px solid #eee;
+            padding: 0 4px 0 0;
+        }
+        td.code{
+            float: left;
+            padding-left: 4px;
+            >pre{
+                border-left-width: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+pre{
+    &.lineno{
+        border-left-width: 0;
+        padding-left: 6px;
+        margin-bottom: 0;
+    }
 }
 .highlight {
     background: #fff;

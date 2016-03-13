@@ -13,8 +13,6 @@ GitHub提供了官方的创建教程[「GitHub Pages」](https://pages.github.co
 
 创建一个repository(项目)，名称为username.github.io，username为你自己的账户名称或者你自己的组织名称(```如果系统匹配不到你的username就不会有效，所以确保你的username存在并拼写正确```)。github会自动为你生成一个简单的页面。此时，你访问http://username.github.io就能看到你的页面，到此为止你的页面已经创建成功，很简单。
 
----
-
 ### 编写自己的网站代码
 
 1. git获取username.github.io ```git clone https://github.com/username/username .github.io```
@@ -24,8 +22,6 @@ GitHub提供了官方的创建教程[「GitHub Pages」](https://pages.github.co
 5. 完成
 
 > *由于都是静态页面，所以每次发布文章时，添加要发布的文章页然后push到仓库中就可以了。*
-
----
 
 ### 使用Jekyll编写blog
 

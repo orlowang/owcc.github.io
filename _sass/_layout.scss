@@ -392,19 +392,42 @@ article{
     color: $grey-color-light;
 }
 
-.post-link {
+.newslist{
+    margin-top: $spacing-unit;
 }
 
-.motto>h2{
-    font-size: 42px;
-    font-weight: 200;
-}
 .motto{
+    >.justpalm{
+        @include media-query($on-palm) {
+            display: none;
+        }
+    }
+
+    @include media-query($on-tablet) {
+        >h1,
+        >h2,
+        >h3,
+        >h4{
+            text-align: center;
+        }
+    }
+
+    >p{
+        text-align: justify; 
+        text-indent: 2em;
+    }
+
     >h1,
     >h2,
     >h3,
     >h4{
+        border-bottom: 1px solid #eee;
         padding-bottom: 20px;
+    }
+
+    >h2{
+        font-size: 42px;
+        font-weight: 200;
     }
     >h4{
         text-indent: 2em;
@@ -431,8 +454,28 @@ article{
     line-height: 1;
 }
 
+.post-link{
+    &.invalid{
+        text-decoration: line-through;
+        color: $text-color;
+    }
+}
+
 .post-content {
     margin-bottom: $spacing-unit;
     word-break: break-all;
     text-align: justify;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6{
+        border-bottom: 1px solid #eee;
+    }
+
+    h2{
+        text-align: center;
+    }
 }

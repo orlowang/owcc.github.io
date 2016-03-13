@@ -10,9 +10,13 @@
           <span>{{ page.title }}</span>
         </section>
       {% elsif page.cateid %}
-        <section class="title">
-          <span>{{ page.cateid }}</span>
-        </section>
+        {% for cate in site.data.categories %}
+          {% if cate.name == page.cateid %}
+            <section class="title">
+              <span>{{ cate.subname }}</span>
+            </section>
+          {% endif %}
+        {% endfor %}
       {% endif %}
       <section class="paper">
 	      {{ content }}

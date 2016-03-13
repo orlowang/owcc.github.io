@@ -1,9 +1,10 @@
 ---
 date:   2015-06-30 16:51:33 +0800
 title: "[译]「React教程」(向导)组件的重用"
+status: invalid 
 ---
 
-####Prop验证
+### Prop验证
 
 随着你的程序(网站)不断壮大，所有的组件都应该被正确使用。你可以指定```propTypes```。```React.PropTypes```可以导出你所接收的数据的验证结果，如果有未通过验证的，你可以在console中看到提示。为了提高性能，```propTypes```只在开发环境中被检测，以下是一个不同的验证的例子。
 
@@ -73,7 +74,7 @@ React.createClass({
 });
 {% endhighlight %}
 
-####默认的Prop值
+### 默认的Prop值
 
 你可以很明确的指定```Prop```的值
 
@@ -90,7 +91,7 @@ var ComponentWithDefaultProps = React.createClass({
 
 ```getDefaultProps()```的结果将会被缓存起来，如果父组件没有规定相应的值，那么```this.props.value```将会将把它作为默认值。This allows you to safely just use your props without having to write repetitive and fragile code to handle that yourself.
 
-####传输Prop：创建一个快捷方式
+### 传递Prop：创建一个快捷方式
 
 一种常见的组件类型是扩展的一个简单的HTML树。通常你想传递给你的组件任何HTML属性复制到底层HTML原素，你可以使用JSX语法来实现。
 
@@ -110,7 +111,7 @@ React.render(
 );
 {% endhighlight %}
 
-####单个子元素
+### 单个子元素
 
 使用```React.PropTypes.element```来绑定时只能有一个原素被传递给一个组件。
 
@@ -130,7 +131,7 @@ var MyComponent = React.createClass({
 });
 {% endhighlight %}
 
-####混合(Mixins)
+### 混合(Mixins)
 
 在React中重用代码最好的方式就是创建组件，有时候看起来非常不一样的组件也可能用到相同的方法(代码)。也就是所谓的[cross-cutting concerns](https://en.wikipedia.org/wiki/Cross-cutting_concern)，React使用```Mixins```来解决这个问题。
 
@@ -178,7 +179,7 @@ React.render(
 
 Mixins的一个非常不错的特性是当一个组件使用多个Mixins而且其中一些拥有相同的生命周期管理方法(比如组件销毁时清除)，所有的Mixins都能保证被调用。Methods defined on mixins run in the order mixins were listed, followed by a method call on the component.
 
-####ES6类
+### ES6类
 
 我们可以把组件定义为一个普通的js类，也可以使用ES6的语法。
 
@@ -214,4 +215,4 @@ Counter.propTypes = { initialCount: React.PropTypes.number };
 Counter.defaultProps = { initialCount: 0 };
 {% endhighlight %}
 
-这里的方法遵循跟regular ES6的类一样的语义，也就是说实例中无法绑定```this```，你使用```.bind(this)```或者[矢量方法(array function)]()```=>```。不幸的是ES6不支持Mixins， we're working on making it easier to support such use cases without resorting to mixins.
+这里的方法遵循跟regular ES6的类一样的语义，也就是说实例中无法绑定```this```，你使用```.bind(this)```或者[箭头方法(array function)]()```=>```。不幸的是ES6不支持Mixins， we're working on making it easier to support such use cases without resorting to mixins.

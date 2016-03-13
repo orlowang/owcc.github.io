@@ -4,5 +4,7 @@ pagetype: apppage
 ---
 
 <article class="article{% if page.doctype == 'compose' %} compose{% endif %}">
-	{{ content }}
+	<div class="post-content">
+		{{ content }}
+	</div>
 </article>

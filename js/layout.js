@@ -8,7 +8,7 @@ menu.addEventListener('touchstart', function() {
 	menu.addEventListener('touchend', handle)
 })
 
-body.addEventListener('scroll', function() {
+head != null && body.addEventListener('scroll', function() {
 	var headHight = window.getComputedStyle(head).height;
 
 	title.style.opacity = body.scrollTop >= parseInt(headHight) ? 1 : 0

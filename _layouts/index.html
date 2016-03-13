@@ -8,14 +8,15 @@ layout: default
     <h3>最新文章</h3>
     <ul class="doclist">
       {% for post in site.posts limit:5 %}
-        <li>
-          <div class="waper">
-            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          </div>
-        </li>
+        {% if post.draft == false %}
+          <li>
+            <div class="waper">
+              <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+              <a class="post-link{% if post.status == 'invalid' %} invalid{% endif %}" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </div>
+          </li>
+        {% endif %}
       {% endfor %}
     </ul>
   </div>
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 </article>

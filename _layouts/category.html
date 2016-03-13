@@ -7,11 +7,11 @@ pagetype: apppage
 	<div class="motto">{{ content }}</div>
 	<ul class="doclist">
     {% for my_post in site.posts %}
-			{% if my_post.categories[0] == page.cateid %}
+			{% if my_post.categories[0] == page.cateid and my_post.draft == false %}
 	      <li>
 	        <div class="waper">
 	        	<span class="post-meta">{{ my_post.date | date: "%b %-d, %Y" }}</span>
-		        <a class="post-link" href="{{ my_post.url | prepend: site.baseurl }}">{{ my_post.title }}</a>
+		        <a class="post-link{% if my_post.status == 'invalid' %} invalid{% endif %}" href="{{ my_post.url | prepend: site.baseurl }}">{{ my_post.title }}</a>
 	        </div>
 	      </li>
 			{% endif %}

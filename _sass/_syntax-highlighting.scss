@@ -2,6 +2,9 @@
  * Syntax highlighting styles
  */
 code{
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
     &.highlighter-rouge{
         color: #fff;
         background-color: lighten($text-color,15%);
@@ -9,13 +12,13 @@ code{
         font-size: 0.83em;
     }
     >table{
-        margin-left: -20px;
+        display: block;
+        overflow: auto;
         td.gutter{
-            border-right: 1px solid #eee;
-            padding: 0 4px 0 0;
+            border-right: 1px solid #f1ede4;
+            padding: 0;
         }
         td.code{
-            float: left;
             padding-left: 4px;
             >pre{
                 border-left-width: 0;
@@ -25,9 +28,13 @@ code{
     }
 }
 pre{
+    >code{
+        float: left;
+    }
     &.lineno{
         border-left-width: 0;
-        padding-left: 6px;
+        padding-left: 4px;
+        padding-right: 4px;
         margin-bottom: 0;
     }
 }

@@ -6,10 +6,8 @@ code{
     width: 100%;
     overflow: hidden;
     &.highlighter-rouge{
-        color: #fff;
-        background-color: lighten($text-color,15%);
-        margin: 0 1px;
-        font-size: 0.83em;
+        background-color: rgba(0,0,0,0.04);
+        padding: 1px 3px;
     }
     >table{
         display: block;

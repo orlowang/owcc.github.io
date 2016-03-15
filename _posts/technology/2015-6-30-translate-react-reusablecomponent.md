@@ -8,7 +8,7 @@ status: invalid
 
 随着你的程序(网站)不断壮大，所有的组件都应该被正确使用。你可以指定```propTypes```。```React.PropTypes```可以导出你所接收的数据的验证结果，如果有未通过验证的，你可以在console中看到提示。为了提高性能，```propTypes```只在开发环境中被检测，以下是一个不同的验证的例子。
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 React.createClass({
   propTypes: {
     // You can declare that a prop is a specific JS primitive. By default, these
@@ -78,7 +78,7 @@ React.createClass({
 
 你可以很明确的指定```Prop```的值
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 var ComponentWithDefaultProps = React.createClass({
   getDefaultProps: function() {
     return {
@@ -95,7 +95,7 @@ var ComponentWithDefaultProps = React.createClass({
 
 一种常见的组件类型是扩展的一个简单的HTML树。通常你想传递给你的组件任何HTML属性复制到底层HTML原素，你可以使用JSX语法来实现。
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 var CheckLink = React.createClass({
   render: function() {
     // This takes any props passed to CheckLink and copies them to <a>
@@ -115,7 +115,7 @@ React.render(
 
 使用```React.PropTypes.element```来绑定时只能有一个原素被传递给一个组件。
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 var MyComponent = React.createClass({
   propTypes: {
     children: React.PropTypes.element.isRequired
@@ -138,7 +138,7 @@ var MyComponent = React.createClass({
 一个常见的情形就是一个组件需要在一定的时间间隔内更新自己，使用```setInterval()```就可以实现，但重要的是当你不再需要做更新的时候就需要取消这段间隔来释放占用的内存。React提供了[生命周期(lifecycle methods)]()方法来让你掌控组件的创建和销毁
 让我们举个例子来说明。
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 var SetIntervalMixin = {
   componentWillMount: function() {
     this.intervals = [];
@@ -183,7 +183,7 @@ Mixins的一个非常不错的特性是当一个组件使用多个Mixins而且�
 
 我们可以把组件定义为一个普通的js类，也可以使用ES6的语法。
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 class HelloMessage extends React.Component {
   render() {
     return <div>Hello {this.props.name}</div>;
@@ -194,7 +194,7 @@ React.render(<HelloMessage name="Sebastian" />, mountNode);
 
 这个API类似于没有```getInitialState```方法的```React.createClass```.在构造器中定义你自己的```state ```方法来替代单独写一个```getInitialState```方法。比起在类体中定义，另外一个不同的地方就是```propTypes ```和```defaultProps```在构造器```constructor()```中被当作属性定义。
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 export class Counter extends React.Component {
   constructor(props) {
     super(props);

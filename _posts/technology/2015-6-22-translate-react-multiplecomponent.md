@@ -11,7 +11,7 @@ status: invalid
 ### (如何)复合的例子
 
 让我们使用Facebook Graph API来创建一个简单的Avatar组件。
-{% highlight javascript %}
+{% highlight javascript linenos %}
 var Avatar = React.createClass({
   render: function() {
     return (
@@ -57,7 +57,7 @@ React.render(
 
 在你创建了一个组件实例之后，你可以一个闭合标签内插入另外的组件或者一段javascript表达式，就像这样：
 
-{% highlight html %}
+{% highlight javascript linenos %}
 <Parent><Child /></Parent>  
 {% endhighlight %}
 
@@ -69,7 +69,7 @@ React.render(
 
 > 如下边的例子，浏览器第一次渲染Card时创建p1,p2，紧接着又重新渲染(由于Render Pass2)Card，这个时候可以认为两个Card结构做了一次‘中和’，
 
-{% highlight html %}
+{% highlight javascript linenos %}
 // Render Pass 1
 <Card>
   <p>Paragraph 1</p>
@@ -87,7 +87,7 @@ React.render(
 
 对大多数组件来说，状态不是什么大问题。但是对于一些在渲染(Render)过程中通过```this.state```来维持状态的富状态组件来说，这将是个麻烦事。大多是情况是，隐藏一些元素而不是销毁它们来规避被中和
 
-{% highlight html %}
+{% highlight javascript linenos %}
 // Render Pass 1
 <Card>
   <p>Paragraph 1</p>
@@ -104,7 +104,7 @@ React.render(
 
 当子元素被抛弃(比如搜索结果)或者新组件被添加到一个列表的前面(比如流[streams])等如此类似的情况时，事情会变得复杂。在这些情况中需要在渲染过程中维持每个子元素的特性和状态，而你可以为每个子元素绑定一个唯一的```key```。
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 render: function() {
     var results = this.props.results;
     return (
@@ -119,7 +119,7 @@ render: function() {
 
 当在中和这些被绑定了```key```的元素时，React能够确认那些能被重新排序(而不是被破坏)或者被销毁(而不是重复使用)。```key```应该直接应用到组件的队列中，而不是队列中每个组件的HTML容器。
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 // WRONG!
 var ListItemWrapper = React.createClass({
   render: function() {

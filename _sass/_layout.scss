@@ -115,6 +115,17 @@ html{
     }
 }
 
+a[target="_blank"]{
+    &:not(.dialog):after{
+        content: '';
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        margin-left: 2px;
+        background-image: url(../img/external.svg);
+    }
+}
+
 .about-link{
     margin-top: 10px;
     text-align: center;
@@ -123,7 +134,7 @@ html{
     }
 }
 
-.follow{
+.dialog{
     background-color: rgba(255,255,255,.5);
     border: 1px solid #bbb;
     color: $text-color;

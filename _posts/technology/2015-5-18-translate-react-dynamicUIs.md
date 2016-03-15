@@ -8,7 +8,7 @@ status: invalid
 
 下面是一个简单的例子
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 var LikeButton = React.createClass({
   getInitialState: function() {
     return {liked: false};

@@ -60,7 +60,7 @@ React组件非常的简单，你可以认为它就是一个聚集了props、stat
 
 为了让编码便于理解，我们添加了一种非常简单的、可选的类HTML语法来创建React节点树。JSX使你可以使用HTML语法来创建js对象，下面的代码展示了用纯js代码创建一个a连接
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 React.createElement('a', {href: 'https://facebook.github.io/react/'}, 'Hello!')
 {% endhighlight %}
 
@@ -77,7 +77,7 @@ JSX跟HTML非常像，但他们却也有不同，查阅[JSX Gotchas](#jsxgotchas
 
 JSX完全是自选的，你完全可以使用纯js语法```React.createElement```来创建element，参数包含tag名或组件名、属性对象以及一些子参变量(比如子节点名称、文本等)
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 var child1 = React.createElement('li', null, 'First Text Content');
 var child2 = React.createElement('li', null, 'Second Text Content');
 var root = React.createElement('ul', { className: 'my-list' }, child1, child2);
@@ -86,7 +86,7 @@ React.render(root, document.getElementById('example'));
 
 为了方便，你也可以使用short-hand工厂，创建一个自定义element
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 var Factory = React.createFactory(ComponentClass);
 ...
 var root = Factory({ custom: 'prop' });
@@ -95,7 +95,7 @@ React.render(root, document.getElementById('example'));
 
 React已经内建了一些工厂来实现常见的HTML标签
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 var root = React.DOM.ul({ className: 'my-list' },
              React.DOM.li(null, 'Text Content')
            );
@@ -112,14 +112,14 @@ var root = React.DOM.ul({ className: 'my-list' },
 React既可以渲染HTMLtags(string)，也可以渲染组件(classes)。  
 在JSX中使用小写的tags名称来渲染HTML
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 var myDivElement = <div className="foo" />;
 React.render(myDivElement, document.getElementById('example'));
 {% endhighlight %}
 
 我们创建一个以大写开头的局部变量来渲染React组件
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 var MyComponent = React.createClass({/*...*/});
 var myElement = <MyComponent someProperty={true} />;
 React.render(myElement, document.getElementById('example'));

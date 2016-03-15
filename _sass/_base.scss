@@ -38,6 +38,10 @@ body {
     &>.wrapper{
         height: 100%;
     }
+
+    @include media-query($on-tablet) {
+        background-image: none;
+    }
 }
 
 

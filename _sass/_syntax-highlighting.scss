@@ -3,15 +3,11 @@
  */
 code{
     box-sizing: border-box;
-    width: 100%;
-    overflow: hidden;
     &.highlighter-rouge{
         background-color: rgba(0,0,0,0.04);
         padding: 1px 3px;
     }
     >table{
-        display: block;
-        overflow: auto;
         td.gutter{
             border-right: 1px solid #f1ede4;
             padding: 0;
@@ -37,7 +33,6 @@ pre{
     }
 }
 .highlight {
-    background: #fff;
     @extend %vertical-rhythm;
 
     .highlighter-rouge & {

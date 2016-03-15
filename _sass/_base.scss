@@ -182,7 +182,7 @@ pre {
             font-size: 12px;
             font-weight: 700;
             color: #6d6d6d;
-            content: attr(class);
+            content: attr(data-lang);
             letter-spacing: 0;
         }
     }

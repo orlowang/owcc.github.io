@@ -5,7 +5,7 @@ var menu  = document.querySelector('.menu-icon'),
 		head  = document.querySelector('.post-header');
 
 menu.addEventListener('touchstart', function() {
-	menu.addEventListener('touchend', handle)
+		side.setAttribute('id', side.id == 'opened' ? 'closed' : 'opened')
 })
 
 head != null && body.addEventListener('scroll', function() {
@@ -13,16 +13,3 @@ head != null && body.addEventListener('scroll', function() {
 
 	title.style.opacity = body.scrollTop >= parseInt(headHight) ? 1 : 0
 })
-
-function handle() {
-	var point = side.id
-
-	switch (point) {
-		case 'opened':
-			side.setAttribute('id', 'closed')
-			break;
-		default:
-			side.setAttribute('id', 'opened')
-			break;
-	}
-}

@@ -8,7 +8,7 @@
     margin-left: -$slide-width;
     box-sizing: border-box;
     position: relative;
-    transition: transform 250ms ease;
+    transition: transform 150ms ease;
     -webkit-transition: transform 250ms ease;
     >.inner{
         height: 100%;
@@ -214,7 +214,7 @@ a[target="_blank"]{
 
 .menu-icon {
     display: none;
-    transition: right 250ms ease;
+    transition: right 150ms ease;
     >svg{
         float: left;
     }

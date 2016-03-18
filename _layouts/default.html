@@ -5,19 +5,17 @@
   <body>
     <div class="wrapper{% if page.pagetype == 'apppage' %} apppage{% endif %}">
       {% include navigate.html %}
+      <section class="title">
       {% if page.title %}
-        <section class="title">
-          <span>{{ page.title }}</span>
-        </section>
+        <span>{{ page.title }}</span>
       {% elsif page.cateid %}
         {% for cate in site.data.categories %}
           {% if cate.name == page.cateid %}
-            <section class="title">
-              <span>{{ cate.subname }}</span>
-            </section>
+            <span>{{ cate.subname }}</span>
           {% endif %}
         {% endfor %}
       {% endif %}
+      </section>
       <section class="paper" id="main">
 	      {{ content }}
       </section>

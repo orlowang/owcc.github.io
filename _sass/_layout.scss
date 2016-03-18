@@ -88,7 +88,7 @@
     }
 }
 
-.wrapper.apppage{
+.wrapper{
     section.title{
         display: none;
         @include media-query($on-laptop) {
@@ -100,28 +100,35 @@
             width: calc(100% + 2 * #{$spacing-unit} - 24px);
             height: 38px;
             color: #fff;
-            background-color: $brand-color;
+            background-color: #fff;
             box-sizing: border-box;
-            padding: 0 80px;
-            line-height: 38px;
-            >span{
-                display: inline-block;
-                opacity: 0;
-                transition: opacity 250ms ease;
-                text-align: center;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                font-size: 1.2em;
-                width: 100%;
-            }
         }
     }
-    >#closed .menu-icon>.path{
-        background-color: #fff;
-        &:before,
-        &:after{
+    &.apppage{
+        section.title{
+            @include media-query($on-laptop) {
+                background-color: $brand-color;
+                padding: 0 80px;
+                line-height: 38px;
+                >span{
+                    display: inline-block;
+                    opacity: 0;
+                    transition: opacity 250ms ease;
+                    text-align: center;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    font-size: 1.2em;
+                    width: 100%;
+                }
+            }
+        }
+        >#closed .menu-icon>.path{
             background-color: #fff;
+            &:before,
+            &:after{
+                background-color: #fff;
+            }
         }
     }
 }

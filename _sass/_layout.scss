@@ -521,3 +521,27 @@ article{
         text-align: center;
     }
 }
+
+#pdfcont{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 150ms ease;
+    &.show{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    >div{
+        background-color: #fff;
+        box-shadow: 0 0 5px rgba(0,0,0,.5);
+        margin: 0 auto;
+        padding: 30px;
+        width: 649px;
+        min-height: 100%;
+    }
+}

@@ -1,0 +1,11 @@
+---
+layout: default
+pagetype: apppage
+---
+
+<article class="article{% if page.doctype == 'compose' %} compose{% endif %}">
+	<a href="javascript:getPDF('.post-content');" class="getpdf">PDF</a>
+	<div class="post-content">
+		{{ content }}
+	</div>
+</article>

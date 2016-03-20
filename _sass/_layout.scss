@@ -522,26 +522,41 @@ article{
     }
 }
 
-#pdfcont{
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #555;
-    overflow: auto;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: all 150ms ease;
-    &.show{
-        opacity: 1;
-        transform: translateY(0);
+.btn{
+    @media screen and (min-width: $on-laptopL) {
+        text-decoration: none;
+        padding: 10px 12px;
+        border-radius: 4px;
+        &:hover{
+            text-decoration: none;
+            background-color: #eee;
+            color: $brand-color;
+        }
+        &:active{
+            background-color: $brand-color;
+            color: #fff;
+        }
     }
-    >div{
-        background-color: #fff;
-        box-shadow: 0 0 5px rgba(0,0,0,.5);
-        margin: 0 auto;
-        padding: 30px;
-        width: 649px;
-        min-height: 100%;
+}
+
+.download{
+    @media screen and (min-width: $on-laptopL) {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        z-index: 1;
+    }
+    @include media-query($on-tablet) {
+        position: fixed;
+        top: 0;
+        right: 10px;
+        color: #fff;
+        height: 38px;
+        line-height: 38px;
+        z-index: 1;
+        &:hover{
+            text-decoration: none;
+            color: #fff;
+        }
     }
 }

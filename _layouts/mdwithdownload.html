@@ -4,7 +4,7 @@ pagetype: apppage
 ---
 
 <article class="article{% if page.doctype == 'compose' %} compose{% endif %}">
-	<a href="javascript:getPDF('.post-content');" class="getpdf">PDF</a>
+	<a href="/res/{{ page.attach }}" class="download btn">Download PDF</a>
 	<div class="post-content">
 		{{ content }}
 	</div>

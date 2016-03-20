@@ -6,15 +6,23 @@
     <div class="wrapper{% if page.pagetype == 'apppage' %} apppage{% endif %}">
       {% include navigate.html %}
       <section class="title">
-      {% if page.title %}
-        <span>{{ page.title }}</span>
-      {% elsif page.cateid %}
-        {% for cate in site.data.categories %}
-          {% if cate.name == page.cateid %}
-            <span>{{ cate.subname }}</span>
+        {% if page.title %}
+          <span>{{ page.title }}</span>
+        {% elsif page.cateid %}
+          {% for cate in site.data.categories %}
+            {% if cate.name == page.cateid %}
+              <span>{{ cate.subname }}</span>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        <div class="action">
+          {% if page.attach %}
+            <a href="/res/{{ page.attach }}" class="download btn">Download</a>
           {% endif %}
-        {% endfor %}
-      {% endif %}
+          {% if page.changeable %}
+            <a href="https://github.com/owcc/owcc.github.io/blob/master/{{ page.path }}" class="download btn">Edit on GitHub</a>
+          {% endif %}
+        </div>
       </section>
       <section class="paper" id="main">
 	      {{ content }}

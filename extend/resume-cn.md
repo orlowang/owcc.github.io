@@ -1,5 +1,5 @@
 ---
-layout: mdwithdownload
+layout: markdown
 title: 'Orlo的简历'
 attach: 'Resume(WangYaoZong).pdf'
 permalink: /docs/resume-zh_cn

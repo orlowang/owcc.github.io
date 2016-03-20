@@ -1,6 +1,7 @@
 ---
 title: "Web开发之渲染性能"
 draft: false
+changeable: true
 ---
 
 >本文中的大部分内容可以在文中提供的链接中找到，本文只是做一个资源的整理。

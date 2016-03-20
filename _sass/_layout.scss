@@ -91,9 +91,13 @@
 
 .wrapper{
     section.title{
-        display: none;
+        >span{
+            display: none;
+        }
         @include media-query($on-laptop) {
-            display: block;
+            >span{
+                display: block;
+            }
             position: fixed;
             top: 0;
             left: 12 - $spacing-unit;
@@ -103,6 +107,10 @@
             color: #fff;
             background-color: #fff;
             box-sizing: border-box;
+        }
+        @media screen and (min-width: $on-laptop){
+            width: $content-width + $spacing-unit * 2;
+            position: relative;
         }
     }
     &.apppage{
@@ -387,6 +395,10 @@ article{
         border-left: 0;
         background-color: transparent;
     }
+
+    @include media-query($on-tablet) {
+        width: 100%;
+    }
 }
 
 
@@ -523,7 +535,7 @@ article{
 }
 
 .btn{
-    @media screen and (min-width: $on-laptopL) {
+    @media screen and (min-width: $on-laptop) {
         text-decoration: none;
         padding: 10px 12px;
         border-radius: 4px;
@@ -539,24 +551,35 @@ article{
     }
 }
 
-.download{
-    @media screen and (min-width: $on-laptopL) {
+.action{
+    @media screen and (min-width: $on-laptop) {
         position: absolute;
         top: 10px;
         right: 0;
         z-index: 1;
+        height: 40px;
+        line-height: 40px;
+        transform: translateY(0);
+        transition: transform 150ms ease;
     }
     @include media-query($on-tablet) {
         position: fixed;
         top: 0;
-        right: 10px;
-        color: #fff;
+        right: 0;
         height: 38px;
+        width: auto;
+        overflow: hidden;
         line-height: 38px;
         z-index: 1;
-        &:hover{
-            text-decoration: none;
-            color: #fff;
+        transition: width 150ms ease;
+        >a{
+            margin-right: 10px;
+            margin-left: 10px;
+            color: darken($brand-color, 15%);
+            &:hover{
+                text-decoration: none;
+                color: #fff;
+            }
         }
     }
 }

@@ -16,10 +16,6 @@ GitHub：[github.com/owcc](http://github.com/owcc)
 # 教育信息
 
 + 内蒙古科技大学 应用物理(2009~2013)(统招-本科) 相关专业课程(包含Clang和汇编基础课程)
-+ 副修 网页设计与开发，软件工程，数据结构
-+ 在读书籍
-	- 《javascript高级程序设计》
-	- 《High Performance Browser Networking》
 
 # 工作经历
 
@@ -30,20 +26,26 @@ GitHub：[github.com/owcc](http://github.com/owcc)
 
 # 技能及项目经验(4年工作经验)
 
-+ 技术栈：平时开发工作多在Lunix/mac环境；熟悉SQL；熟悉http协议，熟悉web性能优化；精通javascript、HTML5、CSS3，能进行js/css模块化发开，能进行函数式编程，了解组件式开发；了解前端资源管理部署，了解网站同构；能独立进行完整的Web开发，能移动web和SPA开发，能进行全栈开发。
-	- server：Nginx/Apache
-	- 前端开发：HTML5/CSS3(常用less和sass工具)/ES5-ES6/SVG(canvas)/webpack/gulp/requirejs
-	- 前端框架：Bootstrap/React(全家桶系列)/React(relay+graphql)/vue/preact
-	- 后端开发：php(phalcon)/node(express)/golang(在学)
-+ 项目经验：2012至今，两个大型电商项目经验(均为上市公司，其中有Hybris项目)，一个p2p项目经验，其他如内部社区等小项目多个；技术涉猎广，前端领域深入，在项目中均负责前端实施，有丰富的包括制定开发规范、根据业务场景平台性质进行页面重构和技术选型、优化web性能、移动web的开发包括网站自适应等开发经验；能利用新技术解决业务快速发展过程中的的各种场景问题。
-
++ 技术栈：平时开发工作多在Lunix/mac环境；熟悉SQL；熟悉http协议，熟悉web性能优化；精通javascript、HTML5、CSS3，能进行js/css模块化发开，了解组件式开发；了解前端资源管理部署,了解函数式编程，了解网站同构；能独立进行完整的Web开发，能移动web和SPA开发，能进行全栈开发。
+  - 服务器：Nginx/Apache
+  - 前端技术栈：HTML5/CSS3(stylus预处理，postcss模块化)/ES5-ES6/SVG(canvas)
+  - 后端技术栈：php/golang(初级)/node(express)
+  - 数据库：mysql(postgreql)/mongodb
+  - APP开发：react-native
+  - 项目管理工具：git
+  - 前端构建工具：webpack/gulp
+  - 目前技术框架：Bootstrap/React(全家桶系列)/React(relay+graphql)/vuejs/preact[d3数据可视化]
+	
++ 项目经验：2012至今，有大型电商项目经验(均为上市公司，其中有Hybris项目)，金融p2p项目经验，社区app开发经验，其他如内部社区等小项目多个；技术涉猎广，前端领域深入，在项目中均负责前端实施，有丰富的包括制定开发规范、根据业务场景平台性质进行页面重构和技术选型、优化web性能、移动web的开发包括网站自适应等开发经验；能利用新技术解决业务快速发展过程中的的各种场景问题。
+	 
 > 开发人数都指的是前端开发人员
 
-  - 住这儿app：采用内嵌webview方式混合开发，负责电商和阳光物业部分(均采用H5)的开发和维护(一期1人开发，二期3人开发)，一期采用react/relay/graphql(node)架构，受限于新技术成本和人员不足，二期采用react/mobx/restful(python)架构，涉及到Oauth认证、https保护接口安全、桥接方式和原生交互数据、接近原生的操作体验和多设备多屏幕的适配一级资源网络优化等主要技术点
+  - 住这儿app：担任前端开发(一期单人开发，二期3人开发)，工作内容有制定开发规范和负责电商和阳光物业部分(均采用H5)的开发和维护。采用内嵌webview方式混合开发，一期采用react/relay/graphql(node)架构，受限于新技术成本和人员不足，二期采用react/mobx/restful(python)架构，涉及到Oauth认证、https保护接口安全、桥接方式和原生交互数据、接近原生的操作体验和多设备多屏幕的适配一级资源网络优化等主要技术点
 	- r2d2：采用vue(部分使用react)+d3架构，数据可视化项目(包括我在内2个人开发)。遇到的挑战多为将d3图表模块改写为react可用的模块，深入学习和使用d3高级制图模块。
-	- 一心堂电商网：在hybris架构上进行二次开发(10人开发，我为前端组长)，基于requirejs进行模块化采用knockoutjs(mvvm)模式开发，涉及到前端登录权限控制，(ajax)异步请求和跨域问题以及css媒体查询以适配不同设备屏幕
-	- 小宝金融网：p2p互联网金融，负责网贷平台的移动web，和微信端开发(1人开发)
-
+	- 一心堂电商网：担任前端开发(10人开发，我为前端组长)，工作内容有制定开发规范和在hybris架构上进行二次开发，基于requirejs进行模块化采用knockoutjs(mvvm)模式开发，涉及到前端登录权限控制，(ajax)异步请求和跨域问题以及css媒体查询以适配不同设备屏幕
+	- 小宝金融网：p2p互联网金融。担任前端开发(单人)，工作内容有网站重构、制定开发规范和负责网贷平台的移动web，和微信端开发
+	- 其他项目，如内部管理后台系统多个，不多赘述
+ 
 # 自我评价
 
 对程序设计开发非常热爱，工作之余也会做一些自己感兴趣的小项目(大部分我会push到github上，欢迎follow)，对前沿技术比较敏感，善于主动学习；平时喜欢逛开源社区，泡论坛，拓展自己的技术栈；
